@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="5210" y="1156"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="rKv-Hd-bKD">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g4u-OK-n6z" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g4u-OK-n6z" customClass="MainTabBarViewController" customModule="Real" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Dmy-rS-Egc"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jOW-o2-k6f">
