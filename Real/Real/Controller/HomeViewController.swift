@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -40,8 +42,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: .idenifiter(.post),
-            for: indexPath
-        ) as? PostTableViewCell else {
+            for: indexPath) as? PostTableViewCell
+        else {
             
             print("home post cell is nil")
             
