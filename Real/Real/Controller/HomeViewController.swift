@@ -7,31 +7,57 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: BaseViewController {
+    
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
             
-            tableView.delegate = self
-            
-            tableView.dataSource = self
-            
-            tableView.registerCellWithNib(
-                nibName: PostTableViewCell.nibName,
-                idienifiter: .idenifiter(.post)
-            )
+            tableViewSetup()
         }
     }
-
+    
+    override var segues: [String] {
+        
+        return ["SeguePostDetails"]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == segues[0] {
+            
+        }
+    }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: segues[0], sender: nil)
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableViewSetup() {
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.registerCellWithNib(
+            nibName: PostTableViewCell.nibName,
+            identifier: .cell(identifier: .post)
+        )
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 5
     }
     
@@ -42,16 +68,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: .idenifiter(.post),
-            for: indexPath) as? PostTableViewCell
-        else {
-            
-            print("home post cell is nil")
+        guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
             
             return .emptyCell
         }
-    
+        
         return cell
     }
 }

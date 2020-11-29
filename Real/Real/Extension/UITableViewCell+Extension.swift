@@ -7,12 +7,23 @@
 
 import UIKit
 
+enum CellId: String {
+    
+    case post = "PostCell"
+    
+    case comment = "CommentCell"
+}
+
 extension UITableViewCell {
     
     static let emptyCell = UITableViewCell()
+
+}
+
+extension String {
     
-    static var nibName: String {
+    static func cell(identifier: CellId) -> String {
         
-        return String(describing: self)
+        return identifier.rawValue
     }
 }

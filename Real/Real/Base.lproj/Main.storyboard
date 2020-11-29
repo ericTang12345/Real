@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="5" estimatedSectionHeaderHeight="5" sectionFooterHeight="5" estimatedSectionFooterHeight="2" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Pr-npv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Pr-npv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -39,7 +39,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nbR-Pr-npv" id="xTo-pQ-ATM"/>
-                        <segue destination="ErJ-rl-XCU" kind="show" id="G13-AM-Qcv"/>
+                        <segue destination="ErJ-rl-XCU" kind="show" identifier="SeguePostDetails" id="G13-AM-Qcv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,9 +54,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="F28-W0-Vxh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="F28-W0-Vxh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ErJ-rl-XCU" id="RzW-Cm-ETn"/>
                                     <outlet property="delegate" destination="ErJ-rl-XCU" id="hnK-qg-MQH"/>
@@ -67,16 +67,36 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F28-W0-Vxh" firstAttribute="top" secondItem="uPL-5y-Ncu" secondAttribute="top" id="2Yp-1i-75i"/>
-                            <constraint firstItem="uPL-5y-Ncu" firstAttribute="bottom" secondItem="F28-W0-Vxh" secondAttribute="bottom" id="7uj-rw-Ga4"/>
                             <constraint firstItem="F28-W0-Vxh" firstAttribute="leading" secondItem="uPL-5y-Ncu" secondAttribute="leading" id="e51-eZ-9FV"/>
+                            <constraint firstItem="uPL-5y-Ncu" firstAttribute="bottom" secondItem="F28-W0-Vxh" secondAttribute="bottom" id="lOg-y9-RU1"/>
                             <constraint firstItem="uPL-5y-Ncu" firstAttribute="trailing" secondItem="F28-W0-Vxh" secondAttribute="trailing" id="vkE-JI-obn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TeB-A7-Zpa"/>
+                    <navigationItem key="navigationItem" id="TeB-A7-Zpa">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="7pc-hf-ZHt">
+                            <rect key="frame" x="191" y="5" width="32" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="keyboardview" destination="zWq-Fd-eNc" id="mPZ-aF-iuY"/>
+                        <outlet property="tableView" destination="F28-W0-Vxh" id="DQQ-sF-Bqo"/>
+                        <outlet property="textfield" destination="7pc-hf-ZHt" id="W5m-FM-H4M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeu-kI-klS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="zWq-Fd-eNc" customClass="KeyboardToolView" customModule="Real" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="PRC-no-rvm"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="2070" y="2578"/>
+            <point key="canvasLocation" x="2069.5652173913045" y="2669.1964285714284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="thD-cY-Jqe">
@@ -116,7 +136,7 @@
                         <viewLayoutGuide key="safeArea" id="mYN-Sk-Q7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="漂流瓶" image="Drifting bottle" selectedImage="Drifting bottle" id="E5C-2s-wBM">
+                    <tabBarItem key="tabBarItem" title="漂流瓶" image="DriftingBottle" id="E5C-2s-wBM">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                         <inset key="landscapeImageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="30" vertical="7"/>
@@ -124,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEu-e4-jnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4718.840579710145" y="1149.7767857142856"/>
+            <point key="canvasLocation" x="3884" y="1148"/>
         </scene>
         <!--個人-->
         <scene sceneID="Sdh-ys-TeC">
@@ -140,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9q9-ZP-4HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5552.1739130434789" y="1149.7767857142856"/>
+            <point key="canvasLocation" x="4714" y="1148"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="rKv-Hd-bKD">
@@ -212,7 +232,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Drifting bottle" width="32" height="32"/>
+        <image name="DriftingBottle" width="32" height="32"/>
         <image name="Post" width="32" height="32"/>
         <image name="Topic" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
