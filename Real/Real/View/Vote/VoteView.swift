@@ -9,9 +9,9 @@ import UIKit
 
 protocol VoteViewDataSource: AnyObject {
     
-    func numberofButton() -> Int
+    func numberofButton(view: VoteView) -> Int
     
-    func titleforButton(index: Int) -> String
+    func titleforButton(view: VoteView, index: Int) -> String
 }
 
 class VoteView: UIView {
