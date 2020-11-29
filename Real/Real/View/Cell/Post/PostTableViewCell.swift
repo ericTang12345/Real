@@ -38,4 +38,7 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func setup() {
+        
+    }
 }
