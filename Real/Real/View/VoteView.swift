@@ -15,6 +15,5 @@ protocol VoteViewDataSource: AnyObject {
 }
 
 class VoteView: UIView {
-
-
+  
 }

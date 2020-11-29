@@ -160,7 +160,7 @@
                 <outlet property="randomTitleLabel" destination="ffL-Rq-dYa" id="Mgc-Dh-rpz"/>
                 <outlet property="voteListStackView" destination="BU6-5U-EtN" id="mxu-fA-Ovi"/>
             </connections>
-            <point key="canvasLocation" x="313.768115942029" y="209.93303571428569"/>
+            <point key="canvasLocation" x="313.768115942029" y="209.59821428571428"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -16,6 +16,10 @@
 		24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997990256F0ABA00B11DCF /* PostTableViewCell.swift */; };
 		24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24997991256F0ABA00B11DCF /* PostTableViewCell.xib */; };
 		24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997997256F36B700B11DCF /* UITableView+Extension.swift */; };
+		249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D938825710C0A003F4DAB /* UIView+Extension.swift */; };
+		249D938D25710CF9003F4DAB /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D938B25710CF9003F4DAB /* CommentTableViewCell.swift */; };
+		249D938E25710CF9003F4DAB /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249D938C25710CF9003F4DAB /* CommentTableViewCell.xib */; };
+		249D939625735BD4003F4DAB /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D939525735BD4003F4DAB /* PostDetailsViewController.swift */; };
 		24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6D1256E537C005919A3 /* AppDelegate.swift */; };
 		24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6D3256E537C005919A3 /* SceneDelegate.swift */; };
 		24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6D7256E537C005919A3 /* Main.storyboard */; };
@@ -33,6 +37,10 @@
 		24997990256F0ABA00B11DCF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		24997991256F0ABA00B11DCF /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		24997997256F36B700B11DCF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		249D938825710C0A003F4DAB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		249D938B25710CF9003F4DAB /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		249D938C25710CF9003F4DAB /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		249D939525735BD4003F4DAB /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		24B9B6CE256E537C005919A3 /* Real.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Real.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B9B6D1256E537C005919A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24B9B6D3256E537C005919A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +79,8 @@
 			children = (
 				24997990256F0ABA00B11DCF /* PostTableViewCell.swift */,
 				24997991256F0ABA00B11DCF /* PostTableViewCell.xib */,
-				2484EBD6256FDD9C00BA37F3 /* VoteView.swift */,
+				249D938B25710CF9003F4DAB /* CommentTableViewCell.swift */,
+				249D938C25710CF9003F4DAB /* CommentTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -81,6 +90,7 @@
 			children = (
 				24568442256E7BC100FB7D3D /* HomeViewController.swift */,
 				2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */,
+				249D939525735BD4003F4DAB /* PostDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -91,6 +101,7 @@
 				24997997256F36B700B11DCF /* UITableView+Extension.swift */,
 				2461EA88256FACF900AD99F6 /* UITableViewCell+Extension.swift */,
 				2461EA85256F93B800AD99F6 /* String+Extension.swift */,
+				249D938825710C0A003F4DAB /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 		24FA49C7256FB48400C38106 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2484EBD6256FDD9C00BA37F3 /* VoteView.swift */,
 				2456844C256E7D2600FB7D3D /* Cell */,
 			);
 			path = View;
@@ -211,6 +223,7 @@
 				24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */,
 				24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */,
 				24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */,
+				249D938E25710CF9003F4DAB /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,10 +297,13 @@
 				24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
+				249D939625735BD4003F4DAB /* PostDetailsViewController.swift in Sources */,
 				2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
+				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
 				24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */,
+				249D938D25710CF9003F4DAB /* CommentTableViewCell.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
