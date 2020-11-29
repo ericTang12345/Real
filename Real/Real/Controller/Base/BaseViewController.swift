@@ -43,9 +43,14 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UIApplication.shared.sendAction(
+            #selector(UIApplication.resignFirstResponder),
+            to: nil, from: nil, for: nil
+        )
         
         self.tabBarController?.tabBar.isHidden = isHideTabBar
         
@@ -56,10 +61,7 @@ class BaseViewController: UIViewController {
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = !isHideKeyboardToolbarPlaceholder
         
         IQKeyboardManager.shared().isEnableAutoToolbar = !isHideKeyboardAutoToolbar
-    }
-    
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.view.endEditing(true)
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
     }
 }
