@@ -9,10 +9,16 @@ import UIKit
 
 extension UITableView {
     
-    func registerCellWithNib(nibName: String, idienifiter: String) {
+    func registerCellWithNib(nibName: String, identifier: String) {
         
         let nib = UINib(nibName: nibName, bundle: nil)
         
-        register(nib, forCellReuseIdentifier: idienifiter)
+        register(nib, forCellReuseIdentifier: identifier)
     }
+    
+    func reuseCell(_ identifier: CellId, _ indexPath: IndexPath) -> UITableViewCell {
+        
+        return self.dequeueReusableCell(withIdentifier: identifier.rawValue, for: indexPath)
+    }
+    
 }
