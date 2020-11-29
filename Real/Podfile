@@ -8,6 +8,4 @@ target 'Real' do
   # Pods for Real
   pod 'SwiftLint'
   pod 'IQKeyboardManager'
-  pod 'Firebase/Firestore'
-  pod 'Firebase/Storage'
 end
