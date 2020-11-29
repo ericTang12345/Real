@@ -15,20 +15,21 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         setup()
+
     }
 
     func setup() {
         
         button.setImage(#imageLiteral(resourceName: "Add"), for: .normal)
         
-        button.frame.size = CGSize(width: 60, height: 60)
+        button.frame.size = CGSize(width: 40, height: 40)
         
         button.center = CGPoint(
             x: tabBar.center.x,
-            y: tabBar.bounds.height/2.5
+            y: tabBar.bounds.height/1.5
         )
         
-        button.backgroundColor = #colorLiteral(red: 0.9694142938, green: 0.9645970464, blue: 0.9645139575, alpha: 1)
+        button.backgroundColor = .clear
         
         button.layer.masksToBounds = true
         
