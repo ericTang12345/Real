@@ -1,14 +1,14 @@
 //
-//  HomeViewController.swift
+//  TopicViewController.swift
 //  Real
 //
-//  Created by 唐紹桓 on 2020/11/25.
+//  Created by 唐紹桓 on 2020/11/30.
 //
 
 import UIKit
 
-class HomeViewController: BaseViewController {
-    
+class TopicViewController: BaseViewController {
+
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
@@ -25,27 +25,10 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Database.shared.listen(collectionName: .post) { (result) in
-            
-            switch result {
-            
-            case .success(let datas): print(datas)
-                
-            case .failure(let error): print(error)
-            
-            }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == segues[0] {
-            
-        }
     }
 }
 
-extension HomeViewController: PostTableViewCellDelegate {
+extension TopicViewController: PostTableViewCellDelegate {
     
     func reloadView(cell: PostTableViewCell) {
         
@@ -53,7 +36,7 @@ extension HomeViewController: PostTableViewCellDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension TopicViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -63,7 +46,7 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension TopicViewController: UITableViewDataSource {
     
     func tableViewSetup() {
         
@@ -86,16 +69,13 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
         guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
             
             return .emptyCell
         }
         
-        cell.voteView.isHidden = true
-        
         cell.delegate = self
-    
         
         return cell
     }

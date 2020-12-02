@@ -19,7 +19,13 @@ class CommentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeCountLabel: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton! {
+        
+        didSet {
+            
+            likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +38,11 @@ class CommentTableViewCell: UITableViewCell {
     
     func setup() {
         
+    }
+    
+    @objc func like() {
+        
+        self.likeButton.isSelected = !self.likeButton.isSelected
     }
     
 }
