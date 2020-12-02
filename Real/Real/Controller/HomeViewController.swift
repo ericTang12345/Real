@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
 
 class HomeViewController: BaseViewController {
     
@@ -17,6 +18,8 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    var posts: [Post] = []
+    
     override var segues: [String] {
         
         return ["SeguePostDetails"]
@@ -25,13 +28,24 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Database.shared.listen(collectionName: .post) { (result) in
+        FirebaseManager.shared.listen(collectionName: .post) {
+            
+            self.tableView.reloadData()
+        }
+        
+        FirebaseManager.shared.read(collectionName: .post, dataType: Post.self) { [weak self] result in
             
             switch result {
             
-            case .success(let datas): print(datas)
+            case .success(let posts):
                 
-            case .failure(let error): print(error)
+                self?.posts = posts
+                
+                self?.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print(error.localizedDescription)
             
             }
         }
@@ -77,7 +91,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 5
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,8 +109,9 @@ extension HomeViewController: UITableViewDataSource {
         cell.voteView.isHidden = true
         
         cell.delegate = self
-    
         
+        cell.setup(data: posts[indexPath.section])
+    
         return cell
     }
 }

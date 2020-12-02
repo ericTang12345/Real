@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Firebase
 
-struct Post {
+struct Post: Codable {
     
     let id: String
     
@@ -19,12 +20,14 @@ struct Post {
     
     let likeCount: [String] // User.id
     
-    let createTime: String
+    let createdTime: Timestamp
     
-    let author: String // User.id
+    let authorId: String // User.id
     
     let authorCurrentName: String
     
     let authorCurrentImage: String
+    
+    let tags: [String]
     
 }
