@@ -9,16 +9,7 @@ import UIKit
 
 class PostDetailsViewController: BaseViewController {
     
-    @IBOutlet weak var textfield: UITextField!
-    
-    @IBOutlet var keyboardview: KeyboardToolView! {
-        
-        didSet {
-            
-            keyboardview.loadFormNib(KeyboardToolView.nibName)
-
-        }
-    }
+    @IBOutlet var keyboardToolView: UIView!
     
     @IBOutlet weak var tableView: UITableView! {
         
@@ -27,7 +18,9 @@ class PostDetailsViewController: BaseViewController {
             tableViewSetup()
         }
     }
-
+    
+    @IBOutlet weak var replyTextField: UITextField!
+    
     override var isHideTabBar: Bool { return true }
     
     override var isHideKeyboardAutoToolbar: Bool { return true }
@@ -36,8 +29,6 @@ class PostDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textfield.inputAccessoryView = keyboardview
     }
 }
 
@@ -82,6 +73,10 @@ extension PostDetailsViewController: UITableViewDataSource {
                 
                 return .emptyCell
             }
+            
+            cell.contentLabel.numberOfLines = 0
+            
+            cell.moreButton.isHidden = true
             
             return cell
         

@@ -35,7 +35,13 @@ class MainTabBarViewController: UITabBarController {
         
         button.layer.cornerRadius = 10
         
-        tabBar.addSubview(button)
+        button.addTarget(self, action: #selector(presentAddNewPostPage), for: .touchUpInside)
         
+        tabBar.addSubview(button)
+    }
+    
+    @objc func presentAddNewPostPage() {
+        
+        performSegue(withIdentifier: "SegueAddNewPost", sender: nil)
     }
 }
