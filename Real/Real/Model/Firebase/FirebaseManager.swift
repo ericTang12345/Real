@@ -20,24 +20,13 @@ enum CollectionName: String {
     case post = "Post"
 }
 
-typealias Database = FirebaseManager
+//typealias Database = FirebaseManager
 
 class FirebaseManager {
     
     static let shared = FirebaseManager()
     
     private init() {}
-    
-    // 取得所需的 collection
-    
-    var collection: ((CollectionName) -> CollectionReference) = shared.getCollection
-    
-    // 當前 timestamp
-    
-    static var currentTimeStamp: Timestamp {
-        
-        return Firebase.Timestamp()
-    }
     
     private func getCollection(name: CollectionName) -> CollectionReference {
         
@@ -48,24 +37,17 @@ class FirebaseManager {
         }
     }
     
-    func listen(collectionName: CollectionName, handler: @escaping (Result<QuerySnapshot>) -> Void) {
+    func listen(collectionName: CollectionName, handler: @escaping () -> Void) {
         
         let collection = getCollection(name: collectionName)
         
-        collection.addSnapshotListener { (querySnapshot, error) in
-            
-            guard let querySnapshot = querySnapshot else {
-                
-                handler(.failure(error!))
-                
-                return
-            }
-            
-            handler(.success(querySnapshot))
+        collection.addSnapshotListener { (_, _) in
+  
+            handler()
         }
     }
     
-    func read(collectionName: CollectionName, handler: @escaping (Result<QuerySnapshot>) -> Void) {
+    func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
         
@@ -78,21 +60,35 @@ class FirebaseManager {
                 return
             }
             
-            handler(.success(querySnapshot))
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                
+                switch result {
+                
+                case .success(let data): handler(.success(data))
+                    
+                case .failure(let error): handler(.failure(error))
+                
+                }
+            }
         }
     }
     
-    // 轉換時間戳記
-    
-    func transformTimestamp(timestamp: Any) -> Date {
+    func decode<T: Codable>(_ datatype: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
         
-        guard let timestamp = timestamp as? Timestamp else {
+        let datas: [T] = documents.map { (document) -> T in
             
-            print("轉換時間戳記失敗")
-            
-            return Date()
+            do {
+                
+                return try document.data(as: datatype)!
+                
+            } catch {
+                
+                handler(.failure(error))
+                
+                fatalError(error.localizedDescription)
+            }
         }
         
-        return timestamp.dateValue()
+        handler(.success(datas))
     }
 }

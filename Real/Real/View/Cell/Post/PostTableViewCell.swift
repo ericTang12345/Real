@@ -22,8 +22,6 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var commentButton: UIButton!
-    
     @IBOutlet weak var likeButton: UIButton! {
         
         didSet {
@@ -40,7 +38,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var lineView: UIView!
+    @IBOutlet weak var commentButton: UIButton!
     
     @IBOutlet weak var voteView: VoteView! {
         
@@ -49,6 +47,8 @@ class PostTableViewCell: UITableViewCell {
             voteView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var lineView: UIView!
     
     @IBOutlet weak var headPhotoImageView: UIImageView!
     
@@ -70,11 +70,12 @@ class PostTableViewCell: UITableViewCell {
     
     func setup(data: Post) {
         
-        headPhotoImageView.image = data.authorCurrentImage
+        headPhotoImageView.loadImage(urlString: "https://firebasestorage.googleapis.com/v0/b/real-630a6.appspot.com/o/Eric_Test%2F1023123123?alt=media&token=995a35aa-b718-4557-9796-2ab77e1d42b0"
+)
         
         randomTitleLabel.text = data.authorCurrentName
         
-        createdTimeLabel.text = data.createTime
+        createdTimeLabel.text = data.createdTime.compareCurrentTime()
         
         contentLabel.text = data.content
         

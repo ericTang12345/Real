@@ -12,6 +12,9 @@
 		2408F4D425758DFD00D6C2F4 /* PostTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D325758DFD00D6C2F4 /* PostTitleTableViewCell.swift */; };
 		2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */; };
 		241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8F3A257438DF0046F831 /* TopicViewController.swift */; };
+		242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4782577742E0091ABDB /* Timestamp+Extension.swift */; };
+		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
+		242EA4AD25778B8C0091ABDB /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */; };
 		243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243DA98625736216007142EA /* CommentTableViewCell.xib */; };
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
@@ -45,6 +48,9 @@
 		2408F4D325758DFD00D6C2F4 /* PostTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTitleTableViewCell.swift; sourceTree = "<group>"; };
 		2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentTableViewCell.swift; sourceTree = "<group>"; };
 		241E8F3A257438DF0046F831 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
+		242EA4782577742E0091ABDB /* Timestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+Extension.swift"; sourceTree = "<group>"; };
+		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		243DA98625736216007142EA /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		242EA476257773D30091ABDB /* Third Part */ = {
+			isa = PBXGroup;
+			children = (
+				242EA4782577742E0091ABDB /* Timestamp+Extension.swift */,
+			);
+			path = "Third Part";
+			sourceTree = "<group>";
+		};
 		2456844C256E7D2600FB7D3D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,7 @@
 				2461EA88256FACF900AD99F6 /* UITableViewCell+Extension.swift */,
 				249D938825710C0A003F4DAB /* UIView+Extension.swift */,
 				24AE9B122575A961009A3C5E /* UILabel+Extension.swift */,
+				242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -209,6 +224,7 @@
 		24B9B6D0256E537C005919A3 /* Real */ = {
 			isa = PBXGroup;
 			children = (
+				242EA476257773D30091ABDB /* Third Part */,
 				241F7C032574D6FF00245F21 /* Model */,
 				2499799B256F36C700B11DCF /* Extension */,
 				2456844D256E7D3500FB7D3D /* Controller */,
@@ -242,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				24EDAE6325762EA100AC7427 /* FirebaseManager.swift */,
+				242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -405,7 +422,9 @@
 			files = (
 				24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */,
 				24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */,
+				242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
+				242EA4AD25778B8C0091ABDB /* FirebaseStorageManager.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
 				243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */,
 				2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */,
@@ -425,6 +444,7 @@
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,
+				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
 			);
