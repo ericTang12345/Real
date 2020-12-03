@@ -12,6 +12,12 @@ enum CellId: String {
     case post = "PostCell"
     
     case comment = "CommentCell"
+    
+    case topic = "TopicCell"
+    
+    case postTitle = "PostTitleCell"
+    
+    case postContent = "PostContentCell"
 }
 
 extension UITableViewCell {

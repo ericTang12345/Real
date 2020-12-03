@@ -1,15 +1,14 @@
 //
-//  HomeViewController.swift
+//  TopicViewController.swift
 //  Real
 //
-//  Created by 唐紹桓 on 2020/11/25.
+//  Created by 唐紹桓 on 2020/11/30.
 //
 
 import UIKit
-import FirebaseFirestoreSwift
 
-class HomeViewController: BaseViewController {
-    
+class TopicViewController: BaseViewController {
+
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
@@ -18,9 +17,9 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    var posts: [Post] = []
-    
     let firebase = FirebaseManager.shared
+    
+    var posts: [Post] = []
     
     var passData: Post?
     
@@ -53,7 +52,7 @@ class HomeViewController: BaseViewController {
     
     func reloadData() {
         
-        let filter = Filter(key: "type", value: "心情貼文")
+        let filter = Filter(key: "type", value: "議題討論")
         
         firebase.read(collectionName: .post, dataType: Post.self, filter: filter) { [weak self] result in
             
@@ -61,23 +60,23 @@ class HomeViewController: BaseViewController {
             
             case .success(let posts):
                 
-                self?.posts = posts.sorted { (first, second) -> Bool in
+                self?.posts = posts.sorted(by: {(first, second) -> Bool in
                     
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
-                }
+                })
                 
                 self?.tableView.reloadData()
                 
             case .failure(let error):
-                
-                print(error.localizedDescription)
             
+                print(error.localizedDescription)
             }
         }
+        
     }
 }
 
-extension HomeViewController: PostTableViewCellDelegate {
+extension TopicViewController: PostTableViewCellDelegate {
     
     func goToPostDetails(cell: PostTableViewCell) {
         
@@ -85,14 +84,14 @@ extension HomeViewController: PostTableViewCellDelegate {
         
         performSegue(withIdentifier: segues[0], sender: nil)
     }
-
+    
     func reloadView(cell: PostTableViewCell) {
         
         tableView.reloadData()
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension TopicViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -104,7 +103,7 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension TopicViewController: UITableViewDataSource {
     
     func tableViewSetup() {
         
@@ -127,18 +126,16 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
         guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
             
             return .emptyCell
         }
         
-        cell.voteView.isHidden = true
-        
         cell.delegate = self
         
         cell.setup(data: posts[indexPath.section])
-    
+        
         return cell
     }
 }

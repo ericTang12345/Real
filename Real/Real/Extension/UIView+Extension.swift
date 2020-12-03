@@ -27,20 +27,4 @@ extension UIView {
         
         self.layer.borderColor = color.cgColor
     }
-    
-    func loadFormNib(_ nibName: String) {
-        
-        let nib = UINib(nibName: nibName, bundle: nil)
-        
-        guard let views = nib.instantiate(withOwner: nil, options: nil) as? [UIView],
-              let contentView = views.first
-        else {
-            
-            print("error: Bundle load Nib name error ")
-            
-            return
-        }
-    
-        self.addSubview(contentView)
-    }
 }
