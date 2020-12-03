@@ -20,6 +20,10 @@ class HomeViewController: BaseViewController {
     
     var posts: [Post] = []
     
+    let firebase = FirebaseManager.shared
+    
+    var passData: Post?
+    
     override var segues: [String] {
         
         return ["SeguePostDetails"]
@@ -28,18 +32,39 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirebaseManager.shared.listen(collectionName: .post) {
+        firebase.listen(collectionName: .post) {
             
-            self.tableView.reloadData()
+            self.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        FirebaseManager.shared.read(collectionName: .post, dataType: Post.self) { [weak self] result in
+        if segue.identifier == segues[0] {
+            
+            guard let nextViewController = segue.destination as? PostDetailsViewController else {
+                
+                return
+            }
+            
+            nextViewController.post = self.passData
+        }
+    }
+    
+    func reloadData() {
+        
+        let filter = Filter(key: "type", value: "心情貼文")
+        
+        firebase.read(collectionName: .post, dataType: Post.self, filter: filter) { [weak self] result in
             
             switch result {
             
             case .success(let posts):
                 
-                self?.posts = posts
+                self?.posts = posts.sorted { (first, second) -> Bool in
+                    
+                    return first.createdTime.dateValue() > second.createdTime.dateValue()
+                }
                 
                 self?.tableView.reloadData()
                 
@@ -50,17 +75,17 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == segues[0] {
-            
-        }
-    }
 }
 
 extension HomeViewController: PostTableViewCellDelegate {
     
+    func goToPostDetails(cell: PostTableViewCell) {
+        
+        self.passData = cell.post
+        
+        performSegue(withIdentifier: segues[0], sender: nil)
+    }
+
     func reloadView(cell: PostTableViewCell) {
         
         tableView.reloadData()
@@ -72,6 +97,8 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.passData = posts[indexPath.section]
         
         performSegue(withIdentifier: segues[0], sender: nil)
     }

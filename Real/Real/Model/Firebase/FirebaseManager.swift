@@ -18,9 +18,33 @@ enum Result<T> {
 enum CollectionName: String {
     
     case post = "Post"
+    
+    case user = "User"
+    
+    case comment = "Comment"
+    
+    case tag = "Tag"
+    
+    case chatRoom = "ChatRoom"
+    
+    case randomAdjName = "RandomAdjName"
+    
+    case randomMainName = "RandomMainName"
+    
+    case driftingBottle = "DriftingBottle"
 }
 
-//typealias Database = FirebaseManager
+enum FirebaseError: String, Error {
+    
+    case decode = "Firebase decode error"
+}
+
+struct Filter {
+    
+    let key: String
+    
+    let value: Any
+}
 
 class FirebaseManager {
     
@@ -28,20 +52,21 @@ class FirebaseManager {
     
     private init() {}
     
-    private func getCollection(name: CollectionName) -> CollectionReference {
+    var currentTimestamp: Timestamp {
         
-        switch name {
+        return Firebase.Timestamp()
+    }
+
+    func getCollection(name: CollectionName) -> CollectionReference {
         
-        case .post: return Firestore.firestore().collection(name.rawValue)
-        
-        }
+        return Firestore.firestore().collection(name.rawValue)
     }
     
     func listen(collectionName: CollectionName, handler: @escaping () -> Void) {
         
         let collection = getCollection(name: collectionName)
         
-        collection.addSnapshotListener { (_, _) in
+        collection.addSnapshotListener { _, _ in
   
             handler()
         }
@@ -50,7 +75,7 @@ class FirebaseManager {
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
-        
+            
         collection.getDocuments { (querySnapshot, error) in
             
             guard let querySnapshot = querySnapshot else {
@@ -73,22 +98,73 @@ class FirebaseManager {
         }
     }
     
-    func decode<T: Codable>(_ datatype: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
+    // 過濾單一條件
+    
+    func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, filter: Filter, handler: @escaping (Result<[T]>) -> Void) {
         
-        let datas: [T] = documents.map { (document) -> T in
+        let collection = getCollection(name: collectionName)
+        
+        collection.whereField(filter.key, isEqualTo: filter.value).getDocuments { (querySnapshot, error) in
             
-            do {
+            guard let querySnapshot = querySnapshot else {
                 
-                return try document.data(as: datatype)!
+                handler(.failure(error!))
                 
-            } catch {
-                
-                handler(.failure(error))
-                
-                fatalError(error.localizedDescription)
+                return
             }
+            
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                
+                switch result {
+                
+                case .success(let data): handler(.success(data))
+                    
+                case .failure(let error): handler(.failure(error))
+                
+                }
+            }
+        }
+    }
+    
+    func decode<T: Codable>(_ dataType: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
+        
+        var datas: [T] = []
+        
+        for document in documents {
+            
+            guard let data = try? document.data(as: dataType) else {
+                
+                handler(.failure(FirebaseError.decode))
+                
+                return
+            }
+            
+            datas.append(data)
         }
         
         handler(.success(datas))
+    }
+    
+    func save<T: Codable>(to document: DocumentReference, data dataType: T) {
+        
+        let encoder = Firestore.Encoder()
+        
+        do {
+            
+            let data = try encoder.encode(dataType)
+            
+            document.setData(data)
+            
+        } catch {
+            
+            print("Firebase save data error: ", error.localizedDescription)
+        }
+    }
+    
+    func update(collectionName: CollectionName, documentId: String, key: String, value: Any) {
+        
+        let document = getCollection(name: collectionName).document(documentId)
+        
+        document.updateData([key: value])
     }
 }

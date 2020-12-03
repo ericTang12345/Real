@@ -20,7 +20,7 @@ class FirebaseStorageManager {
     
     private init() {}
     
-    func uploadImage(image: UIImage , folder: StorageFolder, id: String?, handler: @escaping (Result<String>) -> Void) {
+    func uploadImage(image: UIImage, folder: StorageFolder, id: String?, handler: @escaping (Result<String>) -> Void) {
         
         let storageRef = Storage.storage().reference().child(folder.rawValue).child(id ?? NSUUID().uuidString)
         
@@ -32,7 +32,7 @@ class FirebaseStorageManager {
                 
                 handler(.failure(error!))
                 
-                print("Storage reference putData error: \(error!.localizedDescription)")
+                print("Storage putData error: \(error!.localizedDescription)")
                 
                 return
             }
@@ -43,7 +43,7 @@ class FirebaseStorageManager {
                     
                     handler(.failure(error!))
                     
-                    print("Storage reference download error: \(error!.localizedDescription)")
+                    print("Storage download error: \(error!.localizedDescription)")
                     
                     return
                 }
@@ -52,7 +52,7 @@ class FirebaseStorageManager {
                     
                     handler(.failure(error!))
                     
-                    print("Storage reference download url error: \(error!.localizedDescription)")
+                    print("Storage download url error: \(error!.localizedDescription)")
                     
                     return
                 }
