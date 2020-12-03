@@ -147,6 +147,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqv-O3-fvs">
                                         <rect key="frame" x="365" y="12" width="31" height="30"/>
                                         <state key="normal" title="回覆"/>
+                                        <connections>
+                                            <action selector="reply:" destination="ErJ-rl-XCU" eventType="touchUpInside" id="8pF-kL-ahX"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCp-ob-o7A">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -255,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEu-e4-jnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3710" y="998"/>
+            <point key="canvasLocation" x="3708.6956521739135" y="997.76785714285711"/>
         </scene>
         <!--個人-->
         <scene sceneID="Sdh-ys-TeC">
@@ -316,9 +319,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrN-yW-LCp">
                                                     <rect key="frame" x="332" y="13.5" width="62" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="心情貼文">
                                                         <color key="titleColor" name="Color-3"/>
                                                     </state>
+                                                    <state key="selected" title="議題討論">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="switchType:" destination="fyq-Z3-Tvb" eventType="touchUpInside" id="6p8-uA-55i"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -333,9 +343,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorImageView" destination="Ibd-2n-neN" id="I1d-b0-Z44"/>
+                                            <outlet property="authorNameLabel" destination="FaL-Rf-TiK" id="4bB-gY-ygH"/>
                                             <outlet property="postTypeButton" destination="GrN-yW-LCp" id="2Gt-9L-VFP"/>
-                                            <outlet property="propicImageView" destination="Ibd-2n-neN" id="YbS-zI-QAp"/>
-                                            <outlet property="titleLabel" destination="FaL-Rf-TiK" id="vHD-hj-3YH"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostContentCell" id="Zw7-f2-Fwm" customClass="PostContentTableViewCell" customModule="Real" customModuleProvider="target">
@@ -439,6 +449,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="發佈" id="Sbt-MU-1XW">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveToFirebase:" destination="dgh-JW-aGy" id="TrY-wV-5u5"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -544,8 +557,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="TXS-Rn-mxS"/>
-        <segue reference="Aoa-Cu-qCv"/>
+        <segue reference="eYl-R8-jqE"/>
+        <segue reference="Esz-xh-DYi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DriftingBottle" width="32" height="32"/>
@@ -561,6 +574,9 @@
         <namedColor name="Color-3">
             <color red="0.11800000071525574" green="0.125" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

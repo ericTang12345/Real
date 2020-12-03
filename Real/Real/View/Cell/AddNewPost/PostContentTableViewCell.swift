@@ -20,9 +20,17 @@ class PostContentTableViewCell: UITableViewCell {
     }
 
     func setup(_ tableView: UITableView) {
-
+        
         NSLayoutConstraint.activate([
             contentTextView.heightAnchor.constraint(equalToConstant: tableView.frame.size.height)
         ])
+    }
+}
+
+extension PostContentTableViewCell: AddNewPostContentDelegate {
+    
+    func getContent() -> String {
+        
+        return contentTextView.text
     }
 }

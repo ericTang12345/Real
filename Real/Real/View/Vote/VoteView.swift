@@ -37,9 +37,13 @@ class VoteView: UIView {
             return
         }
         
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: CGFloat(count * height + (count + 1) * spacing))
         ])
+        
+        updateConstraints()
         
         createVoteItem()
     }
