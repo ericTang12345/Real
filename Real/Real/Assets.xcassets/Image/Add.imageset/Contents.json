@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "plus-4.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "plus-5.png",
+      "filename" : "plus-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "plus-6.png",
+      "filename" : "Icon-80.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,5 +18,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "automatic"
   }
 }

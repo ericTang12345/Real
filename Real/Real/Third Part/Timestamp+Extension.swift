@@ -21,11 +21,11 @@ extension Timestamp {
         
         var result: String = ""
         
-        if (timeInterval/60) < 1 {
+        if timeInterval/60 < 1 {
             
             result = "剛剛"
             
-        } else if (timeInterval/60) < 60 {
+        } else if timeInterval/60 < 60 {
             
             temp = timeInterval/60
             

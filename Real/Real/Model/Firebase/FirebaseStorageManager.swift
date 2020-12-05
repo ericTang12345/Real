@@ -24,7 +24,7 @@ class FirebaseStorageManager {
         
         let storageRef = Storage.storage().reference().child(folder.rawValue).child(id ?? NSUUID().uuidString)
         
-        guard let data = image.pngData() else { return }
+        guard let data = image.jpegData(compressionQuality: 0.7) else { return }
         
         storageRef.putData(data, metadata: nil) { (data, error) in
             
