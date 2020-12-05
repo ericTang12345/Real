@@ -52,6 +52,8 @@ class CommentTableViewCell: UITableViewCell {
     
     @IBAction func likeComment(_ sender: UIButton) {
         
+        sender.isSelected = !isSelected
+        
         guard let comment = self.comment else { return }
         
         var likeCount = comment.likeCount
