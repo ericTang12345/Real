@@ -268,14 +268,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnr-td-fOA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnr-td-fOA">
                                 <rect key="frame" x="20" y="725" width="374" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fPx-Un-HPe">
+                                        <rect key="frame" x="12" y="12" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fPx-Un-HPe" secondAttribute="height" multiplier="1:1" id="DDX-7t-gSS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW2-cN-T5L">
+                                        <rect key="frame" x="315" y="12" width="47" height="40"/>
+                                        <state key="normal" title="Sign in"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="RANDOM TITLE RANDOM TITLE RANDOM TITLERANDOM TITLE RANDOM TITLE RANDOM TITLERANDOM TITLE RANDOM TITLE RANDOM TITLE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-xi-ecs">
+                                        <rect key="frame" x="64" y="14" width="233" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UW2-cN-T5L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bjT-xi-ecs" secondAttribute="trailing" constant="12" id="5Qc-Gj-MCH"/>
+                                    <constraint firstAttribute="trailing" secondItem="UW2-cN-T5L" secondAttribute="trailing" constant="12" id="BFR-XB-z2K"/>
+                                    <constraint firstItem="bjT-xi-ecs" firstAttribute="top" secondItem="fnr-td-fOA" secondAttribute="topMargin" constant="6" id="G0p-k6-CWE"/>
+                                    <constraint firstItem="fPx-Un-HPe" firstAttribute="width" secondItem="fnr-td-fOA" secondAttribute="width" multiplier="0.106952" id="QSK-o9-z42"/>
+                                    <constraint firstItem="UW2-cN-T5L" firstAttribute="top" secondItem="fnr-td-fOA" secondAttribute="top" constant="12" id="QU4-yd-lBu"/>
+                                    <constraint firstItem="bjT-xi-ecs" firstAttribute="centerY" secondItem="fPx-Un-HPe" secondAttribute="centerY" id="Qf7-Dv-9sh"/>
+                                    <constraint firstAttribute="bottom" secondItem="UW2-cN-T5L" secondAttribute="bottom" constant="12" id="RCO-Iu-Zgk"/>
+                                    <constraint firstAttribute="bottom" secondItem="fPx-Un-HPe" secondAttribute="bottom" constant="12" id="Xnv-hM-1aC"/>
+                                    <constraint firstItem="fPx-Un-HPe" firstAttribute="leading" secondItem="fnr-td-fOA" secondAttribute="leading" constant="12" id="aoQ-iQ-HJ2"/>
+                                    <constraint firstItem="fPx-Un-HPe" firstAttribute="top" secondItem="fnr-td-fOA" secondAttribute="top" constant="12" id="b7G-rP-FgW"/>
+                                    <constraint firstItem="bjT-xi-ecs" firstAttribute="leading" secondItem="fPx-Un-HPe" secondAttribute="trailing" constant="12" id="nXL-hf-4Yo"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="bjT-xi-ecs" secondAttribute="bottom" constant="6" id="xjC-PT-cN3"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XZo-cN-gYe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XZo-cN-gYe" firstAttribute="trailing" secondItem="fnr-td-fOA" secondAttribute="trailing" constant="20" id="OTV-Zh-T0c"/>
+                            <constraint firstItem="fnr-td-fOA" firstAttribute="leading" secondItem="XZo-cN-gYe" secondAttribute="leading" constant="20" id="dcb-Bt-7zC"/>
+                            <constraint firstItem="XZo-cN-gYe" firstAttribute="bottom" secondItem="fnr-td-fOA" secondAttribute="bottom" constant="24" id="pca-H1-vLs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="個人" id="8XV-YO-hF9">
                         <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
@@ -284,8 +319,53 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9q9-ZP-4HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="fZT-E7-ztS">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-LD-vhn" customClass="CustomizeButton" customModule="Real" customModuleProvider="target">
+                            <rect key="frame" x="20" y="42" width="374" height="44"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <state key="normal" title="SIGN IN WITH APPLE">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="applelogo" catalog="system" symbolScale="large" renderingMode="original"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageLeftPadding">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                    <real key="value" value="40"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageTopPadding">
+                                    <real key="value" value="-5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="Color-2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="38H-QB-sgs"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hzf-LD-vhn" firstAttribute="top" secondItem="fZT-E7-ztS" secondAttribute="top" constant="42" id="492-U8-Sat"/>
+                        <constraint firstItem="hzf-LD-vhn" firstAttribute="leading" secondItem="38H-QB-sgs" secondAttribute="leading" constant="20" id="IBT-8t-clz"/>
+                        <constraint firstItem="38H-QB-sgs" firstAttribute="bottom" secondItem="hzf-LD-vhn" secondAttribute="bottom" constant="42" id="TRH-7B-lBF"/>
+                        <constraint firstItem="38H-QB-sgs" firstAttribute="trailing" secondItem="hzf-LD-vhn" secondAttribute="trailing" constant="20" id="oXo-Gc-ljp"/>
+                    </constraints>
+                </view>
             </objects>
-            <point key="canvasLocation" x="4562.3188405797109" y="997.76785714285711"/>
+            <point key="canvasLocation" x="4568" y="998"/>
         </scene>
         <!--新增貼文-->
         <scene sceneID="FUw-bl-ghd">
@@ -473,36 +553,6 @@
             </objects>
             <point key="canvasLocation" x="4962" y="265"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="OLd-7B-Ouj">
-            <objects>
-                <viewController id="zQE-Ay-had" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Skv-b3-lTQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-bd-GM6">
-                                <rect key="frame" x="171" y="472" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="隱私權"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qno-9Q-lK6">
-                                <rect key="frame" x="91" y="424" width="207" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Apple Sign in">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="applelogo" catalog="system" renderingMode="original"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="BrV-iW-BEC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JdG-cz-YCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2414" y="265"/>
-        </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="rKv-Hd-bKD">
             <objects>
@@ -598,6 +648,9 @@
         <designable name="QEB-Zq-09I">
             <size key="intrinsicContentSize" width="132.5" height="18.5"/>
         </designable>
+        <designable name="hzf-LD-vhn">
+            <size key="intrinsicContentSize" width="185.5" height="23.5"/>
+        </designable>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="eYl-R8-jqE"/>
@@ -615,6 +668,9 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="tag" catalog="system" width="128" height="119"/>
+        <namedColor name="Color-2">
+            <color red="0.32199999690055847" green="0.37999999523162842" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color-3">
             <color red="0.11800000071525574" green="0.125" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
