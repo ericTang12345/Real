@@ -26,6 +26,8 @@
 		2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484EBD6256FDD9C00BA37F3 /* VoteView.swift */; };
 		24955625257979CC00F5FB21 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24955624257979CC00F5FB21 /* Comment.swift */; };
 		2495562825799B3700F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2495562725799B3600F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg */; };
+		24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987215257CA257008CC655 /* CustomizeTextField.swift */; };
+		24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987218257CA26E008CC655 /* CustomizeButton.swift */; };
 		24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997990256F0ABA00B11DCF /* PostTableViewCell.swift */; };
 		24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24997991256F0ABA00B11DCF /* PostTableViewCell.xib */; };
 		24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997997256F36B700B11DCF /* UITableView+Extension.swift */; };
@@ -40,7 +42,6 @@
 		24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6DA256E537C005919A3 /* Real.xcdatamodeld */; };
 		24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DD256E537F005919A3 /* Assets.xcassets */; };
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
-		24C604622573EEA200279877 /* UITextField+Customize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C604612573EEA200279877 /* UITextField+Customize.swift */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24EDAE6425762EA100AC7427 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EDAE6325762EA100AC7427 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,8 @@
 		2484EBD6256FDD9C00BA37F3 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		24955624257979CC00F5FB21 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		2495562725799B3600F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg"; sourceTree = "<group>"; };
+		24987215257CA257008CC655 /* CustomizeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeTextField.swift; sourceTree = "<group>"; };
+		24987218257CA26E008CC655 /* CustomizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButton.swift; sourceTree = "<group>"; };
 		24997990256F0ABA00B11DCF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		24997991256F0ABA00B11DCF /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		24997997256F36B700B11DCF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -80,7 +83,6 @@
 		24B9B6DD256E537F005919A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24B9B6E0256E537F005919A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24C604612573EEA200279877 /* UITextField+Customize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Customize.swift"; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24EDAE6325762EA100AC7427 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		6587CACFAF6D25789F844415 /* Pods-Real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.debug.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		2499799B256F36C700B11DCF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				242EA476257773D30091ABDB /* Third Part */,
 				2461EA85256F93B800AD99F6 /* String+Extension.swift */,
 				24997997256F36B700B11DCF /* UITableView+Extension.swift */,
 				2461EA88256FACF900AD99F6 /* UITableViewCell+Extension.swift */,
@@ -229,7 +232,6 @@
 		24B9B6D0256E537C005919A3 /* Real */ = {
 			isa = PBXGroup;
 			children = (
-				242EA476257773D30091ABDB /* Third Part */,
 				241F7C032574D6FF00245F21 /* Model */,
 				2499799B256F36C700B11DCF /* Extension */,
 				2456844D256E7D3500FB7D3D /* Controller */,
@@ -247,7 +249,8 @@
 		24C604602573EE5100279877 /* CustomKit */ = {
 			isa = PBXGroup;
 			children = (
-				24C604612573EEA200279877 /* UITextField+Customize.swift */,
+				24987215257CA257008CC655 /* CustomizeTextField.swift */,
+				24987218257CA26E008CC655 /* CustomizeButton.swift */,
 			);
 			path = CustomKit;
 			sourceTree = "<group>";
@@ -444,17 +447,18 @@
 				24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */,
 				24EDAE6425762EA100AC7427 /* FirebaseManager.swift in Sources */,
 				243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */,
-				24C604622573EEA200279877 /* UITextField+Customize.swift in Sources */,
 				24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */,
 				24AE9B132575A961009A3C5E /* UILabel+Extension.swift in Sources */,
 				2408F4D425758DFD00D6C2F4 /* PostTitleTableViewCell.swift in Sources */,
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
+				24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
+				24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
