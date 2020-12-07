@@ -33,7 +33,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         firebase.listen(collectionName: .post) {
-            
+
             self.reloadData()
         }
     }
