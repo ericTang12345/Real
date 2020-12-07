@@ -6,12 +6,26 @@
 //
 
 import UIKit
+import FSPagerView
 
-class FrontCollectionViewCell: UICollectionViewCell {
+class FrontCollectionViewCell: FSPagerViewCell {
 
+    @IBOutlet weak var authorImageView: UIImageView!
+    
+    @IBOutlet weak var authorNameLabel: UILabel!
+    
+    @IBOutlet weak var createdTimeLabel: UILabel!
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.setupBorder(width: 0.8, color: .lightGray)
+        
+        self.backgroundColor = .white
+
     }
 
 }

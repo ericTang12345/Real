@@ -48,6 +48,7 @@
 		24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6DA256E537C005919A3 /* Real.xcdatamodeld */; };
 		24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DD256E537F005919A3 /* Assets.xcassets */; };
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
+		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
 		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
@@ -97,6 +98,7 @@
 		24B9B6DD256E537F005919A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24B9B6E0256E537F005919A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */,
 				24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */,
 				2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */,
+				24BBD531257EC65000B3819A /* TimeBoxViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
 				2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */,
+				24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */,
 				24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
