@@ -23,9 +23,17 @@ protocol AddNewPostAuthorDelegate: AnyObject {
 
 class AddNewPostViewController: UIViewController {
     
-    weak var contentDelegate: AddNewPostContentDelegate?
+    @IBOutlet var userView: UIView!
     
-    weak var authorDelegate: AddNewPostAuthorDelegate?
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    
+    @IBOutlet weak var postTypeButton: UIButton!
+    
+    @IBOutlet weak var toolView: UIView!
+    
+    weak var contentDelegate: AddNewPostContentDelegate?
     
     let firebase = FirebaseManager.shared
     
@@ -41,12 +49,13 @@ class AddNewPostViewController: UIViewController {
     @IBAction func saveToFirebase(_ sender: UIBarButtonItem) {
         
         guard let content = contentDelegate?.getContent(),
-              let type = authorDelegate?.getPostType(),
-              let authorName = authorDelegate?.getAuthorName(),
-              let authorImage = authorDelegate?.getAuthorImage()
+              let type = postTypeButton.currentTitle,
+              let authorName = userNameLabel.text
         else {
             return
         }
+        
+        let authorImage = "userImageView.image"
         
         let createdTime = firebase.currentTimestamp
         
@@ -68,6 +77,11 @@ class AddNewPostViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func switchPostType(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+    }
 }
 
 extension AddNewPostViewController: UITableViewDelegate {
@@ -78,40 +92,30 @@ extension AddNewPostViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return userView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return userView.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        
-        case 0:
-            
-            guard let cell = tableView.reuseCell(.postTitle, indexPath) as? PostTitleTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            self.authorDelegate = cell
-            
-            return cell
-            
-        case 1:
-            
-            guard let cell = tableView.reuseCell(.postContent, indexPath) as? PostContentTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            cell.setup(tableView)
-            
-            self.contentDelegate = cell
-            
-            return cell
-            
-        default:
+        guard let cell = tableView.reuseCell(.postContent, indexPath) as? PostContentTableViewCell else {
             
             return .emptyCell
         }
+        
+        cell.setup(tableView)
+        
+        self.contentDelegate = cell
+        
+        return cell
     }
 }
