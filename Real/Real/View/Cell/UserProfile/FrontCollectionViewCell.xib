@@ -41,10 +41,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <attributedString key="attributedText">
                             <fragment>
-                                <mutableString key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</mutableString>
+                                <string key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <font key="NSFont" size="12" name=".PingFangTC-Regular"/>
+                                    <font key="NSFont" metaFont="cellTitle"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>

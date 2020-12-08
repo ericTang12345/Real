@@ -38,6 +38,7 @@
 		24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24997991256F0ABA00B11DCF /* PostTableViewCell.xib */; };
 		24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997997256F36B700B11DCF /* UITableView+Extension.swift */; };
 		249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D938825710C0A003F4DAB /* UIView+Extension.swift */; };
+		249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */; };
 		24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */; };
 		24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0C25759F3A009A3C5E /* Post.swift */; };
 		24AE9B1025759F9D009A3C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0F25759F9D009A3C5E /* User.swift */; };
@@ -49,9 +50,13 @@
 		24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DD256E537F005919A3 /* Assets.xcassets */; };
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
 		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
+		24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */; };
+		24BBD539257ED13900B3819A /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD537257ED13900B3819A /* VoteTableViewCell.swift */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
 		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
+		24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */; };
+		24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,7 @@
 		24997991256F0ABA00B11DCF /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		24997997256F36B700B11DCF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		249D938825710C0A003F4DAB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		24AE9B0C25759F3A009A3C5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		24AE9B0F25759F9D009A3C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -99,9 +105,13 @@
 		24B9B6E0256E537F005919A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
+		24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
+		24BBD537257ED13900B3819A /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
+		24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageTableViewCell.swift; sourceTree = "<group>"; };
+		24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
 		6587CACFAF6D25789F844415 /* Pods-Real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.debug.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.debug.xcconfig"; sourceTree = "<group>"; };
 		7A9388F2583D70D3E8EEFDB6 /* Pods-Real.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.release.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.release.xcconfig"; sourceTree = "<group>"; };
 		991868546339BBFFA8860D66 /* Pods_Real.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +185,7 @@
 		2456844C256E7D2600FB7D3D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				24D6B891257F0DFB001FD1FA /* Chat */,
 				24C6D9AB257D8EE7008A5BF2 /* UserProfile */,
 				2408F4D225758DE500D6C2F4 /* AddNewPost */,
 				248604392573A35900802283 /* Comment */,
@@ -196,7 +207,9 @@
 				24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */,
 				24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */,
 				2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */,
+				24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */,
 				24BBD531257EC65000B3819A /* TimeBoxViewController.swift */,
+				249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +219,7 @@
 			children = (
 				24997990256F0ABA00B11DCF /* PostTableViewCell.swift */,
 				24997991256F0ABA00B11DCF /* PostTableViewCell.xib */,
+				24BBD537257ED13900B3819A /* VoteTableViewCell.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -312,6 +326,15 @@
 				24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		24D6B891257F0DFB001FD1FA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */,
+				24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		24FA49C7256FB48400C38106 /* View */ = {
@@ -482,11 +505,13 @@
 				248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */,
 				24955625257979CC00F5FB21 /* Comment.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
+				24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
 				243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */,
 				2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */,
 				24C6047025740DB000279877 /* BaseViewController.swift in Sources */,
 				2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */,
+				24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
 				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
@@ -504,6 +529,9 @@
 				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,
 				24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */,
+				249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */,
+				24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */,
+				24BBD539257ED13900B3819A /* VoteTableViewCell.swift in Sources */,
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,

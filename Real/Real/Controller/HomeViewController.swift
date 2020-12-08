@@ -133,7 +133,7 @@ extension HomeViewController: UITableViewDataSource {
             return .emptyCell
         }
         
-        cell.voteView.isHidden = true
+//        cell.voteView.isHidden = true
         
         cell.delegate = self
         

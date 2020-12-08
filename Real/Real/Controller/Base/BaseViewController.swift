@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import IQKeyboardManager
 
 class BaseViewController: UIViewController {
     
@@ -30,16 +29,6 @@ class BaseViewController: UIViewController {
         return false
     }
     
-    var isHideKeyboardToolbarPlaceholder: Bool {
-        
-        return true
-    }
-    
-    var isHideKeyboardAutoToolbar: Bool {
-        
-        return true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -57,11 +46,18 @@ class BaseViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = isHideNavigationBar
         
         self.navigationItem.hidesBackButton = isHideBackButton
+    }
+    
+    func hideKeyboardWhenTappedAround() {
         
-        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = !isHideKeyboardToolbarPlaceholder
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
-        IQKeyboardManager.shared().isEnableAutoToolbar = !isHideKeyboardAutoToolbar
+        view.addGestureRecognizer(tap)
+
+    }
+
+    @objc func dismissKeyboard() {
         
-        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+        view.endEditing(true)
     }
 }

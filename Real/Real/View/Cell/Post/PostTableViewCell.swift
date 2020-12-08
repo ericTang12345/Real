@@ -24,8 +24,6 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentButton: UIButton!
     
-    @IBOutlet weak var voteView: VoteView!
-    
     @IBOutlet weak var lineView: UIView!
     
     @IBOutlet weak var headPhotoImageView: UIImageView!
@@ -43,9 +41,7 @@ class PostTableViewCell: UITableViewCell {
     weak var delegate: PostTableViewCellDelegate?
     
     let firebase = FirebaseManager.shared
-    
-    var voteData: [String] = []
-    
+        
     var post: Post?
     
     override func awakeFromNib() {
@@ -68,29 +64,15 @@ class PostTableViewCell: UITableViewCell {
         
         contentLabel.text = data.content
         
-        likeCountLabel.text = data.likeCount.count == 0 ? .empty: String(data.likeCount.count)
+        likeCountLabel.text = data.likeCount.count == 0 ? "0" : String(data.likeCount.count)
         
 //        likeButton.isSelected = data.likeCount.contains(<#T##element: String##String#>) 是否按過讚
         
         getCommentCount(postId: data.id)
         
-        setupVoteView(data: data.vote)
-        
         // 查看更多
         
         moreButton.isHidden = contentLabel.numberOfLines == 0 ? true : contentLabel.textCount <= 4
-    }
-    
-    func setupVoteView(data: [String]) {
-        
-        // Vote View
-        
-        self.voteData = data
-        
-        voteView.dataSource = self
-        
-        voteView.isHidden = data.count == 0 ? true : false
-    
     }
     
     func getCommentCount(postId: String) {
@@ -105,11 +87,9 @@ class PostTableViewCell: UITableViewCell {
             
             case .success(let comments):
                 
-                guard let strongSelf = self, let delegate = strongSelf.delegate else { return }
+                guard let strongSelf = self else { return }
                 
                 strongSelf.commentCountLabel.text = String(comments.count)
-                
-                delegate.reloadView(cell: strongSelf)
             
             case .failure(let error):
                 
@@ -154,18 +134,5 @@ class PostTableViewCell: UITableViewCell {
         guard let delegate = delegate else { return }
         
         delegate.reloadView(cell: self)
-    }
-}
-
-extension PostTableViewCell: VoteViewDataSource {
-    
-    func numberOfVoteItem(view: VoteView) -> Int {
-        
-        return voteData.count
-    }
-    
-    func titleForVoteItem(view: VoteView, index: Int) -> String {
-        
-        return voteData[index]
     }
 }
