@@ -15,11 +15,11 @@ struct User: Codable {
     
     let randomImage: String
     
-    let collections: [String] // Post.id
+//    let collections: [String] // Post.id
     
     let blockadeListUser: [String] // User.id
     
     let blockadeListPost: [String] // Post.id
     
-    let registerTime: String
+    let registerTime: FIRTimestamp
 }

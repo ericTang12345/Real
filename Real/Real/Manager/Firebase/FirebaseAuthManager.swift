@@ -15,6 +15,8 @@ class FirebaseAuthManager: NSObject {
     
     var controller: UIViewController?
     
+    let firebase = FirebaseManager.shared
+    
     func performSignin(_ controller: UIViewController) {
         
         self.controller = controller
@@ -81,6 +83,8 @@ extension FirebaseAuthManager: ASAuthorizationControllerDelegate {
                 if let user = result?.user {
                     
                     print("signed in as \(user.uid)m email: \(user.email ?? "unknow")")
+                    
+                    UserManager.shared.createUser(id: user.uid)
                 }
             }
         }

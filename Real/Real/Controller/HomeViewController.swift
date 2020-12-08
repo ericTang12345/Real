@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestoreSwift
+import Firebase
 
 class HomeViewController: BaseViewController {
     
@@ -31,6 +32,8 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(Firebase.Auth.auth().currentUser?.uid)
         
         firebase.listen(collectionName: .post) {
 
@@ -132,8 +135,6 @@ extension HomeViewController: UITableViewDataSource {
             
             return .emptyCell
         }
-        
-//        cell.voteView.isHidden = true
         
         cell.delegate = self
         
