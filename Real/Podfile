@@ -7,9 +7,11 @@ target 'Real' do
 
   # Pods for Real
   pod 'SwiftLint'
-  pod 'IQKeyboardManager'
+#   pod 'IQKeyboardManager'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
   pod 'Kingfisher'
+  pod 'FSPagerView'
 end

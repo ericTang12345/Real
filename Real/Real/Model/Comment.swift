@@ -5,7 +5,7 @@
 //  Created by 唐紹桓 on 2020/12/4.
 //
 
-import Firebase
+import Foundation
 
 struct Comment: Codable {
     
@@ -15,7 +15,7 @@ struct Comment: Codable {
     
     var likeCount: [String]
     
-    let createdTime: Timestamp
+    let createdTime: FIRTimestamp
     
     let author: String // User.id
     

@@ -9,29 +9,36 @@
 /* Begin PBXBuildFile section */
 		20E17D849999323365E9C5EF /* Pods_Real.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991868546339BBFFA8860D66 /* Pods_Real.framework */; };
 		2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */; };
-		2408F4D425758DFD00D6C2F4 /* PostTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D325758DFD00D6C2F4 /* PostTitleTableViewCell.swift */; };
 		2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */; };
+		2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2417346D257E25130087107E /* UIScreen+Extension.swift */; };
 		241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8F3A257438DF0046F831 /* TopicViewController.swift */; };
 		242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4782577742E0091ABDB /* Timestamp+Extension.swift */; };
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
-		242EA4AD25778B8C0091ABDB /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */; };
 		243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243DA98625736216007142EA /* CommentTableViewCell.xib */; };
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
+		2441A8A7257CA5B50085A043 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */; };
+		24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */; };
+		2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F974257CE4F4006ABF0D /* FirebaseManager.swift */; };
+		2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */; };
+		2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */; };
 		2453AC332576275800DAC156 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2453AC322576275800DAC156 /* GoogleService-Info.plist */; };
 		24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24568442256E7BC100FB7D3D /* HomeViewController.swift */; };
 		2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461EA85256F93B800AD99F6 /* String+Extension.swift */; };
 		2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461EA88256FACF900AD99F6 /* UITableViewCell+Extension.swift */; };
+		246D3DAC257D859700AD991A /* shutterstock_1032839197.png in Resources */ = {isa = PBXBuildFile; fileRef = 246D3DAB257D859600AD991A /* shutterstock_1032839197.png */; };
 		2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */; };
 		2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484EBD6256FDD9C00BA37F3 /* VoteView.swift */; };
+		248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */; };
+		248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */ = {isa = PBXBuildFile; fileRef = 248CF845257D631200B9CED6 /* shutterstock_598927436.png */; };
 		24955625257979CC00F5FB21 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24955624257979CC00F5FB21 /* Comment.swift */; };
-		2495562825799B3700F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2495562725799B3600F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg */; };
 		24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987215257CA257008CC655 /* CustomizeTextField.swift */; };
 		24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987218257CA26E008CC655 /* CustomizeButton.swift */; };
 		24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997990256F0ABA00B11DCF /* PostTableViewCell.swift */; };
 		24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24997991256F0ABA00B11DCF /* PostTableViewCell.xib */; };
 		24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24997997256F36B700B11DCF /* UITableView+Extension.swift */; };
 		249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D938825710C0A003F4DAB /* UIView+Extension.swift */; };
+		249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */; };
 		24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */; };
 		24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0C25759F3A009A3C5E /* Post.swift */; };
 		24AE9B1025759F9D009A3C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0F25759F9D009A3C5E /* User.swift */; };
@@ -42,35 +49,49 @@
 		24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6DA256E537C005919A3 /* Real.xcdatamodeld */; };
 		24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DD256E537F005919A3 /* Assets.xcassets */; };
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
+		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
+		24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */; };
+		24BBD539257ED13900B3819A /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD537257ED13900B3819A /* VoteTableViewCell.swift */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
-		24EDAE6425762EA100AC7427 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EDAE6325762EA100AC7427 /* FirebaseManager.swift */; };
+		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
+		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
+		24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */; };
+		24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
-		2408F4D325758DFD00D6C2F4 /* PostTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTitleTableViewCell.swift; sourceTree = "<group>"; };
 		2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentTableViewCell.swift; sourceTree = "<group>"; };
+		2417346D257E25130087107E /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		241D99B4257CC3EF00653D42 /* Real.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Real.entitlements; sourceTree = "<group>"; };
 		241E8F3A257438DF0046F831 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		242EA4782577742E0091ABDB /* Timestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+Extension.swift"; sourceTree = "<group>"; };
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		243DA98625736216007142EA /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottleViewController.swift; sourceTree = "<group>"; };
+		2452F974257CE4F4006ABF0D /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		2453AC322576275800DAC156 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24568442256E7BC100FB7D3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2461EA85256F93B800AD99F6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2461EA88256FACF900AD99F6 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		246D3DAB257D859600AD991A /* shutterstock_1032839197.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterstock_1032839197.png; sourceTree = "<group>"; };
 		2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2484EBD6256FDD9C00BA37F3 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		248CF845257D631200B9CED6 /* shutterstock_598927436.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterstock_598927436.png; sourceTree = "<group>"; };
 		24955624257979CC00F5FB21 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		2495562725799B3600F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg"; sourceTree = "<group>"; };
 		24987215257CA257008CC655 /* CustomizeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeTextField.swift; sourceTree = "<group>"; };
 		24987218257CA26E008CC655 /* CustomizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButton.swift; sourceTree = "<group>"; };
 		24997990256F0ABA00B11DCF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		24997991256F0ABA00B11DCF /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		24997997256F36B700B11DCF /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		249D938825710C0A003F4DAB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		24AE9B0C25759F3A009A3C5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		24AE9B0F25759F9D009A3C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -83,8 +104,14 @@
 		24B9B6DD256E537F005919A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24B9B6E0256E537F005919A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
+		24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
+		24BBD537257ED13900B3819A /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		24EDAE6325762EA100AC7427 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
+		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
+		24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageTableViewCell.swift; sourceTree = "<group>"; };
+		24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
 		6587CACFAF6D25789F844415 /* Pods-Real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.debug.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.debug.xcconfig"; sourceTree = "<group>"; };
 		7A9388F2583D70D3E8EEFDB6 /* Pods-Real.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.release.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.release.xcconfig"; sourceTree = "<group>"; };
 		991868546339BBFFA8860D66 /* Pods_Real.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,16 +140,22 @@
 		2408F4D225758DE500D6C2F4 /* AddNewPost */ = {
 			isa = PBXGroup;
 			children = (
-				2408F4D325758DFD00D6C2F4 /* PostTitleTableViewCell.swift */,
 				2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */,
 			);
 			path = AddNewPost;
 			sourceTree = "<group>";
 		};
+		241D9A95257CE2E200653D42 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2452F971257CE496006ABF0D /* Firebase */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		241F7C032574D6FF00245F21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24EDAE6625762EA800AC7427 /* Firebase */,
 				24AE9B0B25759F25009A3C5E /* CoreData */,
 				24AE9B0C25759F3A009A3C5E /* Post.swift */,
 				24AE9B0F25759F9D009A3C5E /* User.swift */,
@@ -139,12 +172,25 @@
 			path = "Third Part";
 			sourceTree = "<group>";
 		};
+		2452F971257CE496006ABF0D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */,
+				2452F974257CE4F4006ABF0D /* FirebaseManager.swift */,
+				2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		2456844C256E7D2600FB7D3D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				24D6B891257F0DFB001FD1FA /* Chat */,
+				24C6D9AB257D8EE7008A5BF2 /* UserProfile */,
 				2408F4D225758DE500D6C2F4 /* AddNewPost */,
 				248604392573A35900802283 /* Comment */,
 				248604382573A34E00802283 /* Post */,
+				248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -159,6 +205,11 @@
 				243DA98B2573621B007142EA /* PostDetailsViewController.swift */,
 				2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */,
 				24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */,
+				24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */,
+				2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */,
+				24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */,
+				24BBD531257EC65000B3819A /* TimeBoxViewController.swift */,
+				249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +219,7 @@
 			children = (
 				24997990256F0ABA00B11DCF /* PostTableViewCell.swift */,
 				24997991256F0ABA00B11DCF /* PostTableViewCell.xib */,
+				24BBD537257ED13900B3819A /* VoteTableViewCell.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -199,6 +251,7 @@
 				249D938825710C0A003F4DAB /* UIView+Extension.swift */,
 				24AE9B122575A961009A3C5E /* UILabel+Extension.swift */,
 				242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */,
+				2417346D257E25130087107E /* UIScreen+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -232,6 +285,8 @@
 		24B9B6D0256E537C005919A3 /* Real */ = {
 			isa = PBXGroup;
 			children = (
+				241D99B4257CC3EF00653D42 /* Real.entitlements */,
+				241D9A95257CE2E200653D42 /* Manager */,
 				241F7C032574D6FF00245F21 /* Model */,
 				2499799B256F36C700B11DCF /* Extension */,
 				2456844D256E7D3500FB7D3D /* Controller */,
@@ -241,7 +296,8 @@
 				24B9B6DD256E537F005919A3 /* Assets.xcassets */,
 				24B9B6E2256E537F005919A3 /* Info.plist */,
 				2453AC322576275800DAC156 /* GoogleService-Info.plist */,
-				2495562725799B3600F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg */,
+				248CF845257D631200B9CED6 /* shutterstock_598927436.png */,
+				246D3DAB257D859600AD991A /* shutterstock_1032839197.png */,
 			);
 			path = Real;
 			sourceTree = "<group>";
@@ -263,13 +319,22 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		24EDAE6625762EA800AC7427 /* Firebase */ = {
+		24C6D9AB257D8EE7008A5BF2 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				24EDAE6325762EA100AC7427 /* FirebaseManager.swift */,
-				242EA4AC25778B8C0091ABDB /* FirebaseStorageManager.swift */,
+				24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */,
+				24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */,
 			);
-			path = Firebase;
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		24D6B891257F0DFB001FD1FA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */,
+				24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		24FA49C7256FB48400C38106 /* View */ = {
@@ -356,9 +421,11 @@
 				24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */,
 				24997993256F0ABA00B11DCF /* PostTableViewCell.xib in Resources */,
 				24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */,
-				2495562825799B3700F5FB21 /* stock-vector-message-in-bottle-drifting-in-water-isometric-view-vector-flat-illustration-598927436.jpg in Resources */,
+				246D3DAC257D859700AD991A /* shutterstock_1032839197.png in Resources */,
+				248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */,
 				24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */,
 				243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */,
+				24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */,
 				2453AC332576275800DAC156 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,32 +498,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */,
+				2441A8A7257CA5B50085A043 /* UserProfileViewController.swift in Sources */,
+				24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */,
 				24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */,
 				242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */,
+				248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */,
 				24955625257979CC00F5FB21 /* Comment.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
-				242EA4AD25778B8C0091ABDB /* FirebaseStorageManager.swift in Sources */,
+				24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
 				243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */,
 				2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */,
 				24C6047025740DB000279877 /* BaseViewController.swift in Sources */,
 				2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */,
+				24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
 				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
 				24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */,
-				24EDAE6425762EA100AC7427 /* FirebaseManager.swift in Sources */,
 				243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */,
 				24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */,
 				24AE9B132575A961009A3C5E /* UILabel+Extension.swift in Sources */,
-				2408F4D425758DFD00D6C2F4 /* PostTitleTableViewCell.swift in Sources */,
+				2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */,
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
+				2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */,
+				24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */,
 				24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
+				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,
+				24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */,
+				249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */,
+				24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */,
+				24BBD539257ED13900B3819A /* VoteTableViewCell.swift in Sources */,
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
+				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
 				24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */,
 			);
@@ -606,6 +684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Real/Real.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
@@ -626,6 +705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Real/Real.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
