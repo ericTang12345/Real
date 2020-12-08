@@ -16,10 +16,10 @@ struct MockData {
     static func mockData() -> [MockData] {
         
         return [
-            MockData(title: "漂流信", content: "有漂流信到你的沙灘"),
+            MockData(title: "漂流信", content: "發現了漂流瓶，快去拾取吧！"),
             MockData(title: "追蹤貼文", content: "你所追蹤的標籤 爆速開發 主題，已經有新的貼文，趕快去查看吧！"),
             MockData(title: "貼文回覆", content: "已經有新的回覆囉！"),
-            MockData(title: "透過漂流信已建立起聊天室！", content: "你們透過了緣分搭起來橋樑，趕快去聊天吧！")
+            MockData(title: "透過漂流信已建立起聊天室！", content: "你們透過了緣分搭起來橋樑，趕快去認識彼此吧！")
         ]
     }
 }

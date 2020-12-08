@@ -16,8 +16,6 @@ class TimeBoxViewController: BaseViewController {
             
             self.pagerView.register(UINib(nibName: "FrontCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
             
-            
-            
             pagerView.setupShadow()
             
             pagerView.delegate = self
@@ -58,8 +56,6 @@ extension TimeBoxViewController: FSPagerViewDelegate, FSPagerViewDataSource {
             
             return FSPagerViewCell()
         }
-        
-        cell.contentLabel.layer.shadowColor = UIColor.white.cgColor
         
         return cell
     }

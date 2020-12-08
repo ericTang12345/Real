@@ -21,7 +21,7 @@ protocol AddNewPostAuthorDelegate: AnyObject {
     func getAuthorName() -> String
 }
 
-class AddNewPostViewController: UIViewController {
+class AddNewPostViewController: BaseViewController {
     
     @IBOutlet var userView: UIView!
     
@@ -39,6 +39,8 @@ class AddNewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func backToRoot(_ sender: UIBarButtonItem) {
