@@ -29,10 +29,6 @@ class PostDetailsViewController: BaseViewController {
     
     override var isHideTabBar: Bool { return true }
     
-    override var isHideKeyboardAutoToolbar: Bool { return true }
-    
-    override var isHideKeyboardToolbarPlaceholder: Bool { return true }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +36,10 @@ class PostDetailsViewController: BaseViewController {
             
             self.realodData()
         }
+        
+        replyTextField.inputAccessoryView = keyboardToolView
+        
+        hideKeyboardWhenTappedAround()
     }
     
     func realodData() {

@@ -33,7 +33,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         firebase.listen(collectionName: .post) {
-            
+
             self.reloadData()
         }
     }
@@ -133,7 +133,7 @@ extension HomeViewController: UITableViewDataSource {
             return .emptyCell
         }
         
-        cell.voteView.isHidden = true
+//        cell.voteView.isHidden = true
         
         cell.delegate = self
         

@@ -18,6 +18,14 @@ enum CellId: String {
     case postTitle = "PostTitleCell"
     
     case postContent = "PostContentCell"
+    
+    case notificationCell = "NotificationCell"
+    
+    case vote = "VoteCell"
+    
+    case userMessage = "UserMessageCell"
+    
+    case receiverMessage = "ReceiverMessageCell"
 }
 
 extension UITableViewCell {
