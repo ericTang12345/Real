@@ -169,4 +169,5 @@ class FirebaseManager {
         
         document.updateData([key: value])
     }
+    
 }
