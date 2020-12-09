@@ -14,10 +14,11 @@
 		241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8F3A257438DF0046F831 /* TopicViewController.swift */; };
 		242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4782577742E0091ABDB /* Timestamp+Extension.swift */; };
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
+		2435BF462580663D006B71AB /* RandomMainName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF452580663D006B71AB /* RandomMainName.swift */; };
+		2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF4825806649006B71AB /* RandomAdjName.swift */; };
 		243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243DA98625736216007142EA /* CommentTableViewCell.xib */; };
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
-		2441A8A7257CA5B50085A043 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */; };
 		24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */; };
 		2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F974257CE4F4006ABF0D /* FirebaseManager.swift */; };
 		2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */; };
@@ -68,10 +69,11 @@
 		241E8F3A257438DF0046F831 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		242EA4782577742E0091ABDB /* Timestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+Extension.swift"; sourceTree = "<group>"; };
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		2435BF452580663D006B71AB /* RandomMainName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMainName.swift; sourceTree = "<group>"; };
+		2435BF4825806649006B71AB /* RandomAdjName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAdjName.swift; sourceTree = "<group>"; };
 		243DA98625736216007142EA /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
-		2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottleViewController.swift; sourceTree = "<group>"; };
 		2452F974257CE4F4006ABF0D /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -163,6 +165,8 @@
 				24AE9B0C25759F3A009A3C5E /* Post.swift */,
 				24AE9B0F25759F9D009A3C5E /* User.swift */,
 				24955624257979CC00F5FB21 /* Comment.swift */,
+				2435BF452580663D006B71AB /* RandomMainName.swift */,
+				2435BF4825806649006B71AB /* RandomAdjName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,7 +213,6 @@
 				2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */,
 				24AE9B0825759F14009A3C5E /* NotificationCenterViewController.swift */,
 				24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */,
-				2441A8A6257CA5B50085A043 /* UserProfileViewController.swift */,
 				24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */,
 				24BBD531257EC65000B3819A /* TimeBoxViewController.swift */,
 				249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */,
@@ -501,8 +504,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */,
-				2441A8A7257CA5B50085A043 /* UserProfileViewController.swift in Sources */,
 				24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */,
+				2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */,
 				24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */,
 				242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */,
 				248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */,
@@ -529,6 +532,7 @@
 				2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */,
 				24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */,
 				24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */,
+				2435BF462580663D006B71AB /* RandomMainName.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
 				2484EBD7256FDD9C00BA37F3 /* VoteView.swift in Sources */,

@@ -40,7 +40,7 @@ class LabelPadding: UILabel {
         super.drawText(in: rect.inset(by: padding))
     }
     
-    override var intrinsicContentSize : CGSize {
+    override var intrinsicContentSize: CGSize {
         
         let superContentSize = super.intrinsicContentSize
         
