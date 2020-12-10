@@ -23,3 +23,21 @@ struct User: Codable {
     
     let registerTime: FIRTimestamp
 }
+
+extension User {
+    
+    init(id: String) {
+        
+        self.id = id
+        
+        self.randomName = .empty
+        
+        self.randomImage = .empty
+        
+        self.blockadeListUser = []
+        
+        self.blockadeListPost = []
+        
+        self.registerTime = FIRTimestamp()
+    }
+}

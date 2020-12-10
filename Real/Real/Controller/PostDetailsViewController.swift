@@ -19,9 +19,17 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var replyTextField: UITextField!
+    @IBOutlet weak var replyTextField: UITextField! {
+        
+        didSet {
+        
+            replyTextField.inputAccessoryView = keyboardToolView
+        }
+    }
     
     let firebase = FirebaseManager.shared
+    
+    let userManager = UserManager.shared
     
     var comments: [Comment] = []
     
@@ -32,19 +40,50 @@ class PostDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firebase.listen(collectionName: .comment) {
+        firebase.listen(collectionName: .post) {
             
-            self.realodData()
+            self.reloadPostData()
         }
         
-        replyTextField.inputAccessoryView = keyboardToolView
-        
-        hideKeyboardWhenTappedAround()
+        firebase.listen(collectionName: .comment) {
+            
+            self.reloadCommentData()
+        }
     }
     
-    func realodData() {
+    func reloadPostData() {
         
         guard let id = post?.id else {
+            
+            print("reloadPostData error: post.id is nil")
+            
+            return
+        }
+        
+        let filter = Filter(key: "id", value: id)
+        
+        firebase.read(collectionName: .post, dataType: Post.self, filter: filter) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                self?.post = data[0]
+            
+                self?.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print("postDetails reloadPostData fail", error.localizedDescription)
+            }
+        }
+    }
+    
+    func reloadCommentData() {
+        
+        guard let id = post?.id else {
+            
+            print("reloadCommentData error: post.id is nil")
             
             return
         }
@@ -66,8 +105,7 @@ class PostDetailsViewController: BaseViewController {
                 
             case .failure(let error):
                 
-                print(error.localizedDescription)
-                
+                print("postDetails reloadCommentData fail", error.localizedDescription)
             }
         }
     }
@@ -77,7 +115,6 @@ class PostDetailsViewController: BaseViewController {
         guard let postId = post?.id,
               let content = replyTextField.text
         else {
-            
             return
         }
         
@@ -87,12 +124,14 @@ class PostDetailsViewController: BaseViewController {
                               content: content,
                               likeCount: [],
                               createdTime: firebase.currentTimestamp,
-                              author: "0",
+                              author: userManager.userID,
                               postId: postId,
                               authorName: "weakself",
                               authorImage: "")
         
         firebase.save(to: document, data: comment)
+        
+        keyboardToolView.endEditing(true)
     }
 }
 
@@ -147,6 +186,8 @@ extension PostDetailsViewController: UITableViewDataSource {
                 return .emptyCell
             }
             
+            cell.delegate = self
+            
             cell.setup(data: post)
             
             return cell
@@ -167,4 +208,14 @@ extension PostDetailsViewController: UITableViewDataSource {
             return .emptyCell
         }
     }
+}
+
+extension PostDetailsViewController: PostTableViewCellDelegate {
+    
+    func reloadView(cell: PostTableViewCell) {
+        
+        tableView.reloadData()
+    }
+    
+    func goToPostDetails(cell: PostTableViewCell) {}
 }

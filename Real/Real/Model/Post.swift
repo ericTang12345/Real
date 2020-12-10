@@ -30,4 +30,36 @@ struct Post: Codable {
     let tags: [String]
     
     let vote: [String]
+    
+    let collection: [String] // User.id
+}
+
+extension Post {
+    
+    init(id: String, type: String, image: String, content: String, tags: [String], vote: [String]) {
+        
+        self.id = id
+        
+        self.type = type
+        
+        self.image = image
+        
+        self.content = content
+        
+        self.likeCount = []
+        
+        self.createdTime = FIRTimestamp()
+        
+        self.authorId = UserManager.shared.userData!.id
+        
+        self.authorName = UserManager.shared.userData!.randomName
+        
+        self.authorImage = UserManager.shared.userData!.randomImage
+        
+        self.tags = tags
+        
+        self.vote = vote
+        
+        self.collection = []
+    }
 }

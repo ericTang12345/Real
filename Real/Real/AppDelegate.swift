@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             
             userDefaults.set(count + 1, forKey: .appOpenCount)
-            
+                    
             return false
         }
         
@@ -41,11 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         if firstOpenApp() {
+        
             print("User first open app")
+        
         } else {
-            userManegare.checkUserSignin()
+            
             print("User is opened app")
             
+            if userManegare.isSignin {
+                
+                print("user have sign in, id: ", userManegare.userID)
+                
+//                userManegare.switchNameAndImage()
+                
+            } else {
+                
+                print("user not sign in")
+            }
         }
 
         return true

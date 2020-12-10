@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension UserDefaults {
     
     enum Key {
@@ -66,7 +65,7 @@ extension UserDefaults {
         return nil
     }
     
-    func dictionary(forKey key: UserDefaults.Key) -> Dictionary<String, Any>? {
+    func dictionary(forKey key: UserDefaults.Key) -> [String: Any]? {
         
         if case UserDefaults.Key.default(let key) = key {
         
@@ -75,7 +74,6 @@ extension UserDefaults {
         
         return nil
     }
-    
     
     func integer(forKey key: UserDefaults.Key) -> Int {
         
