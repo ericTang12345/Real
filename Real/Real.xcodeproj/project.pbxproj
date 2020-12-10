@@ -16,6 +16,7 @@
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
 		2435BF462580663D006B71AB /* RandomMainName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF452580663D006B71AB /* RandomMainName.swift */; };
 		2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF4825806649006B71AB /* RandomAdjName.swift */; };
+		2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */; };
 		243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243DA98625736216007142EA /* CommentTableViewCell.xib */; };
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
@@ -57,8 +58,10 @@
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
 		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
+		24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */; };
 		24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */; };
 		24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */; };
+		24F5978B25819F3700C01621 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5978A25819F3700C01621 /* RandomImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,7 @@
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		2435BF452580663D006B71AB /* RandomMainName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMainName.swift; sourceTree = "<group>"; };
 		2435BF4825806649006B71AB /* RandomAdjName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAdjName.swift; sourceTree = "<group>"; };
+		2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNameEditorViewController.swift; sourceTree = "<group>"; };
 		243DA98625736216007142EA /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
@@ -114,8 +118,10 @@
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
+		24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageTableViewCell.swift; sourceTree = "<group>"; };
 		24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
+		24F5978A25819F3700C01621 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
 		6587CACFAF6D25789F844415 /* Pods-Real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.debug.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.debug.xcconfig"; sourceTree = "<group>"; };
 		7A9388F2583D70D3E8EEFDB6 /* Pods-Real.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.release.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.release.xcconfig"; sourceTree = "<group>"; };
 		991868546339BBFFA8860D66 /* Pods_Real.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +173,7 @@
 				24955624257979CC00F5FB21 /* Comment.swift */,
 				2435BF452580663D006B71AB /* RandomMainName.swift */,
 				2435BF4825806649006B71AB /* RandomAdjName.swift */,
+				24F5978A25819F3700C01621 /* RandomImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 				24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */,
 				24BBD531257EC65000B3819A /* TimeBoxViewController.swift */,
 				249EA15C257F0D7A00C2ED14 /* ChatViewController.swift */,
+				2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 				24AE9B122575A961009A3C5E /* UILabel+Extension.swift */,
 				242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */,
 				2417346D257E25130087107E /* UIScreen+Extension.swift */,
+				24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */,
 				24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */,
 				24ACE645257FE495002D5090 /* UserManager.swift in Sources */,
+				2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
 				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
@@ -542,6 +552,8 @@
 				24BBD539257ED13900B3819A /* VoteTableViewCell.swift in Sources */,
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24997992256F0ABA00B11DCF /* PostTableViewCell.swift in Sources */,
+				24F5978B25819F3700C01621 /* RandomImage.swift in Sources */,
+				24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
 				24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */,
