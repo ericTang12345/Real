@@ -28,7 +28,7 @@ class UserManager {
         
         if isSignin {
             
-            guard let id = userDefaults.value(forKey: "UserID") as? String else {
+            guard let id = userDefaults.string(forKey: .userID) else {
                 
                 print("userDefaults key: UserID, value is nil")
                 
@@ -47,8 +47,12 @@ class UserManager {
     
     func createUser(id: String) {
         
-        userDefaults.setValue(id, forKey: "UserID")
+        // 儲存 id (還不確定)
+        
+        userDefaults.set(id, forKey: .userID)
     
+        // 創建 User
+        
         let doc = self.firebase.getCollection(name: .user).document(id)
         
         let data = User(
@@ -63,6 +67,11 @@ class UserManager {
         self.firebase.save(to: doc, data: data)
         
         // update random name and image
+    }
+    
+    func checkUserSignin() {
+        
+        print(Auth.auth().currentUser?.uid)
     }
 }
 
@@ -86,6 +95,7 @@ extension UserManager {
     
     // MARK: - Name
     
+    // 切換名稱與圖片
     func switchNameAndImage(id: String) {
     
         var mainName: String?
@@ -127,6 +137,7 @@ extension UserManager {
         }
     }
     
+    // 取隨機名詞
     func getRandomMainName(handler: @escaping (String) -> Void) {
         
         firebase.read(collectionName: .randomMainName, dataType: RandomMainName.self) { (result) in
@@ -146,6 +157,7 @@ extension UserManager {
         }
     }
     
+    // 取隨機形容詞
     func getRandomAdjName(handler: @escaping (String) -> Void) {
         
         firebase.read(collectionName: .randomAdjName, dataType: RandomAdjName.self) { (result) in
@@ -167,6 +179,7 @@ extension UserManager {
     
     // MARK: - Image
     
+    // 取隨機圖片
     func getRandomImage() {
         
         firebase.read(collectionName: .randomImage, dataType: RandomImage.self) { (result) in
@@ -179,7 +192,7 @@ extension UserManager {
                 
                 let urlStr = self.randomGet(list: list)
 
-                print(urlStr)
+                print("ya i get url",urlStr)
             
             case .failure(let error):
                 

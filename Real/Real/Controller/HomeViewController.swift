@@ -32,9 +32,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("user.id: ", Firebase.Auth.auth().currentUser?.uid)
-        
+
         firebase.listen(collectionName: .post) {
 
             self.reloadData()
