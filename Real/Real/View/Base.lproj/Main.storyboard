@@ -507,13 +507,12 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" constant="20" symbolic="YES" id="9bJ-oL-tTk"/>
-                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="leading" secondItem="g3k-qR-Jq7" secondAttribute="trailing" constant="20" id="C8F-cg-Ngo"/>
+                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="centerY" secondItem="g3k-qR-Jq7" secondAttribute="centerY" id="43E-mb-ojr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="g3k-qR-Jq7" secondAttribute="bottom" id="FPM-97-zbu"/>
                                                 <constraint firstItem="g3k-qR-Jq7" firstAttribute="top" secondItem="OwL-Ec-Bil" secondAttribute="topMargin" id="QgL-lv-OkV"/>
-                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="centerY" secondItem="g3k-qR-Jq7" secondAttribute="centerY" id="aWF-W5-mfp"/>
                                                 <constraint firstItem="g3k-qR-Jq7" firstAttribute="leading" secondItem="OwL-Ec-Bil" secondAttribute="leadingMargin" id="fRU-v8-HLF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" id="fw7-xw-1qE"/>
+                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="leading" secondItem="g3k-qR-Jq7" secondAttribute="trailing" constant="20" id="jfw-CL-MyS"/>
+                                                <constraint firstAttribute="trailing" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" constant="20" symbolic="YES" id="kfa-7E-FpV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -601,7 +600,7 @@
         <!--共同編輯暱稱-->
         <scene sceneID="PH2-iV-rR3">
             <objects>
-                <viewController id="HMd-Ww-Kli" sceneMemberID="viewController">
+                <viewController id="HMd-Ww-Kli" customClass="RandomNameEditorViewController" customModule="Real" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDt-s8-SRI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,15 +609,15 @@
                                 <rect key="frame" x="0.0" y="119" width="414" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RandomNameCell" textLabel="Azb-SS-3oI" style="IBUITableViewCellStyleDefault" id="mnW-j8-TdR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RandomNameCell" editingAccessoryType="disclosureIndicator" textLabel="Azb-SS-3oI" style="IBUITableViewCellStyleDefault" id="mnW-j8-TdR">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mnW-j8-TdR" id="Th8-bf-qVC">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="選擇困難的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Azb-SS-3oI">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -628,6 +627,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HMd-Ww-Kli" id="d9n-XO-dAL"/>
+                                    <outlet property="delegate" destination="HMd-Ww-Kli" id="EL1-vV-awi"/>
+                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-ES-oCg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="32"/>
@@ -635,6 +638,9 @@
                                     <segment title="形容詞"/>
                                     <segment title="名詞"/>
                                 </segments>
+                                <connections>
+                                    <action selector="switchData:" destination="HMd-Ww-Kli" eventType="valueChanged" id="Fqv-Y6-Fav"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J5q-Ha-i9o"/>
@@ -649,7 +655,18 @@
                             <constraint firstItem="G3V-om-jNb" firstAttribute="top" secondItem="nQu-ES-oCg" secondAttribute="bottom" id="y2i-Oo-m0I"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="共同編輯暱稱" id="Gz4-CQ-vLp"/>
+                    <navigationItem key="navigationItem" title="共同編輯暱稱" id="Gz4-CQ-vLp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZpX-rE-Gu2">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNewItem:" destination="HMd-Ww-Kli" id="MrO-Kl-3Ui"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="nQu-ES-oCg" id="eDJ-I5-6C8"/>
+                        <outlet property="tableView" destination="G3V-om-jNb" id="Aom-bA-dna"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-wU-7g8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

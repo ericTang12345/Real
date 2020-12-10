@@ -17,6 +17,8 @@ class UserManager {
     
     let userDefaults = UserDefaults.standard
     
+    let group = DispatchGroup()
+    
     var isSignin: Bool {
         
         return Auth.auth().currentUser?.uid != nil
@@ -26,7 +28,7 @@ class UserManager {
         
         if isSignin {
             
-            guard let id = userDefaults.value(forKey: "UserID") as? String else {
+            guard let id = userDefaults.string(forKey: .userID) else {
                 
                 print("userDefaults key: UserID, value is nil")
                 
@@ -45,31 +47,157 @@ class UserManager {
     
     func createUser(id: String) {
         
-        userDefaults.setValue(id, forKey: "UserID")
+        // 儲存 id (還不確定)
         
-        userDefaults.synchronize()
+        userDefaults.set(id, forKey: .userID)
     
+        // 創建 User
+        
         let doc = self.firebase.getCollection(name: .user).document(id)
         
         let data = User(
             id: id,
-            randomName: getRandomName(),
-            randomImage: getRandomImage(),
+            randomName: "",
+            randomImage: "",
             blockadeListUser: [],
             blockadeListPost: [],
             registerTime: FIRTimestamp()
         )
         
         self.firebase.save(to: doc, data: data)
+        
+        // update random name and image
     }
     
-    func getRandomName() -> String {
+    func checkUserSignin() {
         
-        return "選擇困難的 鴛鴦奶茶"
+        print(Auth.auth().currentUser?.uid)
+    }
+}
+
+// MARK: - update random user profile everyday
+
+extension UserManager {
+    
+    func randomGet(list: [String]) -> String {
+        
+        if list.count != 0 {
+            
+            let random = Int.random(in: 0...list.count-1)
+            
+            return list[random]
+            
+        } else {
+            
+            return .empty + "403"
+        }
     }
     
-    func getRandomImage() -> String {
+    // MARK: - Name
+    
+    // 切換名稱與圖片
+    func switchNameAndImage(id: String) {
+    
+        var mainName: String?
         
-        return "https://www.youtube.com"
+        var adjName: String?
+        
+        group.enter()
+        
+        self.getRandomMainName { name in
+            
+            mainName = name
+            
+            self.group.leave()
+        }
+        
+        group.enter()
+        
+        self.getRandomAdjName { name in
+            
+            adjName = name
+            
+            self.group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            
+            guard let main = mainName, let adj = adjName else {
+                
+                print("main name or adj name is nil")
+                
+                return
+            }
+            
+            let fullName = adj + " " + main
+            
+            let doc = self.firebase.getCollection(name: .user).document(id)
+            
+            doc.updateData(["randomName": fullName])
+        }
+    }
+    
+    // 取隨機名詞
+    func getRandomMainName(handler: @escaping (String) -> Void) {
+        
+        firebase.read(collectionName: .randomMainName, dataType: RandomMainName.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data) :
+                
+                let list = data.map { return $0.name }
+                
+                handler(self.randomGet(list: list))
+            
+            case .failure(let error):
+                
+                print("read random main name fail in userManager", error.localizedDescription)
+            }
+        }
+    }
+    
+    // 取隨機形容詞
+    func getRandomAdjName(handler: @escaping (String) -> Void) {
+        
+        firebase.read(collectionName: .randomAdjName, dataType: RandomAdjName.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                let list = data.map { return $0.name }
+                
+                handler(self.randomGet(list: list))
+            
+            case .failure(let error):
+            
+                print("read random adj name fail in userManager", error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Image
+    
+    // 取隨機圖片
+    func getRandomImage() {
+        
+        firebase.read(collectionName: .randomImage, dataType: RandomImage.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+            
+                let list = data.map { return $0.url }
+                
+                let urlStr = self.randomGet(list: list)
+
+                print("ya i get url",urlStr)
+            
+            case .failure(let error):
+                
+                print("read random image fail", error.localizedDescription)
+            }
+        }
     }
 }
