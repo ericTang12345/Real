@@ -59,6 +59,7 @@
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
 		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
 		24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */; };
+		24CBE0CF2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBE0CE2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift */; };
 		24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */; };
 		24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */; };
 		24F5978B25819F3700C01621 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5978A25819F3700C01621 /* RandomImage.swift */; };
@@ -119,6 +120,7 @@
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
 		24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		24CBE0CE2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		24D6B896257F0E45001FD1FA /* UserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageTableViewCell.swift; sourceTree = "<group>"; };
 		24D6B899257F0E6F001FD1FA /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
 		24F5978A25819F3700C01621 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */,
 				2417346D257E25130087107E /* UIScreen+Extension.swift */,
 				24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */,
+				24CBE0CE2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
+				24CBE0CF2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift in Sources */,
 				24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

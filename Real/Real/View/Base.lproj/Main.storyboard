@@ -592,6 +592,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="個人" id="Rfv-kI-QZz"/>
+                    <connections>
+                        <outlet property="userImageView" destination="xsB-6B-96d" id="xqu-qZ-QPf"/>
+                        <outlet property="userNameLabel" destination="a1N-lv-R2R" id="2aK-qH-y2J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYz-sG-9bi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1232,7 +1236,7 @@
     </scenes>
     <designables>
         <designable name="Kbu-V9-qZv">
-            <size key="intrinsicContentSize" width="167.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="182.5" height="23.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

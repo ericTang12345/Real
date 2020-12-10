@@ -8,6 +8,8 @@
 import Firebase
 import FirebaseFirestoreSwift
 
+typealias FIRFieldValue = Firebase.FieldValue
+
 typealias FIRTimestamp = Timestamp
 
 enum Result<T> {
@@ -127,6 +129,28 @@ class FirebaseManager {
                 
                 }
             }
+        }
+    }
+    
+    func readSingle<T: Codable>(_ doc: DocumentReference, dataType: T.Type, handler: @escaping (Result<T>) -> Void ) {
+        
+        doc.getDocument { (documentSnapshot, error) in
+            
+            guard let docSnapshot = documentSnapshot else {
+                
+                handler(.failure(error!))
+                
+                return
+            }
+            
+            guard let data = try? docSnapshot.data(as: dataType) else {
+                
+                handler(.failure(FirebaseError.decode))
+                
+                return
+            }
+            
+            handler(.success(data))
         }
     }
     

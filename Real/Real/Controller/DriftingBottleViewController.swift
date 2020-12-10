@@ -31,17 +31,14 @@ class DriftingBottleViewController: BaseViewController {
      
     let textViewPlaceholder = "今天過得還好嗎？不管是開心、不滿，透過寫信傳達出去吧，不管有沒有人會收到。"
 
+    override var isHideKeyboardWhenTappedAround: Bool {
+        
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        hideKeyboardWhenTappedAround()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
 }
 
 extension DriftingBottleViewController: UITextViewDelegate {
@@ -56,13 +53,23 @@ extension DriftingBottleViewController: UITextViewDelegate {
         }
     }
 
-    func textViewDidEndEditing(_ textView: UITextView) {
-
+    func textViewDidChange(_ textView: UITextView) {
+        
         if textView.text.isEmpty {
-
+            
+            textView.textColor = UIColor.lightGray
+            
             textView.text = textViewPlaceholder
-
-            textView.textColor = .lightGray
         }
     }
+    
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//
+//        if textView.text.isEmpty {
+//
+//            textView.text = textViewPlaceholder
+//
+//            textView.textColor = .lightGray
+//        }
+//    }
 }

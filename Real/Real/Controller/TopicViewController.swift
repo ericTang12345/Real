@@ -72,7 +72,6 @@ class TopicViewController: BaseViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
 }
 
