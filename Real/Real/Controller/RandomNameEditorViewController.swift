@@ -70,8 +70,6 @@ class RandomNameEditorViewController: BaseViewController {
         default:
             
             print("segmentedControl is nil")
-            
-            break
         }
         
         tableView.reloadData()
