@@ -45,6 +45,8 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        UserManager.shared.getRandomImage()
+        
         UIApplication.shared.sendAction(
             #selector(UIApplication.resignFirstResponder),
             to: nil, from: nil, for: nil

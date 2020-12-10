@@ -34,6 +34,8 @@ enum CollectionName: String {
     case randomMainName = "RandomMainName"
     
     case driftingBottle = "DriftingBottle"
+    
+    case randomImage = "RandomImage"
 }
 
 enum FirebaseError: String, Error {
