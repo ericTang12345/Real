@@ -20,6 +20,8 @@ struct DriftingBottle: Codable {
     var catcher: String? // User.id
     
     var arrivalTime: FIRTimestamp?
+    
+    var createdTime: FIRTimestamp
 }
 
 extension DriftingBottle {
@@ -39,5 +41,7 @@ extension DriftingBottle {
         // Setup drifting bottle arrival time
 
         self.arrivalTime = isPost == true ? .randomTime(from: 1, day: 2) : nil
+        
+        self.createdTime = FIRTimestamp()
     }
 }
