@@ -60,6 +60,15 @@ extension Timestamp {
         return result
     }
     
+    func timeStampToStringDetail() -> String {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy年 MM月 dd日 HH點"
+        
+        return dateFormatter.string(from: self.dateValue())
+    }
+    
     static func randomTime(from first: Int, day end: Int) -> Timestamp {
         
         let startDay = first * 24 * 60 * 60

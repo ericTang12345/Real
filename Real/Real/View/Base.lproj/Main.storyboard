@@ -698,7 +698,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOq-3S-G1w" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="400"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cOq-3S-G1w" secondAttribute="height" multiplier="207:200" id="C4L-oY-OhD"/>
                                 </constraints>
@@ -718,21 +718,42 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4f-rx-hyn">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="發過的貼文">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectButtonWithSender:" destination="7rc-kf-Nd6" eventType="touchUpInside" id="9hA-QT-mR3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV1-1h-sOJ">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="50"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="漂流瓶">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectButtonWithSender:" destination="7rc-kf-Nd6" eventType="touchUpInside" id="j7w-oD-JUv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSq-4c-MSk">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="50"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="收藏">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectButtonWithSender:" destination="7rc-kf-Nd6" eventType="touchUpInside" id="ZxX-kv-TWD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -762,7 +783,7 @@
                             <constraint firstItem="y48-D8-QIC" firstAttribute="bottom" secondItem="XZo-cN-gYe" secondAttribute="bottom" id="gZE-tz-2Ff"/>
                             <constraint firstItem="QIA-T3-BYC" firstAttribute="bottom" secondItem="XZo-cN-gYe" secondAttribute="bottom" id="ht6-xi-Jwx"/>
                             <constraint firstItem="QIA-T3-BYC" firstAttribute="leading" secondItem="XZo-cN-gYe" secondAttribute="leading" id="jqv-s7-c0O"/>
-                            <constraint firstItem="cOq-3S-G1w" firstAttribute="top" secondItem="XZo-cN-gYe" secondAttribute="top" id="oFg-2w-GeS"/>
+                            <constraint firstItem="cOq-3S-G1w" firstAttribute="top" secondItem="XZo-cN-gYe" secondAttribute="top" constant="15" id="oFg-2w-GeS"/>
                             <constraint firstItem="cOq-3S-G1w" firstAttribute="width" secondItem="Hhj-LK-Jad" secondAttribute="width" id="oTi-Xg-Hfm"/>
                             <constraint firstItem="y48-D8-QIC" firstAttribute="leading" secondItem="XZo-cN-gYe" secondAttribute="leading" id="yxU-ts-T04"/>
                         </constraints>
@@ -775,7 +796,10 @@
                     <navigationItem key="navigationItem" title="時光寶盒" id="PdW-g0-UtC"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="collectionButton" destination="rSq-4c-MSk" id="NG2-Qb-ZUv"/>
+                        <outlet property="driftingBottleButton" destination="lV1-1h-sOJ" id="rXP-F6-CWT"/>
                         <outlet property="pagerView" destination="cOq-3S-G1w" id="diD-Ow-0dq"/>
+                        <outlet property="postButton" destination="a4f-rx-hyn" id="QX2-OD-p7P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9q9-ZP-4HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

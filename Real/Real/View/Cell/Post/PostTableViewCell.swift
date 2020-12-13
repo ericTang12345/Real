@@ -75,6 +75,8 @@ class PostTableViewCell: UITableViewCell {
         moreButton.isHidden = contentLabel.numberOfLines == 0 ? true : contentLabel.textCount <= 4
         
         likeButton.isSelected = data.likeCount.contains(userManager.userID)
+        
+        bookmarkButton.isSelected = data.collection.contains(userManager.userID)
     }
     
     func getCommentCount(postId: String) {
@@ -103,6 +105,28 @@ class PostTableViewCell: UITableViewCell {
     @IBAction func bookmark(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
+        
+        guard let post = post, let delegate = delegate else {
+            
+            print("post or delegate is nil in PostTableViewCell")
+            
+            return
+        }
+        
+        let collection = firebase.getCollection(name: .post).document(post.id)
+        
+        if post.collection.contains(userManager.userID) {
+            
+            collection.updateData([
+                "collection": FIRFieldValue.arrayRemove([userManager.userID])
+            ])
+            
+        } else {
+            
+            collection.updateData([
+                "collection": FIRFieldValue.arrayUnion([userManager.userID])
+            ])
+        }
     }
     
     @IBAction func addComment(_ sender: UIButton) {
@@ -114,7 +138,7 @@ class PostTableViewCell: UITableViewCell {
     
     @IBAction func likePost(_ sender: UIButton) {
         
-        // Data
+        sender.isSelected = !sender.isSelected
         
         guard let post = post, let delegate = delegate else {
             
@@ -137,10 +161,6 @@ class PostTableViewCell: UITableViewCell {
                 "likeCount": FIRFieldValue.arrayUnion([userManager.userID])
             ])
         }
-        
-        // View
-        
-        sender.isSelected = !sender.isSelected
         
         delegate.reloadView(cell: self)
     }
