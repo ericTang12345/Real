@@ -59,4 +59,21 @@ extension Timestamp {
         
         return result
     }
+    
+    static func randomTime(from first: Int, day end: Int) -> Timestamp {
+        
+        let startDay = first * 24 * 60 * 60
+        
+        let overDay = end * 24 * 60 * 60
+        
+        let randomTime = Int.random(in: startDay ..< overDay)
+        
+        let randomTimeStamp = TimeInterval(randomTime)
+        
+        let currentDate = Timestamp().dateValue()
+        
+        let newDate = currentDate.addingTimeInterval(randomTimeStamp)
+        
+        return Timestamp(date: newDate)
+    }
 }

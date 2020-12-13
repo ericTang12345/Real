@@ -21,28 +21,23 @@ class UserManager {
     
     var isSignin: Bool {
         
-        return Auth.auth().currentUser?.uid != nil
-    }
-    
-    var userID: String? {
-        
-        if isSignin {
+        if Auth.auth().currentUser?.uid == nil {
             
-            guard let id = userDefaults.string(forKey: .userID) else {
-                
-                print("userDefaults key: UserID, value is nil")
-                
-                return nil
-            }
-            
-            return id
+            return false
             
         } else {
+                
+            self.getUserData()
             
-            print("use is not sign in")
-            
-            return nil
+            return true
         }
+    }
+    
+    var userData: User?
+    
+    var userID: String {
+        
+        return Auth.auth().currentUser?.uid ?? UUID().uuidString
     }
     
     func createUser(id: String) {
@@ -53,26 +48,100 @@ class UserManager {
     
         // 創建 User
         
-        let doc = self.firebase.getCollection(name: .user).document(id)
+        let doc = firebase.getCollection(name: .user).document(id)
         
-        let data = User(
-            id: id,
-            randomName: "",
-            randomImage: "",
-            blockadeListUser: [],
-            blockadeListPost: [],
-            registerTime: FIRTimestamp()
-        )
+        let data = User(id: id)
         
-        self.firebase.save(to: doc, data: data)
+        firebase.save(to: doc, data: data)
+        
+        switchNameAndImage()
         
         // update random name and image
     }
     
-    func checkUserSignin() {
+    func getUserData() {
         
-        print(Auth.auth().currentUser?.uid)
+        let doc = firebase.getCollection(name: .user).document(userID)
+        
+        firebase.readSingle(doc, dataType: User.self) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                self?.userData = user
+                
+                NotificationCenter.default.post(name: .userDataUpdated, object: nil)
+                
+            case .failure(let error):
+                
+                print("get user data fail", error.localizedDescription)
+            }
+        }
     }
+    
+}
+
+extension UserManager {
+    
+    // 切換名稱與圖片
+    func switchNameAndImage() {
+    
+        var mainName: String?
+        
+        var adjName: String?
+        
+        var urlStr: String?
+        
+        group.enter()
+        
+        self.getRandomMainName { name in
+            
+            mainName = name
+            
+            self.group.leave()
+        }
+        
+        group.enter()
+        
+        self.getRandomAdjName { name in
+            
+            adjName = name
+            
+            self.group.leave()
+        }
+        
+        group.enter()
+        
+        self.getRandomImage { (urlString) in
+            
+            urlStr = urlString
+            
+            self.group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            
+            guard let main = mainName,
+                  let adj = adjName,
+                  let url = urlStr
+            else {
+
+                print("main name or adj name is nil")
+                
+                return
+            }
+            
+            let fullName = adj + " " + main
+            
+            let doc = self.firebase.getCollection(name: .user).document(self.userID)
+            
+            doc.updateData(["randomName": fullName, "randomImage": url])
+            
+            self.getUserData()
+        }
+    }
+    
 }
 
 // MARK: - update random user profile everyday
@@ -94,48 +163,6 @@ extension UserManager {
     }
     
     // MARK: - Name
-    
-    // 切換名稱與圖片
-    func switchNameAndImage(id: String) {
-    
-        var mainName: String?
-        
-        var adjName: String?
-        
-        group.enter()
-        
-        self.getRandomMainName { name in
-            
-            mainName = name
-            
-            self.group.leave()
-        }
-        
-        group.enter()
-        
-        self.getRandomAdjName { name in
-            
-            adjName = name
-            
-            self.group.leave()
-        }
-        
-        group.notify(queue: .main) {
-            
-            guard let main = mainName, let adj = adjName else {
-                
-                print("main name or adj name is nil")
-                
-                return
-            }
-            
-            let fullName = adj + " " + main
-            
-            let doc = self.firebase.getCollection(name: .user).document(id)
-            
-            doc.updateData(["randomName": fullName])
-        }
-    }
     
     // 取隨機名詞
     func getRandomMainName(handler: @escaping (String) -> Void) {
@@ -180,7 +207,7 @@ extension UserManager {
     // MARK: - Image
     
     // 取隨機圖片
-    func getRandomImage() {
+    func getRandomImage(handler: @escaping (String) -> Void) {
         
         firebase.read(collectionName: .randomImage, dataType: RandomImage.self) { (result) in
             
@@ -190,13 +217,11 @@ extension UserManager {
             
                 let list = data.map { return $0.url }
                 
-                let urlStr = self.randomGet(list: list)
-
-                print("ya i get url",urlStr)
-            
+                handler(self.randomGet(list: list))
+                
             case .failure(let error):
                 
-                print("read random image fail", error.localizedDescription)
+                print("read random image fail in userManager", error.localizedDescription)
             }
         }
     }
