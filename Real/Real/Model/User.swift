@@ -22,6 +22,8 @@ struct User: Codable {
     let blockadeListPost: [String] // Post.id
     
     let registerTime: FIRTimestamp
+    
+    let isReceiveDriftingBottle: Bool
 }
 
 extension User {
@@ -39,5 +41,7 @@ extension User {
         self.blockadeListPost = []
         
         self.registerTime = FIRTimestamp()
+        
+        self.isReceiveDriftingBottle = true
     }
 }

@@ -12,6 +12,7 @@
 		2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */; };
 		2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2417346D257E25130087107E /* UIScreen+Extension.swift */; };
 		241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8F3A257438DF0046F831 /* TopicViewController.swift */; };
+		24294F602583006E00F9D41F /* DriftingBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24294F5F2583006E00F9D41F /* DriftingBottle.swift */; };
 		242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4782577742E0091ABDB /* Timestamp+Extension.swift */; };
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
 		2435BF462580663D006B71AB /* RandomMainName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF452580663D006B71AB /* RandomMainName.swift */; };
@@ -71,6 +72,7 @@
 		2417346D257E25130087107E /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		241D99B4257CC3EF00653D42 /* Real.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Real.entitlements; sourceTree = "<group>"; };
 		241E8F3A257438DF0046F831 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
+		24294F5F2583006E00F9D41F /* DriftingBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottle.swift; sourceTree = "<group>"; };
 		242EA4782577742E0091ABDB /* Timestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+Extension.swift"; sourceTree = "<group>"; };
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		2435BF452580663D006B71AB /* RandomMainName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMainName.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				2435BF452580663D006B71AB /* RandomMainName.swift */,
 				2435BF4825806649006B71AB /* RandomAdjName.swift */,
 				24F5978A25819F3700C01621 /* RandomImage.swift */,
+				24294F5F2583006E00F9D41F /* DriftingBottle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24294F602583006E00F9D41F /* DriftingBottle.swift in Sources */,
 				24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */,
 				24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */,
 				2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */,
@@ -712,6 +716,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,6 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

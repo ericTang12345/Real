@@ -27,9 +27,9 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
-    let userManager = UserManager.shared
+//    let userManager = UserManager.shared
     
     var comments: [Comment] = []
     

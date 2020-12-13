@@ -37,7 +37,7 @@ class UserManager {
     
     var userID: String {
         
-        return Auth.auth().currentUser!.uid
+        return Auth.auth().currentUser?.uid ?? UUID().uuidString
     }
     
     func createUser(id: String) {
@@ -79,27 +79,10 @@ class UserManager {
             }
         }
     }
+    
 }
 
-// MARK: - update random user profile everyday
-
 extension UserManager {
-    
-    func randomGet(list: [String]) -> String {
-        
-        if list.count != 0 {
-            
-            let random = Int.random(in: 0...list.count-1)
-            
-            return list[random]
-            
-        } else {
-            
-            return .empty + "403"
-        }
-    }
-    
-    // MARK: - Name
     
     // 切換名稱與圖片
     func switchNameAndImage() {
@@ -159,6 +142,28 @@ extension UserManager {
         }
     }
     
+}
+
+// MARK: - update random user profile everyday
+
+extension UserManager {
+    
+    func randomGet(list: [String]) -> String {
+        
+        if list.count != 0 {
+            
+            let random = Int.random(in: 0...list.count-1)
+            
+            return list[random]
+            
+        } else {
+            
+            return .empty + "403"
+        }
+    }
+    
+    // MARK: - Name
+    
     // 取隨機名詞
     func getRandomMainName(handler: @escaping (String) -> Void) {
         
@@ -211,9 +216,9 @@ extension UserManager {
             case .success(let data):
             
                 let list = data.map { return $0.url }
-
+                
                 handler(self.randomGet(list: list))
-            
+                
             case .failure(let error):
                 
                 print("read random image fail in userManager", error.localizedDescription)
