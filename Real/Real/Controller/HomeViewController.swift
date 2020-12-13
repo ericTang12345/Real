@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     
     var posts: [Post] = []
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
     var passData: Post?
     
@@ -32,13 +32,17 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(Firebase.Auth.auth().currentUser?.uid)
-        
+
         firebase.listen(collectionName: .post) {
 
             self.reloadData()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

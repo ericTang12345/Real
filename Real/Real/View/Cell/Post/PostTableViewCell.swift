@@ -41,7 +41,9 @@ class PostTableViewCell: UITableViewCell {
     weak var delegate: PostTableViewCellDelegate?
     
     let firebase = FirebaseManager.shared
-        
+    
+    let userManager = UserManager.shared
+    
     var post: Post?
     
     override func awakeFromNib() {
@@ -65,14 +67,14 @@ class PostTableViewCell: UITableViewCell {
         contentLabel.text = data.content
         
         likeCountLabel.text = data.likeCount.count == 0 ? "0" : String(data.likeCount.count)
-        
-//        likeButton.isSelected = data.likeCount.contains(<#T##element: String##String#>) 是否按過讚
-        
+    
         getCommentCount(postId: data.id)
         
         // 查看更多
         
         moreButton.isHidden = contentLabel.numberOfLines == 0 ? true : contentLabel.textCount <= 4
+        
+        likeButton.isSelected = data.likeCount.contains(userManager.userID)
     }
     
     func getCommentCount(postId: String) {
@@ -112,15 +114,33 @@ class PostTableViewCell: UITableViewCell {
     
     @IBAction func likePost(_ sender: UIButton) {
         
+        // Data
+        
+        guard let post = post, let delegate = delegate else {
+            
+            print("post or delegate is nil in PostTableViewCell")
+            
+            return
+        }
+        
+        let collection = firebase.getCollection(name: .post).document(post.id)
+        
+        if post.likeCount.contains(userManager.userID) {
+            
+            collection.updateData([
+                "likeCount": FIRFieldValue.arrayRemove([userManager.userID])
+            ])
+            
+        } else {
+
+            collection.updateData([
+                "likeCount": FIRFieldValue.arrayUnion([userManager.userID])
+            ])
+        }
+        
+        // View
+        
         sender.isSelected = !sender.isSelected
-        
-        guard let post = post, let delegate = delegate else { return }
-        
-        var likeCount = post.likeCount
-        
-        likeCount.append("new_user_id")
-        
-        firebase.update(collectionName: .post, documentId: post.id, key: "likeCount", value: likeCount)
         
         delegate.reloadView(cell: self)
     }

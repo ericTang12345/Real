@@ -16,6 +16,8 @@ class TimeBoxViewController: BaseViewController {
             
             self.pagerView.register(UINib(nibName: "FrontCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
             
+            pagerView.scrollDirection = .horizontal
+            
             pagerView.setupShadow()
             
             pagerView.delegate = self

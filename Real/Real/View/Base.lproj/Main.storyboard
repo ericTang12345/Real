@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4u-OK-n6z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4u-OK-n6z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -338,6 +338,9 @@
                                         <rect key="frame" x="322" y="16" width="30" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="送出"/>
+                                        <connections>
+                                            <action selector="saveToFirebase:" destination="l8W-Ij-JrS" eventType="touchUpInside" id="SJk-ux-mpH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -502,18 +505,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="fill" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-Mx-Z6R">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="fill" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-Mx-Z6R">
                                                     <rect key="frame" x="345" y="9.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchReceiveStatus:" destination="zSP-qU-L8J" eventType="valueChanged" id="srU-q8-kRw"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" constant="20" symbolic="YES" id="9bJ-oL-tTk"/>
-                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="leading" secondItem="g3k-qR-Jq7" secondAttribute="trailing" constant="20" id="C8F-cg-Ngo"/>
+                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="centerY" secondItem="g3k-qR-Jq7" secondAttribute="centerY" id="43E-mb-ojr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="g3k-qR-Jq7" secondAttribute="bottom" id="FPM-97-zbu"/>
                                                 <constraint firstItem="g3k-qR-Jq7" firstAttribute="top" secondItem="OwL-Ec-Bil" secondAttribute="topMargin" id="QgL-lv-OkV"/>
-                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="centerY" secondItem="g3k-qR-Jq7" secondAttribute="centerY" id="aWF-W5-mfp"/>
                                                 <constraint firstItem="g3k-qR-Jq7" firstAttribute="leading" secondItem="OwL-Ec-Bil" secondAttribute="leadingMargin" id="fRU-v8-HLF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" id="fw7-xw-1qE"/>
+                                                <constraint firstItem="d5S-Mx-Z6R" firstAttribute="leading" secondItem="g3k-qR-Jq7" secondAttribute="trailing" constant="20" id="jfw-CL-MyS"/>
+                                                <constraint firstAttribute="trailing" secondItem="d5S-Mx-Z6R" secondAttribute="trailing" constant="20" symbolic="YES" id="kfa-7E-FpV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -593,6 +598,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="個人" id="Rfv-kI-QZz"/>
+                    <connections>
+                        <outlet property="isReceiveSwitch" destination="d5S-Mx-Z6R" id="kje-zS-tK6"/>
+                        <outlet property="userImageView" destination="xsB-6B-96d" id="xqu-qZ-QPf"/>
+                        <outlet property="userNameLabel" destination="a1N-lv-R2R" id="2aK-qH-y2J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYz-sG-9bi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -601,7 +611,7 @@
         <!--共同編輯暱稱-->
         <scene sceneID="PH2-iV-rR3">
             <objects>
-                <viewController id="HMd-Ww-Kli" sceneMemberID="viewController">
+                <viewController id="HMd-Ww-Kli" customClass="RandomNameEditorViewController" customModule="Real" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDt-s8-SRI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,15 +620,15 @@
                                 <rect key="frame" x="0.0" y="119" width="414" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RandomNameCell" textLabel="Azb-SS-3oI" style="IBUITableViewCellStyleDefault" id="mnW-j8-TdR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RandomNameCell" editingAccessoryType="disclosureIndicator" textLabel="Azb-SS-3oI" style="IBUITableViewCellStyleDefault" id="mnW-j8-TdR">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mnW-j8-TdR" id="Th8-bf-qVC">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="選擇困難的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Azb-SS-3oI">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -628,6 +638,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HMd-Ww-Kli" id="d9n-XO-dAL"/>
+                                    <outlet property="delegate" destination="HMd-Ww-Kli" id="EL1-vV-awi"/>
+                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-ES-oCg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="32"/>
@@ -635,6 +649,9 @@
                                     <segment title="形容詞"/>
                                     <segment title="名詞"/>
                                 </segments>
+                                <connections>
+                                    <action selector="switchData:" destination="HMd-Ww-Kli" eventType="valueChanged" id="Fqv-Y6-Fav"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J5q-Ha-i9o"/>
@@ -649,7 +666,18 @@
                             <constraint firstItem="G3V-om-jNb" firstAttribute="top" secondItem="nQu-ES-oCg" secondAttribute="bottom" id="y2i-Oo-m0I"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="共同編輯暱稱" id="Gz4-CQ-vLp"/>
+                    <navigationItem key="navigationItem" title="共同編輯暱稱" id="Gz4-CQ-vLp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZpX-rE-Gu2">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNewItem:" destination="HMd-Ww-Kli" id="MrO-Kl-3Ui"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="nQu-ES-oCg" id="eDJ-I5-6C8"/>
+                        <outlet property="tableView" destination="G3V-om-jNb" id="Aom-bA-dna"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-wU-7g8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1215,7 +1243,7 @@
     </scenes>
     <designables>
         <designable name="Kbu-V9-qZv">
-            <size key="intrinsicContentSize" width="167.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="163" height="23.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1227,7 +1255,7 @@
         <image name="Post" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Topic" width="26.666666030883789" height="26.666666030883789"/>
         <image name="animal" width="128" height="128"/>
-        <image name="applelogo" catalog="system" width="128" height="121"/>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="circle" catalog="system" width="128" height="121"/>

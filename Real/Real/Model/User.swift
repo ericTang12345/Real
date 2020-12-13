@@ -22,4 +22,26 @@ struct User: Codable {
     let blockadeListPost: [String] // Post.id
     
     let registerTime: FIRTimestamp
+    
+    let isReceiveDriftingBottle: Bool
+}
+
+extension User {
+    
+    init(id: String) {
+        
+        self.id = id
+        
+        self.randomName = .empty
+        
+        self.randomImage = .empty
+        
+        self.blockadeListUser = []
+        
+        self.blockadeListPost = []
+        
+        self.registerTime = FIRTimestamp()
+        
+        self.isReceiveDriftingBottle = true
+    }
 }

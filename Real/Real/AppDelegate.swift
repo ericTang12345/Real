@@ -12,11 +12,54 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let userDefaults = UserDefaults.standard
+    
+    let userManegare = UserManager.shared
+    
+    func firstOpenApp() -> Bool {
+        
+        let count = userDefaults.integer(forKey: .appOpenCount)
+        
+        if count == 0 {
+            
+            userDefaults.set(1, forKey: .appOpenCount)
+        
+            return true
+            
+        } else {
+            
+            userDefaults.set(count + 1, forKey: .appOpenCount)
+                    
+            return false
+        }
+        
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         
+        if firstOpenApp() {
+        
+            print("User first open app")
+        
+        } else {
+            
+            print("User is opened app")
+            
+            if userManegare.isSignin {
+                
+                print("user have sign in, id: ", userManegare.userID)
+                
+//                userManegare.switchNameAndImage()
+                
+            } else {
+                
+                print("user not sign in")
+            }
+        }
+
         return true
     }
 
