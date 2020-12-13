@@ -35,6 +35,8 @@ class DriftingBottleViewController: BaseViewController {
     
     var catcher: String?
     
+    let isPost = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,7 +45,7 @@ class DriftingBottleViewController: BaseViewController {
     
     func getRandomUser(handler: @escaping () -> Void) {
         
-        firebase.read(collectionName: .user, dataType: User.self) { (result) in
+        firebase.read(collectionName: .user, dataType: User.self) { [weak self] (result) in
             
             switch result {
             
@@ -51,12 +53,14 @@ class DriftingBottleViewController: BaseViewController {
                 
                 let list = data.map { return $0.id }
                 
-                var id = self.randomGet(list: list)
+                var id = self?.randomGet(list: list)
                 
                 while id == UserManager.shared.userData!.id {
 
-                    id = self.randomGet(list: list)
+                    id = self?.randomGet(list: list)
                 }
+                
+                self?.catcher = id
                 
                 handler()
 
@@ -87,8 +91,6 @@ class DriftingBottleViewController: BaseViewController {
         
         let doc = firebase.getCollection(name: .driftingBottle).document()
         
-        let isPost = false
-        
         let data = DriftingBottle(
             id: doc.documentID,
             content: textView.text,
@@ -101,7 +103,7 @@ class DriftingBottleViewController: BaseViewController {
     
     @IBAction func saveToFirebase(_ sender: UIButton) {
         
-        if userManager.userData!.isReceiveDriftingBottle {
+        if isPost {
             
             getRandomUser {
                 
