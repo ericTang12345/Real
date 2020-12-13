@@ -31,12 +31,12 @@ class DriftingBottleViewController: BaseViewController {
      
     let textViewPlaceholder = "今天過得還好嗎？不管是開心、不滿，透過寫信傳達出去吧，不管有沒有人會收到。"
     
-    override var isHideKeyboardWhenTappedAround: Bool { return true }
-    
     var catcher: String?
     
     let isPost = true
     
+    override var isHideKeyboardWhenTappedAround: Bool { return true }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -86,6 +86,8 @@ class DriftingBottleViewController: BaseViewController {
             return .empty + "403"
         }
     }
+    
+    // 發出漂流瓶
     
     func postDriftingBottle() {
         

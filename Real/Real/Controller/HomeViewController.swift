@@ -21,14 +21,9 @@ class HomeViewController: BaseViewController {
     
     var posts: [Post] = []
     
-//    let firebase = FirebaseManager.shared
-    
     var passData: Post?
     
-    override var segues: [String] {
-        
-        return ["SeguePostDetails"]
-    }
+    override var segues: [String] { return ["SeguePostDetails"] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
