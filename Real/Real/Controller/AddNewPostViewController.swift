@@ -35,12 +35,21 @@ class AddNewPostViewController: BaseViewController {
     
     weak var contentDelegate: AddNewPostContentDelegate?
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
+    
+//    let userManager = UserManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hideKeyboardWhenTappedAround()
+        reloadView()
+    }
+    
+    @objc func reloadView() {
+        
+        userImageView.loadImage(urlString: userManager.userData!.randomImage)
+        
+        userNameLabel.text = userManager.userData?.randomName
     }
     
     @IBAction func backToRoot(_ sender: UIBarButtonItem) {
@@ -51,31 +60,16 @@ class AddNewPostViewController: BaseViewController {
     @IBAction func saveToFirebase(_ sender: UIBarButtonItem) {
         
         guard let content = contentDelegate?.getContent(),
-              let type = postTypeButton.currentTitle,
-              let authorName = userNameLabel.text
+              let type = postTypeButton.currentTitle
         else {
             return
         }
         
-        let authorImage = "userImageView.image"
+        let doc = firebase.getCollection(name: .post).document()
         
-        let createdTime = firebase.currentTimestamp
+        let post = Post(id: doc.documentID, type: type, image: .empty, content: content, tags: [], vote: [])
         
-        let document = firebase.getCollection(name: .post).document()
-        
-        let post = Post(id: document.documentID,
-                        type: type,
-                        image: .empty,
-                        content: content,
-                        likeCount: [],
-                        createdTime: createdTime,
-                        authorId: "test",
-                        authorName: authorName,
-                        authorImage: authorImage,
-                        tags: [],
-                        vote: [])
-        
-        firebase.save(to: document, data: post)
+        firebase.save(to: doc, data: post)
         
         self.dismiss(animated: true, completion: nil)
     }

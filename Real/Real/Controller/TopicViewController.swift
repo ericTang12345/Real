@@ -17,7 +17,7 @@ class TopicViewController: BaseViewController {
         }
     }
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
     var posts: [Post] = []
     
@@ -72,7 +72,6 @@ class TopicViewController: BaseViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
 }
 

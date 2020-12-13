@@ -38,15 +38,22 @@ class BaseViewController: UIViewController {
         return false
     }
     
+    var isHideKeyboardWhenTappedAround: Bool {
+        
+        return false
+    }
+    
+    let firebase = FirebaseManager.shared
+    
+    let userManager = UserManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        UserManager.shared.getRandomImage()
-        
+                
         UIApplication.shared.sendAction(
             #selector(UIApplication.resignFirstResponder),
             to: nil, from: nil, for: nil
@@ -57,19 +64,11 @@ class BaseViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = isHideNavigationBar
         
         self.navigationItem.hidesBackButton = isHideBackButton
-    }
-    
-    func hideKeyboardWhenTappedAround() {
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-
-    }
-
-    @objc func dismissKeyboard() {
-        
-        view.endEditing(true)
+        if isHideKeyboardWhenTappedAround {
+            
+           hideKeyboardWhenTappedAround()
+        }
     }
 }
 
@@ -101,5 +100,18 @@ extension UIViewController {
         }
         
         return controller
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+
+    }
+
+    @objc func dismissKeyboard() {
+        
+        view.endEditing(true)
     }
 }

@@ -19,7 +19,7 @@ class RandomNameEditorViewController: BaseViewController {
     
     var adjNames: [RandomAdjName] = []
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
