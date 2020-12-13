@@ -17,7 +17,7 @@ class TopicViewController: BaseViewController {
         }
     }
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
     var posts: [Post] = []
     

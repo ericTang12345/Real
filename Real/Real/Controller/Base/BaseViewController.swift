@@ -43,6 +43,10 @@ class BaseViewController: UIViewController {
         return false
     }
     
+    let firebase = FirebaseManager.shared
+    
+    let userManager = UserManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

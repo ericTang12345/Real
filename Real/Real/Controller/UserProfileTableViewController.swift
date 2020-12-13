@@ -13,6 +13,8 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    @IBOutlet weak var isReceiveSwitch: UISwitch!
+    
     let firebase = FirebaseManager.shared
     
     let userManager = UserManager.shared
@@ -33,6 +35,8 @@ class UserProfileTableViewController: UITableViewController {
         
         userImageView.loadImage(urlString: userManager.userData?.randomImage ?? .empty)
         
+        isReceiveSwitch.isOn = userManager.userData?.isReceiveDriftingBottle ?? true
+        
         tableView.reloadData()
     }
     
@@ -45,6 +49,16 @@ class UserProfileTableViewController: UITableViewController {
     @IBAction func signInWithApple(_ sender: CustomizeButton) {
         
         authManager.performSignin(self)
+    }
+    
+    @IBAction func switchReceiveStatus(_ sender: UISwitch) {
+        
+        firebase.update(
+            collectionName: .user,
+            documentId: userManager.userID,
+            key: "isReceiveDriftingBottle",
+            value: sender.isOn
+        )
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

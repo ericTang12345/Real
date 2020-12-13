@@ -35,9 +35,9 @@ class AddNewPostViewController: BaseViewController {
     
     weak var contentDelegate: AddNewPostContentDelegate?
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
-    let userManager = UserManager.shared
+//    let userManager = UserManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

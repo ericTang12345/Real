@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4u-OK-n6z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4u-OK-n6z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -338,6 +338,9 @@
                                         <rect key="frame" x="322" y="16" width="30" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="送出"/>
+                                        <connections>
+                                            <action selector="saveToFirebase:" destination="l8W-Ij-JrS" eventType="touchUpInside" id="SJk-ux-mpH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -502,8 +505,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="fill" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-Mx-Z6R">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="fill" translatesAutoresizingMaskIntoConstraints="NO" id="d5S-Mx-Z6R">
                                                     <rect key="frame" x="345" y="9.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchReceiveStatus:" destination="zSP-qU-L8J" eventType="valueChanged" id="srU-q8-kRw"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -593,6 +599,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="個人" id="Rfv-kI-QZz"/>
                     <connections>
+                        <outlet property="isReceiveSwitch" destination="d5S-Mx-Z6R" id="kje-zS-tK6"/>
                         <outlet property="userImageView" destination="xsB-6B-96d" id="xqu-qZ-QPf"/>
                         <outlet property="userNameLabel" destination="a1N-lv-R2R" id="2aK-qH-y2J"/>
                     </connections>
@@ -1236,7 +1243,7 @@
     </scenes>
     <designables>
         <designable name="Kbu-V9-qZv">
-            <size key="intrinsicContentSize" width="182.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="163" height="23.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1248,7 +1255,7 @@
         <image name="Post" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Topic" width="26.666666030883789" height="26.666666030883789"/>
         <image name="animal" width="128" height="128"/>
-        <image name="applelogo" catalog="system" width="128" height="121"/>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="circle" catalog="system" width="128" height="121"/>

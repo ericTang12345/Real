@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     
     var posts: [Post] = []
     
-    let firebase = FirebaseManager.shared
+//    let firebase = FirebaseManager.shared
     
     var passData: Post?
     
