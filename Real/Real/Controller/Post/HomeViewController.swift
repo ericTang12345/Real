@@ -116,6 +116,10 @@ extension HomeViewController: UITableViewDataSource {
             nibName: PostTableViewCell.nibName,
             identifier: .cell(identifier: .post)
         )
+        
+        tableView.registerCellWithNib(nibName: PostMainTableViewCell.nibName, identifier: "PostMainCell")
+        
+        tableView.registerCellWithNib(nibName: InteractionTableViewCell.nibName, identifier: "InteractionCell")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -125,20 +129,69 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return posts[section].images.count == 0 ? 2 : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
+        switch indexPath.row {
+        
+        case 0:
             
-            return .emptyCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostMainCell", for: indexPath) as? PostMainTableViewCell else {
+                
+                return .emptyCell
+            }
+            
+            return cell
+        
+        case 1:
+            
+            if posts[indexPath.section].images.count == 0 {
+                
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "InteractionCell", for: indexPath) as? InteractionTableViewCell else {
+                    
+                    return .emptyCell
+                }
+                
+                return cell
+                
+            } else {
+                
+//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostImagesCell", for: indexPath) as? PostImageTableViewCell else {
+//
+//                    return .emptyCell
+//                }
+//
+//                return cell
+                
+                return.emptyCell
+                
+            }
+        
+        case 2:
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostMainCell", for: indexPath) as? PostMainTableViewCell else {
+                
+                return .emptyCell
+            }
+            
+            return cell
+        
+        default: return .emptyCell
+        
         }
         
-        cell.delegate = self
         
-        cell.setup(data: posts[indexPath.section])
-    
-        return cell
+//        guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
+//
+//            return .emptyCell
+//        }
+//
+//        cell.delegate = self
+//
+//        cell.setup(data: posts[indexPath.section])
+//
+//        return cell
     }
 }

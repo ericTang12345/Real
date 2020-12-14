@@ -40,12 +40,14 @@ class BaseViewController: UIViewController {
     
     var isHideKeyboardWhenTappedAround: Bool {
         
-        return false
+        return true
     }
     
     let firebase = FirebaseManager.shared
     
     let userManager = UserManager.shared
+    
+    let storage = FirebaseStorageManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +67,7 @@ class BaseViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = isHideBackButton
         
-        if isHideKeyboardWhenTappedAround {
+        if !isHideKeyboardWhenTappedAround {
             
            hideKeyboardWhenTappedAround()
         }
@@ -73,6 +75,17 @@ class BaseViewController: UIViewController {
 }
 
 extension UIViewController {
+    
+    static func alertMessage(title: String, message: String) -> UIAlertController {
+        
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let done = UIAlertAction(title: "確定", style: .default, handler: nil)
+        
+        controller.addAction(done)
+        
+        return controller
+    }
     
     static func alertTextField(config: AlertConfig, handler: @escaping (String) -> Void) -> UIAlertController {
         

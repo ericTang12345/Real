@@ -106,7 +106,7 @@ class PostTableViewCell: UITableViewCell {
         
         sender.isSelected = !sender.isSelected
         
-        guard let post = post, let delegate = delegate else {
+        guard let post = post else {
             
             print("post or delegate is nil in PostTableViewCell")
             

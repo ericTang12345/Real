@@ -20,9 +20,9 @@ class FirebaseStorageManager {
     
     private init() {}
     
-    func uploadImage(image: UIImage, folder: StorageFolder, id: String?, handler: @escaping (Result<String>) -> Void) {
+    func uploadImage(image: UIImage, folder: StorageFolder, id: String, handler: @escaping (Result<String>) -> Void) {
         
-        let storageRef = Storage.storage().reference().child(folder.rawValue).child(id ?? NSUUID().uuidString)
+        let storageRef = Storage.storage().reference().child(folder.rawValue).child(id)
         
         guard let data = image.jpegData(compressionQuality: 0.7) else { return }
         

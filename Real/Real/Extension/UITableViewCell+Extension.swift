@@ -28,6 +28,8 @@ enum CellId: String {
     case receiverMessage = "ReceiverMessageCell"
     
     case driftingBottle = "DriftingBottleCell"
+    
+    case chatList = "ChatListCell"
 }
 
 extension UITableViewCell {

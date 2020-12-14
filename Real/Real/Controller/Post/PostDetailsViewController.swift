@@ -27,10 +27,6 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-//    let firebase = FirebaseManager.shared
-    
-//    let userManager = UserManager.shared
-    
     var comments: [Comment] = []
     
     var post: Post?
@@ -120,14 +116,7 @@ class PostDetailsViewController: BaseViewController {
         
         let document = firebase.getCollection(name: .comment).document()
         
-        let comment = Comment(id: document.documentID,
-                              content: content,
-                              likeCount: [],
-                              createdTime: firebase.currentTimestamp,
-                              author: userManager.userID,
-                              postId: postId,
-                              authorName: "weakself",
-                              authorImage: "")
+        let comment = Comment(id: document.documentID, content: content, postId: postId)
         
         firebase.save(to: document, data: comment)
         

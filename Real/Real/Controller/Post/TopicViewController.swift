@@ -17,16 +17,11 @@ class TopicViewController: BaseViewController {
         }
     }
     
-//    let firebase = FirebaseManager.shared
-    
     var posts: [Post] = []
     
     var passData: Post?
     
-    override var segues: [String] {
-        
-        return ["SeguePostDetails"]
-    }
+    override var segues: [String] { return ["SeguePostDetails"] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +36,7 @@ class TopicViewController: BaseViewController {
         
         if segue.identifier == segues[0] {
             
-            guard let nextViewController = segue.destination as? PostDetailsViewController else {
-                
-                return
-            }
+            guard let nextViewController = segue.destination as? PostDetailsViewController else { return }
             
             nextViewController.post = self.passData
         }
@@ -137,35 +129,43 @@ extension TopicViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let vote = posts[section].vote
+        let votes = posts[section].vote
         
-        return vote.count == 0 ? 1 : (vote.count)
+        let images = posts[section].images
+        
+        if votes.isEmpty && images.isEmpty { return 2 }
+        
+        if !votes.isEmpty && !images.isEmpty { return 4 }
+        
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
+//        switch indexPath.row {
+//
+//        case 0:
+//
+//            guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
+//
+//                return .emptyCell
+//            }
+//
+//            cell.delegate = self
+//
+//            cell.setup(data: posts[indexPath.section])
+//
+//            return cell
+//
+//        default:
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "VoteCell", for: indexPath)
+//
+//            cell.textLabel?.text = posts[indexPath.section].vote[indexPath.row]
+//
+//            return cell
+//        }
         
-        case 0:
-            
-            guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            cell.delegate = self
-            
-            cell.setup(data: posts[indexPath.section])
-            
-            return cell
-            
-        default:
-        
-            let cell = tableView.dequeueReusableCell(withIdentifier: "VoteCell", for: indexPath)
-            
-            cell.textLabel?.text = posts[indexPath.section].vote[indexPath.row]
-            
-            return cell
-        }
+        return UITableViewCell()
     }
 }

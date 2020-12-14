@@ -45,7 +45,7 @@ class ChatViewController: BaseViewController {
     let mockData: [Message] = [
         Message(receiver: "極品紅茶", provider: "選擇困難的 鴛鴦奶茶", message: "中午吃啥"),
         Message(receiver: "選擇困難的 鴛鴦奶茶", provider: "極品紅茶", message: "每？給？"),
-        Message(receiver: "極品紅茶", provider: "選擇困難的 鴛鴦奶茶", message: " (•ิ_•ิ)?")
+        Message(receiver: "極品紅茶", provider: "選擇困難的 鴛鴦奶茶", message: "所謂成年人的交往，就是不斷地欺騙自己，欺騙對方。自己知道在被對方欺騙，對方也知道在被自己欺騙，自己也知道在被自己欺騙，就是如此。")
     ]
     
     override var isHideTabBar: Bool {

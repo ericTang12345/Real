@@ -25,3 +25,25 @@ struct Comment: Codable {
     
     let authorImage: String
 }
+
+extension Comment {
+    
+    init(id: String, content: String, postId: String) {
+        
+        self.id = id
+        
+        self.content = content
+        
+        self.likeCount = []
+        
+        self.createdTime = FIRTimestamp()
+        
+        self.author = UserManager.shared.userData!.id
+        
+        self.postId = postId
+        
+        self.authorName = UserManager.shared.userData!.randomName
+        
+        self.authorImage = UserManager.shared.userData!.randomImage
+    }
+}

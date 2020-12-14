@@ -17,7 +17,9 @@ class UserMessageTableViewCell: UITableViewCell {
             
             messageLabel.backgroundColor = .black
             
-            messageLabel.layer.cornerRadius = 15
+//            messageLabel.layer.cornerRadius = messageLabel.frame.height * 0.5
+            
+            print("U:", messageLabel.frame.height)
             
             messageLabel.clipsToBounds = true
             

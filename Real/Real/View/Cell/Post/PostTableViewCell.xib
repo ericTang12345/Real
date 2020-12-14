@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="58.5"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</mutableString>
+                                        <string key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="15" name="PingFangTC-Regular"/>

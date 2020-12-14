@@ -13,7 +13,7 @@ struct Post: Codable {
     
     let type: String
     
-    let image: String
+    let images: [String]
     
     let content: String
     
@@ -36,13 +36,13 @@ struct Post: Codable {
 
 extension Post {
     
-    init(id: String, type: String, image: String, content: String, tags: [String], vote: [String]) {
+    init(id: String, type: String, images: [String], content: String, tags: [String], vote: [String]) {
         
         self.id = id
         
         self.type = type
         
-        self.image = image
+        self.images = images
         
         self.content = content
         

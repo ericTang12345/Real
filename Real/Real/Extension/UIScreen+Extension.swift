@@ -9,8 +9,8 @@ import UIKit
 
 extension UIScreen {
     
-    var fullSize: CGSize {
+    static var fullSize: CGSize {
         
-        return bounds.size
+        return UIScreen.main.bounds.size
     }
 }

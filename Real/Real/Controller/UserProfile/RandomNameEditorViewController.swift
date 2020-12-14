@@ -19,8 +19,6 @@ class RandomNameEditorViewController: BaseViewController {
     
     var adjNames: [RandomAdjName] = []
     
-//    let firebase = FirebaseManager.shared
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,15 +132,40 @@ class RandomNameEditorViewController: BaseViewController {
         
         let title = segmentedControl.selectedSegmentIndex == 0 ? "形容詞" : "主詞"
         
-        let config = AlertConfig(title: "新增", message: "請輸入想要增加的\(title)", placeholder: title)
-        
-        present(.alertTextField(config: config, handler: { [weak self] text in
-            
-            self?.save(text: text)
-            
-            self?.reloadTableData()
-            
-        }), animated: true, completion: nil)
+        let alert = UIAlertController(title: "新增", message: "請輸入想要增加的\(title)\n勿超過 10 個字", preferredStyle: .alert)
+
+        let done = UIAlertAction(title: "加入", style: .default) { (_) in
+
+            guard let textField = alert.textFields?[0], let text = textField.text else { return }
+
+            if text.count > 10 {
+
+                self.present(alert, animated: true) {
+
+                    alert.view.shake()
+                }
+
+            } else {
+
+                self.save(text: text)
+
+                self.reloadTableData()
+            }
+
+        }
+
+        alert.addAction(done)
+
+        let cancel = UIAlertAction(title: "返回", style: .default, handler: nil)
+
+        alert.addAction(cancel)
+
+        alert.addTextField { (textField) in
+
+            textField.placeholder = title
+        }
+
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -173,8 +196,6 @@ extension RandomNameEditorViewController {
             
             case .success(let data):
                 
-                print("main", data)
-                
                 self?.mainNames = data
                 
                 self?.reloadTableData()
@@ -196,9 +217,7 @@ extension RandomNameEditorViewController {
             switch result {
             
             case .success(let data):
-                
-                print("adj", data)
-                
+                                
                 self.adjNames = data
                 
                 self.reloadTableData()

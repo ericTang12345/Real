@@ -18,12 +18,10 @@ class ReceiverTableViewCell: UITableViewCell {
             messageLabel.textColor = .white
             
             messageLabel.backgroundColor = .black
-            
-            messageLabel.layer.cornerRadius = 15
+        
+            print("R:", messageLabel.frame.height)
             
             messageLabel.clipsToBounds = true
-            
-//            messageLabel.setupBorder(width: 0.8, color: .lightGray)
         }
     }
     
