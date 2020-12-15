@@ -1,14 +1,18 @@
 //
-//  PostMainTableViewCell.swift
+//  BaseTableViewCell.swift
 //  Real
 //
-//  Created by 唐紹桓 on 2020/12/14.
+//  Created by 唐紹桓 on 2020/12/15.
 //
 
 import UIKit
 
-class PostMainTableViewCell: UITableViewCell {
-
+class BaseTableViewCell: UITableViewCell {
+    
+    let firebase = FirebaseManager.shared
+    
+    let userManager = UserManager.shared
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +23,4 @@ class PostMainTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

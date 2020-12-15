@@ -1,78 +1,53 @@
 //
-//  PostTableViewCell.swift
+//  InteractionTableViewCell.swift
 //  Real
 //
-//  Created by 唐紹桓 on 2020/11/26.
+//  Created by 唐紹桓 on 2020/12/14.
 //
 
 import UIKit
 
-protocol PostTableViewCellDelegate: AnyObject {
+protocol InteractionTableViewCellDelegate: AnyObject {
     
-    func reloadView(cell: PostTableViewCell)
+    func interactionReloadView(cell: UITableViewCell)
     
-    func goToPostDetails(cell: PostTableViewCell)
+    func goToPostDetails(cell: UITableViewCell)
 }
 
-class PostTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var moreButton: UIButton!
-    
-    @IBOutlet weak var likeButton: UIButton!
+class InteractionTableViewCell: BaseTableViewCell {
 
+    @IBOutlet weak var commentLabel: UIButton!
+    
     @IBOutlet weak var bookmarkButton: UIButton!
     
-    @IBOutlet weak var commentButton: UIButton!
-    
-    @IBOutlet weak var lineView: UIView!
-    
-    @IBOutlet weak var headPhotoImageView: UIImageView!
-    
-    @IBOutlet weak var randomNameLabel: UILabel!
-    
-    @IBOutlet weak var createdTimeLabel: UILabel!
-    
-    @IBOutlet weak var contentLabel: UILabel!
-    
-    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var likeCountLabel: UILabel!
     
-    weak var delegate: PostTableViewCellDelegate?
-    
-    let firebase = FirebaseManager.shared
-    
-    let userManager = UserManager.shared
+    @IBOutlet weak var commentCountLabel: UILabel!
     
     var post: Post?
     
+    weak var delegate: InteractionTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
     func setup(data: Post) {
         
         self.post = data
         
-        headPhotoImageView.loadImage(urlString: data.authorImage, placeHolder: #imageLiteral(resourceName: "animal"))
-        
-        randomNameLabel.text = data.authorName
-        
-        createdTimeLabel.text = data.createdTime.compareCurrentTime()
-        
-        contentLabel.text = data.content
-        
-        likeCountLabel.text = data.likeCount.count == 0 ? "0" : String(data.likeCount.count)
-    
         getCommentCount(postId: data.id)
         
-        // 查看更多
-        
-        moreButton.isHidden = contentLabel.numberOfLines == 0 ? true : contentLabel.textCount <= 4
+        likeCountLabel.text = data.likeCount.count == 0 ? "0" : String(data.likeCount.count)
         
         likeButton.isSelected = data.likeCount.contains(userManager.userID)
         
@@ -103,12 +78,12 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func bookmark(_ sender: UIButton) {
-        
+    
         sender.isSelected = !sender.isSelected
         
         guard let post = post else {
             
-            print("post or delegate is nil in PostTableViewCell")
+            print("post or delegate is nil in InteractionTableViewCell")
             
             return
         }
@@ -129,20 +104,20 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func addComment(_ sender: UIButton) {
+    @IBAction func comment(_ sender: UIButton) {
         
         guard let delegate = delegate else { return }
         
         delegate.goToPostDetails(cell: self)
     }
     
-    @IBAction func likePost(_ sender: UIButton) {
+    @IBAction func like(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
         
         guard let post = post, let delegate = delegate else {
             
-            print("post or delegate is nil in PostTableViewCell")
+            print("post or delegate is nil in InteractionTableViewCell")
             
             return
         }
@@ -162,17 +137,6 @@ class PostTableViewCell: UITableViewCell {
             ])
         }
         
-        delegate.reloadView(cell: self)
-    }
-    
-    @IBAction func moreContent(_ sender: UIButton) {
-        
-        contentLabel.numberOfLines = 0
-        
-        moreButton.isHidden = true
-        
-        guard let delegate = delegate else { return }
-        
-        delegate.reloadView(cell: self)
+        delegate.interactionReloadView(cell: self)
     }
 }

@@ -11,11 +11,11 @@ class PostDetailsViewController: BaseViewController {
     
     @IBOutlet var keyboardToolView: UIView!
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: BaseTableView! {
         
         didSet {
             
-            tableViewSetup()
+            tableView.registerNib()
         }
     }
     
@@ -130,21 +130,6 @@ extension PostDetailsViewController: UITableViewDelegate {
 
 extension PostDetailsViewController: UITableViewDataSource {
     
-    func tableViewSetup() {
-        
-        tableView.registerCellWithNib(
-            nibName: PostTableViewCell.nibName,
-            identifier: .cell(identifier: .post)
-        )
-        
-        tableView.registerCellWithNib(
-            nibName: CommentTableViewCell.nibName,
-            identifier: .cell(identifier: .comment)
-        )
-        
-        tableView.rowHeight = UITableView.automaticDimension
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
@@ -152,59 +137,97 @@ extension PostDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 0 ? 1 : comments.count
+        switch section {
+        
+        case 0:
+            
+            return 2
+            
+        case 1:
+            
+            return comments.count
+            
+        default:
+            
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let post = self.post else { return .emptyCell }
         
         switch indexPath.section {
         
         case 0:
             
-            guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            cell.contentLabel.numberOfLines = 0
-            
-            cell.moreButton.isHidden = true
-            
-            guard let post = self.post else {
-                
-                return .emptyCell
-            }
-            
-            cell.delegate = self
+            let cell = tableView.reuse(PostMainTableViewCell.self, indexPath: indexPath)
             
             cell.setup(data: post)
             
             return cell
-        
-        case 1:
             
-            guard let cell = tableView.reuseCell(.comment, indexPath) as? CommentTableViewCell else {
-                
-                return .emptyCell
-            }
+        case 1:
+        
+            let cell = tableView.reuse(CommentTableViewCell.self, indexPath: indexPath)
             
             cell.setup(data: comments[indexPath.row])
             
             return cell
-        
+
         default:
             
             return .emptyCell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.section {
+        
+        case 0:
+            
+            switch indexPath.row {
+            
+            case 1: return post?.images.count == 0 ? UITableView.automaticDimension : 150
+                
+            default: return UITableView.automaticDimension
+                
+            }
+        
+        default: return UITableView.automaticDimension
+        
+        }
+    }
 }
 
-extension PostDetailsViewController: PostTableViewCellDelegate {
-    
-    func reloadView(cell: PostTableViewCell) {
-        
+extension PostDetailsViewController: PostMainTableViewCellDelegate {
+
+    func postReloadView(cell: UITableViewCell) {
+
         tableView.reloadData()
     }
-    
-    func goToPostDetails(cell: PostTableViewCell) {}
 }
+
+extension PostDetailsViewController: InteractionTableViewCellDelegate {
+    
+    func goToPostDetails(cell: UITableViewCell) {
+        
+        performSegue(withIdentifier: segues[0], sender: nil)
+    }
+    
+    func interactionReloadView(cell: UITableViewCell) {
+
+        tableView.reloadData()
+    }
+}
+
+//extension PostDetailsViewController: PostTableViewCellDelegate {
+//
+//    func reloadView(cell: PostTableViewCell) {
+//
+//        tableView.reloadData()
+//    }
+//
+//    func goToPostDetails(cell: PostTableViewCell) {}
+//}

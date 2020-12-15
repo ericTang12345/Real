@@ -19,6 +19,13 @@ struct VoteSetting {
     let textCount: Int
 }
 
+enum PostType {
+    
+    case post
+    
+    case topic
+}
+
 class AddNewPostViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,6 +53,8 @@ class AddNewPostViewController: BaseViewController {
     var voteItems: [String] = []
     
     var voteSetting = VoteSetting(voteTime: 1, textCount: 30)
+    
+    var postType: PostType = .post
     
     override var isHideKeyboardWhenTappedAround: Bool { false }
     
@@ -88,9 +97,7 @@ class AddNewPostViewController: BaseViewController {
                 case .success(let url):
                     
                     urls.append(url)
-                    
-                    print("urls test", urls)
-                    
+
                     if urls.count == self.images.count {
                         
                         handler(urls)
@@ -132,17 +139,26 @@ class AddNewPostViewController: BaseViewController {
         
         let doc = firebase.getCollection(name: .post).document()
         
-        // 圖片
+        var post = Post(id: doc.documentID, type: type, images: [], content: content, tags: [], vote: voteItems)
         
-        getUrl(id: doc.documentID) { (urls) in
-            
-            // Post 資料
-            
-            let post = Post(id: doc.documentID, type: type, images: urls, content: content, tags: [], vote: [])
+        // 圖片
+    
+        if images.isEmpty {
             
             self.firebase.save(to: doc, data: post)
             
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
+            
+        } else {
+            
+            getUrl(id: doc.documentID) { (urls) in
+                
+                post.images = urls
+                
+                self.firebase.save(to: doc, data: post)
+                
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -150,13 +166,19 @@ class AddNewPostViewController: BaseViewController {
     
     @IBAction func switchPostType(_ sender: UIButton) {
     
-        if !sender.isSelected {
+        switch postType {
+        
+        case .post:
+            
+            postType = .topic
             
             voteButton.isEnabled = true
             
             voteButton.imageView?.tintColor = .black
             
-        } else {
+        case .topic:
+    
+            postType = .post
             
             voteButton.isEnabled = false
             
@@ -172,25 +194,25 @@ class AddNewPostViewController: BaseViewController {
     
     @IBAction func openCamera(_ sender: UIButton) {
     
-        if images.count == 4 {
-            
-            return
-            
-        } else {
+        if images.count != 4 {
             
             getImage(type: .camera)
+        
+        } else {
+            
+            present(.alertMessage(title: "圖片限制", message: "圖片只能上傳四張"), animated: true, completion: nil)
         }
     }
     
     @IBAction func openPhotoAlbun(_ sender: UIButton) {
         
-        if images.count == 4 {
-            
-            return
-            
-        } else {
+        if images.count != 4 {
             
             getImage(type: .photoLibrary)
+        
+        } else {
+            
+            present(.alertMessage(title: "圖片限制", message: "圖片只能上傳四張"), animated: true, completion: nil)
         }
     }
     
@@ -241,9 +263,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
 
         switch section {
 
-        case 0: return 1
-
-        case 1: return 1
+        case 0, 1: return 1
             
         case 2: return voteItems.count == 0 ? 0 : 1
             
@@ -260,10 +280,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         
         case 0:
             
-            guard let cell = tableView.reuseCell(.postContent, indexPath) as? PostContentTableViewCell else {
-                
-                return .emptyCell
-            }
+            let cell = tableView.reuse(PostContentTableViewCell.self, indexPath: indexPath)
             
             self.contentDelegate = cell
             
@@ -273,21 +290,15 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostImagesCell", for: indexPath) as? PostImageTableViewCell else {
-                
-                return .emptyCell
-            }
-            
+            let cell = tableView.reuse(PostImageTableViewCell.self, indexPath: indexPath)
+
             cell.images = self.images
             
             return cell
             
         case 2:
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "VoteSettingCell", for: indexPath) as? VoteSettingTableViewCell else {
-                
-                return .emptyCell
-            }
+            let cell = tableView.reuse(VoteSettingTableViewCell.self, indexPath: indexPath)
             
             cell.setup(voteSetting)
             
@@ -297,7 +308,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "VoteCell", for: indexPath)
             
-            cell.textLabel?.text = voteItems[indexPath.row]
+            cell.textLabel?.text =  "選項 \(indexPath.row+1) :  \(voteItems[indexPath.row])"
             
             return cell
             
@@ -310,9 +321,9 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.section {
         
-        case 0: return UITableView.automaticDimension
-        
         case 1: return images.count == 0 ? 1 : 150
+        
+        case 3: return 30
             
         default: return UITableView.automaticDimension
             

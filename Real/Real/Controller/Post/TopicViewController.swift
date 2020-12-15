@@ -66,21 +66,21 @@ class TopicViewController: BaseViewController {
         }
     }
 }
-
-extension TopicViewController: PostTableViewCellDelegate {
-    
-    func goToPostDetails(cell: PostTableViewCell) {
-        
-        self.passData = cell.post
-        
-        performSegue(withIdentifier: segues[0], sender: nil)
-    }
-    
-    func reloadView(cell: PostTableViewCell) {
-
-        tableView.reloadData()
-    }
-}
+//
+//extension TopicViewController: PostTableViewCellDelegate {
+//
+//    func goToPostDetails(cell: PostTableViewCell) {
+//
+//        self.passData = cell.post
+//
+//        performSegue(withIdentifier: segues[0], sender: nil)
+//    }
+//
+//    func reloadView(cell: PostTableViewCell) {
+//
+//        tableView.reloadData()
+//    }
+//}
 
 extension TopicViewController: UITableViewDelegate {
     
@@ -114,12 +114,18 @@ extension TopicViewController: UITableViewDataSource {
     
     func tableViewSetup() {
         
-        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.registerCellWithNib(
+//            nibName: PostTableViewCell.nibName,
+//            identifier: .cell(identifier: .post)
+//        )
+  
+//        tableView.registerCellWithNib(cell: <#T##UITableViewCell.Type#>)
         
-        tableView.registerCellWithNib(
-            nibName: PostTableViewCell.nibName,
-            identifier: .cell(identifier: .post)
-        )
+//        tableView.registerCellWithNib(nibName: PostMainTableViewCell.nibName, identifier: "PostMainCell")
+//
+//        tableView.registerCellWithNib(nibName: InteractionTableViewCell.nibName, identifier: "InteractionCell")
+//
+//        tableView.registerCellWithNib(nibName: PostImageTableViewCellNib.nibName, identifier: "PostImageCellNib")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,15 +135,15 @@ extension TopicViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let votes = posts[section].vote
+        var count = 2
         
-        let images = posts[section].images
+        let post = posts[section]
         
-        if votes.isEmpty && images.isEmpty { return 2 }
+        if post.vote.isEmpty { count += 1 }
         
-        if !votes.isEmpty && !images.isEmpty { return 4 }
+        if post.images.isEmpty { count += 1 }
         
-        return 3
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -167,5 +173,26 @@ extension TopicViewController: UITableViewDataSource {
 //        }
         
         return UITableViewCell()
+    }
+}
+
+extension TopicViewController: PostMainTableViewCellDelegate {
+
+    func postReloadView(cell: UITableViewCell) {
+
+        tableView.reloadData()
+    }
+}
+
+extension TopicViewController: InteractionTableViewCellDelegate {
+    
+    func goToPostDetails(cell: UITableViewCell) {
+        
+        performSegue(withIdentifier: segues[0], sender: nil)
+    }
+    
+    func interactionReloadView(cell: UITableViewCell) {
+
+        tableView.reloadData()
     }
 }

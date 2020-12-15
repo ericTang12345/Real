@@ -67,12 +67,14 @@ class TimeBoxViewController: BaseViewController {
     
     var collections: [Post] = []
     
+    var post: Post?
+    
+    override var segues: [String] { ["SegueToPostDetails"] }
+    
     override var isHideTabBar: Bool { return true }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(selectIndex)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -80,10 +82,18 @@ class TimeBoxViewController: BaseViewController {
         
         fetch()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == segues[0] {
+            
+            guard let nextViewController = segue.destination as? PostDetailsViewController else { return }
+            
+            nextViewController.post = self.post
+        }
+    }
 
     func fetch() {
-        
-        let postFilter = Filter(key: "authorId", value: userManager.userData?.id)
         
         firebase.read(collectionName: .post, dataType: Post.self) { (result) in
             
@@ -95,7 +105,7 @@ class TimeBoxViewController: BaseViewController {
                 
                 var posts: [Post] = []
                 
-                for item in data where item.authorId == self.userManager.userData?.id {
+                for item in data where item.authorId == self.userManager.userID {
                     
                     posts.append(item)
                 }
@@ -106,7 +116,7 @@ class TimeBoxViewController: BaseViewController {
                 
                 var collections: [Post] = []
                 
-                for item in data where item.collection.contains(self.userManager.userData!.id) {
+                for item in data where item.collection.contains(self.userManager.userID) {
                     
                     collections.append(item)
                 }
@@ -121,7 +131,7 @@ class TimeBoxViewController: BaseViewController {
             }
         }
         
-        let driftingBottleFilter = Filter(key: "provider", value: userManager.userData?.id)
+        let driftingBottleFilter = Filter(key: "provider", value: userManager.userID)
         
         firebase.read(collectionName: .driftingBottle, dataType: DriftingBottle.self, filter: driftingBottleFilter) { (result) in
             
@@ -246,6 +256,22 @@ extension TimeBoxViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         
-        print("pagerView selected index: \(index)")
+        switch selectIndex {
+        
+        case 0:
+            
+            self.post = posts[index]
+        
+            performSegue(withIdentifier: segues[0], sender: nil)
+        
+        case 2:
+            
+            self.post = collections[index]
+        
+            performSegue(withIdentifier: segues[0], sender: nil)
+            
+        default: break
+        
+        }
     }
 }

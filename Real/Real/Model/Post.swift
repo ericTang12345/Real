@@ -13,7 +13,7 @@ struct Post: Codable {
     
     let type: String
     
-    let images: [String]
+    var images: [String]
     
     let content: String
     

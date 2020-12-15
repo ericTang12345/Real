@@ -18,8 +18,6 @@ class ReceiverTableViewCell: UITableViewCell {
             messageLabel.textColor = .white
             
             messageLabel.backgroundColor = .black
-        
-            print("R:", messageLabel.frame.height)
             
             messageLabel.clipsToBounds = true
         }

@@ -23,6 +23,8 @@ class FrontCollectionViewCell: FSPagerViewCell {
     
     @IBOutlet weak var emptyView: UIView!
     
+    @IBOutlet weak var postImageView: UIImageView!
+    
     let firebase = FirebaseManager.shared
     
     override func awakeFromNib() {
@@ -40,6 +42,15 @@ class FrontCollectionViewCell: FSPagerViewCell {
         self.contentLabel.text = data.content
         
         self.createdTimeLabel.text = data.createdTime.timeStampToStringDetail()
+        
+        if data.images.count != 0 {
+            
+            postImageView.loadImage(urlString: data.images[0])
+        
+        } else {
+            
+            postImageView.image = nil
+        }
         
         likeCountLabel.text = String(data.likeCount.count)
         

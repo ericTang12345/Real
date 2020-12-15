@@ -11,11 +11,11 @@ import Firebase
 
 class HomeViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: BaseTableView! {
         
         didSet {
             
-            tableViewSetup()
+            tableView.registerNib()
         }
     }
     
@@ -79,21 +79,6 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: PostTableViewCellDelegate {
-    
-    func goToPostDetails(cell: PostTableViewCell) {
-        
-        self.passData = cell.post
-        
-        performSegue(withIdentifier: segues[0], sender: nil)
-    }
-
-    func reloadView(cell: PostTableViewCell) {
-        
-        tableView.reloadData()
-    }
-}
-
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,20 +93,6 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     
-    func tableViewSetup() {
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        tableView.registerCellWithNib(
-            nibName: PostTableViewCell.nibName,
-            identifier: .cell(identifier: .post)
-        )
-        
-        tableView.registerCellWithNib(nibName: PostMainTableViewCell.nibName, identifier: "PostMainCell")
-        
-        tableView.registerCellWithNib(nibName: InteractionTableViewCell.nibName, identifier: "InteractionCell")
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return posts.count
@@ -129,69 +100,78 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return posts[section].images.count == 0 ? 2 : 3
+        return posts[section].images.isEmpty == true ? 2 : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let sort = self.tableView.sortByCell(posts[indexPath.section])
+        
+        let post = posts[indexPath.section]
+        
+        switch sort[indexPath.row] {
+        
+        case .main(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+
+            cell.setup(data: post)
+            
+            return cell
+            
+        case .image(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.setup(data: post)
+                    
+            return cell
+        
+        case .interaction(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.delegate = self
+            
+            cell.setup(data: post)
+            
+            return cell
+        }
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         switch indexPath.row {
         
-        case 0:
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostMainCell", for: indexPath) as? PostMainTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            return cell
+        case 0: return UITableView.automaticDimension
         
-        case 1:
-            
-            if posts[indexPath.section].images.count == 0 {
-                
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "InteractionCell", for: indexPath) as? InteractionTableViewCell else {
-                    
-                    return .emptyCell
-                }
-                
-                return cell
-                
-            } else {
-                
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostImagesCell", for: indexPath) as? PostImageTableViewCell else {
-//
-//                    return .emptyCell
-//                }
-//
-//                return cell
-                
-                return.emptyCell
-                
-            }
+        case 1: return posts[indexPath.section].images.count == 0 ? UITableView.automaticDimension : 120
         
-        case 2:
+        case 2: return UITableView.automaticDimension
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostMainCell", for: indexPath) as? PostMainTableViewCell else {
-                
-                return .emptyCell
-            }
-            
-            return cell
-        
-        default: return .emptyCell
+        default: return UITableView.automaticDimension
         
         }
+    }
+}
+
+extension HomeViewController: PostMainTableViewCellDelegate {
+
+    func postReloadView(cell: UITableViewCell) {
+
+        tableView.reloadData()
+    }
+}
+
+extension HomeViewController: InteractionTableViewCellDelegate {
+    
+    func goToPostDetails(cell: UITableViewCell) {
         
-        
-//        guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
-//
-//            return .emptyCell
-//        }
-//
-//        cell.delegate = self
-//
-//        cell.setup(data: posts[indexPath.section])
-//
-//        return cell
+        performSegue(withIdentifier: segues[0], sender: nil)
+    }
+    
+    func interactionReloadView(cell: UITableViewCell) {
+
+        tableView.reloadData()
     }
 }

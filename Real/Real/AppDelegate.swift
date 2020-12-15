@@ -51,9 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if userManegare.isSignin {
                 
                 print("user have sign in, id: ", userManegare.userID)
-                
-//                userManegare.switchNameAndImage()
-                
+
             } else {
                 
                 print("user not sign in")

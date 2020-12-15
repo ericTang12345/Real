@@ -27,7 +27,7 @@ class UserManager {
             
         } else {
                 
-            self.getUserData()
+            self.getUserData(nil)
             
             return true
         }
@@ -35,10 +35,7 @@ class UserManager {
     
     var userData: User?
     
-    var userID: String {
-        
-        return Auth.auth().currentUser?.uid ?? UUID().uuidString
-    }
+    var userID: String { return Auth.auth().currentUser?.uid ?? UUID().uuidString }
     
     func createUser(id: String) {
         
@@ -59,7 +56,7 @@ class UserManager {
         // update random name and image
     }
     
-    func getUserData() {
+    func getUserData(_ handler: (() -> Void)?) {
         
         let doc = firebase.getCollection(name: .user).document(userID)
         
@@ -138,7 +135,7 @@ extension UserManager {
             
             doc.updateData(["randomName": fullName, "randomImage": url])
             
-            self.getUserData()
+            self.getUserData(nil)
         }
     }
     

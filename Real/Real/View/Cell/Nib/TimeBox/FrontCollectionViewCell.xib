@@ -41,10 +41,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <attributedString key="attributedText">
                             <fragment>
-                                <mutableString key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</mutableString>
+                                <string key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <font key="NSFont" size="13" name=".PingFangTC-Regular"/>
+                                    <font key="NSFont" metaFont="system"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
@@ -96,6 +96,12 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zV9-PK-xPb">
+                        <rect key="frame" x="212" y="15" width="29" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="zV9-PK-xPb" secondAttribute="height" multiplier="1:1" id="4Jd-QN-tay"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -114,8 +120,11 @@
                 <constraint firstItem="DBC-b5-SzI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Iwp-Ub-WgI"/>
                 <constraint firstItem="moh-d4-Kwd" firstAttribute="leading" secondItem="DBC-b5-SzI" secondAttribute="leading" constant="15" id="Mbn-0W-Vwe"/>
                 <constraint firstItem="JL1-Ry-jsF" firstAttribute="trailing" secondItem="13H-4O-ZCe" secondAttribute="trailing" id="RAD-cb-sac"/>
+                <constraint firstItem="zV9-PK-xPb" firstAttribute="width" secondItem="DBC-b5-SzI" secondAttribute="width" multiplier="0.113281" id="T2d-rG-EzQ"/>
                 <constraint firstAttribute="trailing" secondItem="DBC-b5-SzI" secondAttribute="trailing" id="VQG-VJ-dRv"/>
                 <constraint firstAttribute="trailing" secondItem="13H-4O-ZCe" secondAttribute="trailing" constant="15" id="X2R-TK-hb6"/>
+                <constraint firstItem="zV9-PK-xPb" firstAttribute="trailing" secondItem="mmB-y0-y4G" secondAttribute="trailing" id="dOl-bz-ruM"/>
+                <constraint firstItem="zV9-PK-xPb" firstAttribute="top" secondItem="moh-d4-Kwd" secondAttribute="top" id="dx3-wu-eUX"/>
                 <constraint firstItem="JL1-Ry-jsF" firstAttribute="bottom" secondItem="moh-d4-Kwd" secondAttribute="bottom" id="iYP-IQ-8LW"/>
                 <constraint firstItem="mmB-y0-y4G" firstAttribute="top" secondItem="moh-d4-Kwd" secondAttribute="bottom" constant="10" id="mYz-jP-kfK"/>
                 <constraint firstItem="DBC-b5-SzI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wjg-x2-lUY"/>
@@ -130,6 +139,7 @@
                 <outlet property="createdTimeLabel" destination="JL1-Ry-jsF" id="E8n-G1-Wny"/>
                 <outlet property="emptyView" destination="DBC-b5-SzI" id="Lsa-8K-cSh"/>
                 <outlet property="likeCountLabel" destination="bWx-cj-qvg" id="91g-a8-iw2"/>
+                <outlet property="postImageView" destination="zV9-PK-xPb" id="NE7-zf-4lm"/>
             </connections>
             <point key="canvasLocation" x="330.43478260869568" y="150.66964285714286"/>
         </collectionViewCell>

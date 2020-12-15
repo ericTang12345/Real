@@ -6,6 +6,20 @@
 //
 
 import UIKit
+import Foundation
+
+protocol ReuseableView: class {
+    
+    static var defaultReuseIdentifier: String { get }
+}
+
+extension ReuseableView where Self: UIView {
+    
+    static var defaultReuseIdentifier: String {
+        
+        return String(describing: self)
+    }
+}
 
 enum CellId: String {
     
@@ -32,10 +46,9 @@ enum CellId: String {
     case chatList = "ChatListCell"
 }
 
-extension UITableViewCell {
-    
-    static let emptyCell = UITableViewCell()
+extension UITableViewCell: ReuseableView {
 
+    static let emptyCell = UITableViewCell()
 }
 
 extension String {
