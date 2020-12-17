@@ -23,8 +23,8 @@
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
 		244BF2A72587390A003053CB /* VoteSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BF2A62587390A003053CB /* VoteSettingTableViewCell.swift */; };
-		244BF2AC25874AE9003053CB /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BF2AA25874AE9003053CB /* VoteTableViewCell.swift */; };
-		244BF2AD25874AE9003053CB /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244BF2AB25874AE9003053CB /* VoteTableViewCell.xib */; };
+		244BF2AC25874AE9003053CB /* VoteItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BF2AA25874AE9003053CB /* VoteItemTableViewCell.swift */; };
+		244BF2AD25874AE9003053CB /* VoteItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244BF2AB25874AE9003053CB /* VoteItemTableViewCell.xib */; };
 		24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */; };
 		2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F974257CE4F4006ABF0D /* FirebaseManager.swift */; };
 		2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */; };
@@ -43,11 +43,7 @@
 		2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */; };
 		248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */; };
 		248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */ = {isa = PBXBuildFile; fileRef = 248CF845257D631200B9CED6 /* shutterstock_598927436.png */; };
-		2491EAF325888A4200699166 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491EAF225888A4200699166 /* BaseTableView.swift */; };
-		2491EAF62588A17700699166 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491EAF52588A17700699166 /* BaseCollectionView.swift */; };
 		2491EB002588A3CE00699166 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491EAFF2588A3CE00699166 /* UICollectionView+Extension.swift */; };
-		2491EB092588C3DF00699166 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491EB072588C3DF00699166 /* TestTableViewCell.swift */; };
-		2491EB0A2588C3DF00699166 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2491EB082588C3DF00699166 /* TestTableViewCell.xib */; };
 		24955625257979CC00F5FB21 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24955624257979CC00F5FB21 /* Comment.swift */; };
 		24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987215257CA257008CC655 /* CustomizeTextField.swift */; };
 		24987219257CA26E008CC655 /* CustomizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24987218257CA26E008CC655 /* CustomizeButton.swift */; };
@@ -60,6 +56,8 @@
 		24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0C25759F3A009A3C5E /* Post.swift */; };
 		24AE9B1025759F9D009A3C5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B0F25759F9D009A3C5E /* User.swift */; };
 		24AE9B132575A961009A3C5E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE9B122575A961009A3C5E /* UILabel+Extension.swift */; };
+		24B278CA2589A6ED00E3206D /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B278C82589A6ED00E3206D /* VoteTableViewCell.swift */; };
+		24B278CB2589A6ED00E3206D /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B278C92589A6ED00E3206D /* VoteTableViewCell.xib */; };
 		24B890A0258695E00035DEA1 /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8909F258695E00035DEA1 /* PostImageTableViewCell.swift */; };
 		24B890A3258696AD0035DEA1 /* PostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B890A2258696AD0035DEA1 /* PostImageCollectionViewCell.swift */; };
 		24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9B6D1256E537C005919A3 /* AppDelegate.swift */; };
@@ -70,6 +68,8 @@
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
 		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
 		24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */; };
+		24C3D405258ABEA6009E2BC6 /* message-in-a-bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */; };
+		24C3D408258ABF7A009E2BC6 /* message-in-a-bottle-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
 		24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */; };
@@ -104,8 +104,8 @@
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		244BF2A62587390A003053CB /* VoteSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSettingTableViewCell.swift; sourceTree = "<group>"; };
-		244BF2AA25874AE9003053CB /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
-		244BF2AB25874AE9003053CB /* VoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteTableViewCell.xib; sourceTree = "<group>"; };
+		244BF2AA25874AE9003053CB /* VoteItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteItemTableViewCell.swift; sourceTree = "<group>"; };
+		244BF2AB25874AE9003053CB /* VoteItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteItemTableViewCell.xib; sourceTree = "<group>"; };
 		24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottleViewController.swift; sourceTree = "<group>"; };
 		2452F974257CE4F4006ABF0D /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -124,11 +124,7 @@
 		2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		248CF845257D631200B9CED6 /* shutterstock_598927436.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterstock_598927436.png; sourceTree = "<group>"; };
-		2491EAF225888A4200699166 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
-		2491EAF52588A17700699166 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		2491EAFF2588A3CE00699166 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
-		2491EB072588C3DF00699166 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
-		2491EB082588C3DF00699166 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		24955624257979CC00F5FB21 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		24987215257CA257008CC655 /* CustomizeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeTextField.swift; sourceTree = "<group>"; };
 		24987218257CA26E008CC655 /* CustomizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButton.swift; sourceTree = "<group>"; };
@@ -141,6 +137,8 @@
 		24AE9B0C25759F3A009A3C5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		24AE9B0F25759F9D009A3C5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		24AE9B122575A961009A3C5E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		24B278C82589A6ED00E3206D /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
+		24B278C92589A6ED00E3206D /* VoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteTableViewCell.xib; sourceTree = "<group>"; };
 		24B8909F258695E00035DEA1 /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
 		24B890A2258696AD0035DEA1 /* PostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		24B9B6CE256E537C005919A3 /* Real.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Real.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +151,8 @@
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
 		24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
+		24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle.png"; sourceTree = "<group>"; };
+		24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle-2.png"; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C6D9B1257D8F30008A5BF2 /* FrontCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -324,9 +324,9 @@
 		2469B257258805C500702906 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				2469B24B2587F79400702906 /* PostImageCollectionViewCellNib.swift */,
 				2469B2502587F7AB00702906 /* PostImageTableViewCellNib.swift */,
 				2469B2512587F7AB00702906 /* PostImageTableViewCellNib.xib */,
+				2469B24B2587F79400702906 /* PostImageCollectionViewCellNib.swift */,
 				2469B24C2587F79400702906 /* PostImageCollectionViewCellNib.xib */,
 			);
 			path = Image;
@@ -335,8 +335,10 @@
 		2469B258258805EB00702906 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
-				244BF2AA25874AE9003053CB /* VoteTableViewCell.swift */,
-				244BF2AB25874AE9003053CB /* VoteTableViewCell.xib */,
+				24B278C82589A6ED00E3206D /* VoteTableViewCell.swift */,
+				24B278C92589A6ED00E3206D /* VoteTableViewCell.xib */,
+				244BF2AA25874AE9003053CB /* VoteItemTableViewCell.swift */,
+				244BF2AB25874AE9003053CB /* VoteItemTableViewCell.xib */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -348,8 +350,6 @@
 				2469B257258805C500702906 /* Image */,
 				2469B256258805BA00702906 /* Interaction */,
 				2469B258258805EB00702906 /* Vote */,
-				2491EB072588C3DF00699166 /* TestTableViewCell.swift */,
-				2491EB082588C3DF00699166 /* TestTableViewCell.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -361,15 +361,6 @@
 				243DA98625736216007142EA /* CommentTableViewCell.xib */,
 			);
 			path = Comment;
-			sourceTree = "<group>";
-		};
-		2491EAF125888A3500699166 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				2491EAF225888A4200699166 /* BaseTableView.swift */,
-				2491EAF52588A17700699166 /* BaseCollectionView.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		2499799B256F36C700B11DCF /* Extension */ = {
@@ -433,6 +424,7 @@
 				2453AC322576275800DAC156 /* GoogleService-Info.plist */,
 				248CF845257D631200B9CED6 /* shutterstock_598927436.png */,
 				246D3DAB257D859600AD991A /* shutterstock_1032839197.png */,
+				24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */,
 			);
 			path = Real;
 			sourceTree = "<group>";
@@ -504,11 +496,11 @@
 		24FA49C7256FB48400C38106 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2491EAF125888A3500699166 /* Base */,
 				24C604602573EE5100279877 /* CustomKit */,
 				2456844C256E7D2600FB7D3D /* Cell */,
 				24B9B6D7256E537C005919A3 /* Main.storyboard */,
 				24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */,
+				24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,13 +577,15 @@
 				24D938942587548F00E0EBA3 /* InteractionTableViewCell.xib in Resources */,
 				24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */,
 				2469B2532587F7AB00702906 /* PostImageTableViewCellNib.xib in Resources */,
+				24C3D408258ABF7A009E2BC6 /* message-in-a-bottle-2.png in Resources */,
 				24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */,
 				246D3DAC257D859700AD991A /* shutterstock_1032839197.png in Resources */,
 				24D938992587602C00E0EBA3 /* PostMainTableViewCell.xib in Resources */,
 				2469B24E2587F79400702906 /* PostImageCollectionViewCellNib.xib in Resources */,
+				24B278CB2589A6ED00E3206D /* VoteTableViewCell.xib in Resources */,
+				24C3D405258ABEA6009E2BC6 /* message-in-a-bottle.png in Resources */,
 				248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */,
-				2491EB0A2588C3DF00699166 /* TestTableViewCell.xib in Resources */,
-				244BF2AD25874AE9003053CB /* VoteTableViewCell.xib in Resources */,
+				244BF2AD25874AE9003053CB /* VoteItemTableViewCell.xib in Resources */,
 				24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */,
 				243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */,
 				24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */,
@@ -678,7 +672,6 @@
 				248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */,
 				2469B2522587F7AB00702906 /* PostImageTableViewCellNib.swift in Sources */,
 				24955625257979CC00F5FB21 /* Comment.swift in Sources */,
-				2491EAF325888A4200699166 /* BaseTableView.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
 				24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
@@ -688,7 +681,6 @@
 				24C6047025740DB000279877 /* BaseViewController.swift in Sources */,
 				2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */,
 				24D6B89A257F0E6F001FD1FA /* ReceiverTableViewCell.swift in Sources */,
-				2491EB092588C3DF00699166 /* TestTableViewCell.swift in Sources */,
 				24ACE645257FE495002D5090 /* UserManager.swift in Sources */,
 				2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
@@ -705,12 +697,11 @@
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
 				2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */,
-				244BF2AC25874AE9003053CB /* VoteTableViewCell.swift in Sources */,
+				244BF2AC25874AE9003053CB /* VoteItemTableViewCell.swift in Sources */,
 				24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */,
 				24987216257CA257008CC655 /* CustomizeTextField.swift in Sources */,
 				2435BF462580663D006B71AB /* RandomMainName.swift in Sources */,
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
-				2491EAF62588A17700699166 /* BaseCollectionView.swift in Sources */,
 				24287BCB258672F90023A510 /* ChatListViewController.swift in Sources */,
 				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
 				24B890A0258695E00035DEA1 /* PostImageTableViewCell.swift in Sources */,
@@ -723,6 +714,7 @@
 				24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */,
 				24D938932587548F00E0EBA3 /* InteractionTableViewCell.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
+				24B278CA2589A6ED00E3206D /* VoteTableViewCell.swift in Sources */,
 				24D938982587602C00E0EBA3 /* PostMainTableViewCell.swift in Sources */,
 				2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */,
 				24CBE0CF2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift in Sources */,

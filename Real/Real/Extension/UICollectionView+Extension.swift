@@ -11,6 +11,8 @@ extension UICollectionViewCell: ReuseableView {}
 
 extension UICollectionView {
     
+    // Nib
+    
     func registerCellWithNib(cell: UICollectionViewCell.Type) {
         
         let nib = UINib(nibName: cell.nibName, bundle: nil)
@@ -18,18 +20,21 @@ extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: cell.defaultReuseIdentifier)
     }
     
+    func registerNib() {
+        
+        registerCellWithNib(cell: PostImageCollectionViewCellNib.self)
+        
+    }
+    
+    // Cell
+    
     func reuse<T: UICollectionViewCell>(_ cell: T.Type, indexPath: IndexPath) -> T {
         
         guard let cell = self.dequeueReusableCell(withReuseIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T else {
             
-            fatalError()
+            fatalError("collectionView dequeue cell error in extension UICollectionView")
         }
         
         return cell
-    }
-    
-    func reuse(id: String, indexPath: IndexPath) -> UICollectionViewCell {
-        
-        return self.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
     }
 }

@@ -14,6 +14,15 @@ extension UIView {
         return String(describing: self)
     }
     
+    static var micronView: UIView {
+        
+        let view = UIView()
+        
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        
+        return view
+    }
+    
     func setup(cornerRadius: CGFloat) {
         
         self.layer.cornerRadius = cornerRadius

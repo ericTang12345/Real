@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PostMainTableViewCellDelegate: AnyObject {
+protocol PostTableViewCellDelegate: AnyObject {
     
     func postReloadView(cell: UITableViewCell)
 }
@@ -24,7 +24,7 @@ class PostMainTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var moreContentButton: UIButton!
     
-    weak var delegate: PostMainTableViewCellDelegate?
+    weak var delegate: PostTableViewCellDelegate?
         
     override func awakeFromNib() {
         super.awakeFromNib()

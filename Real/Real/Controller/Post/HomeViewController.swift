@@ -11,7 +11,7 @@ import Firebase
 
 class HomeViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: BaseTableView! {
+    @IBOutlet weak var tableView: UITableView! {
         
         didSet {
             
@@ -100,12 +100,12 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return posts[section].images.isEmpty == true ? 2 : 3
+        return tableView.sortByCell(posts[section]).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let sort = self.tableView.sortByCell(posts[indexPath.section])
+        let sort = tableView.sortByCell(posts[indexPath.section])
         
         let post = posts[indexPath.section]
         
@@ -118,6 +118,8 @@ extension HomeViewController: UITableViewDataSource {
             cell.setup(data: post)
             
             return cell
+            
+        case .vote: return .emptyCell // 心情貼文不會有投票
             
         case .image(let cell):
             
@@ -133,7 +135,7 @@ extension HomeViewController: UITableViewDataSource {
             
             cell.delegate = self
             
-            cell.setup(data: post)
+            cell.setup(data: post, index: indexPath.section)
             
             return cell
         }
@@ -155,7 +157,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: PostMainTableViewCellDelegate {
+extension HomeViewController: PostTableViewCellDelegate {
 
     func postReloadView(cell: UITableViewCell) {
 
@@ -165,7 +167,9 @@ extension HomeViewController: PostMainTableViewCellDelegate {
 
 extension HomeViewController: InteractionTableViewCellDelegate {
     
-    func goToPostDetails(cell: UITableViewCell) {
+    func goToPostDetails(cell: UITableViewCell, index: Int) {
+        
+        self.passData = posts[index]
         
         performSegue(withIdentifier: segues[0], sender: nil)
     }

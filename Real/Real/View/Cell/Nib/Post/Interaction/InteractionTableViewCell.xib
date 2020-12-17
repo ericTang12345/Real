@@ -10,38 +10,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InteractionTableViewCell" rowHeight="150" id="KGk-i7-Jjw" customClass="InteractionTableViewCell" customModule="Real" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InteractionTableViewCell" id="KGk-i7-Jjw" customClass="InteractionTableViewCell" customModule="Real" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jER-GU-bbo">
-                        <rect key="frame" x="16" y="1" width="288" height="1"/>
+                        <rect key="frame" x="16" y="6" width="288" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="6IT-VC-ZKs"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="656-W8-S3D">
-                        <rect key="frame" x="45.5" y="12" width="9.5" height="23"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="50.5" y="23" width="10" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsL-MH-HmI">
-                        <rect key="frame" x="283" y="12" width="21" height="23"/>
+                        <rect key="frame" x="278.5" y="23" width="20.5" height="28"/>
                         <state key="normal">
                             <imageReference key="image" image="bookmark" catalog="system" symbolScale="large" renderingMode="original"/>
                         </state>
-                        <state key="selected" image="bookmark.fill" catalog="system"/>
+                        <state key="selected">
+                            <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="large"/>
+                        </state>
                         <connections>
                             <action selector="bookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HCs-F0-Gts"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCK-3l-r3N">
-                        <rect key="frame" x="65" y="12" width="26" height="23.5"/>
+                        <rect key="frame" x="76.5" y="25.5" width="26" height="23.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23.5" id="1qB-ta-gpf"/>
                             <constraint firstAttribute="width" secondItem="zCK-3l-r3N" secondAttribute="height" multiplier="1:0.9" id="wW8-er-u3c"/>
@@ -54,13 +56,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-Nq-JYQ">
-                        <rect key="frame" x="97" y="12" width="10.5" height="23"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="108.5" y="23" width="10" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vY1-Bi-1Nn">
-                        <rect key="frame" x="16" y="12" width="23.5" height="23.5"/>
+                        <rect key="frame" x="21" y="25.5" width="23.5" height="23.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23.5" id="6DN-3I-pcF"/>
                             <constraint firstAttribute="width" secondItem="vY1-Bi-1Nn" secondAttribute="height" multiplier="1:1" id="maO-YV-uPv"/>
@@ -76,29 +78,29 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="656-W8-S3D" firstAttribute="top" secondItem="xsL-MH-HmI" secondAttribute="top" id="2eW-Vd-uVA"/>
-                    <constraint firstItem="xsL-MH-HmI" firstAttribute="trailing" secondItem="jER-GU-bbo" secondAttribute="trailing" id="3n6-54-pQL"/>
+                    <constraint firstItem="xsL-MH-HmI" firstAttribute="trailing" secondItem="jER-GU-bbo" secondAttribute="trailing" constant="-5" id="3n6-54-pQL"/>
                     <constraint firstItem="jER-GU-bbo" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5zw-lI-L8h"/>
                     <constraint firstItem="vY1-Bi-1Nn" firstAttribute="centerY" secondItem="xsL-MH-HmI" secondAttribute="centerY" id="7GI-KL-Dwf"/>
                     <constraint firstItem="656-W8-S3D" firstAttribute="bottom" secondItem="xsL-MH-HmI" secondAttribute="bottom" id="IOg-4z-aqN"/>
-                    <constraint firstItem="jER-GU-bbo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="LxW-LR-RM1"/>
+                    <constraint firstItem="jER-GU-bbo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="LxW-LR-RM1"/>
                     <constraint firstItem="Sa8-Nq-JYQ" firstAttribute="top" secondItem="xsL-MH-HmI" secondAttribute="top" id="bvc-BP-XPI"/>
                     <constraint firstItem="jER-GU-bbo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="c9S-HZ-pIO"/>
                     <constraint firstAttribute="trailing" secondItem="jER-GU-bbo" secondAttribute="trailing" constant="16" id="dMW-cZ-PFa"/>
                     <constraint firstItem="Sa8-Nq-JYQ" firstAttribute="bottom" secondItem="xsL-MH-HmI" secondAttribute="bottom" id="mKP-7I-wsO"/>
                     <constraint firstItem="zCK-3l-r3N" firstAttribute="centerY" secondItem="xsL-MH-HmI" secondAttribute="centerY" id="nAS-5S-X6Z"/>
-                    <constraint firstItem="xsL-MH-HmI" firstAttribute="top" secondItem="jER-GU-bbo" secondAttribute="bottom" constant="10" id="ns4-FB-WEs"/>
-                    <constraint firstItem="zCK-3l-r3N" firstAttribute="leading" secondItem="656-W8-S3D" secondAttribute="trailing" constant="10" id="oAE-3h-xsT"/>
-                    <constraint firstAttribute="bottom" secondItem="xsL-MH-HmI" secondAttribute="bottom" constant="20" id="ofO-q2-iL3"/>
+                    <constraint firstItem="xsL-MH-HmI" firstAttribute="top" secondItem="jER-GU-bbo" secondAttribute="bottom" constant="16" id="ns4-FB-WEs"/>
+                    <constraint firstItem="zCK-3l-r3N" firstAttribute="leading" secondItem="656-W8-S3D" secondAttribute="trailing" constant="16" id="oAE-3h-xsT"/>
+                    <constraint firstAttribute="bottom" secondItem="xsL-MH-HmI" secondAttribute="bottom" constant="16" id="ofO-q2-iL3"/>
                     <constraint firstItem="656-W8-S3D" firstAttribute="leading" secondItem="vY1-Bi-1Nn" secondAttribute="trailing" constant="6" id="pSt-sP-1la"/>
-                    <constraint firstItem="vY1-Bi-1Nn" firstAttribute="leading" secondItem="jER-GU-bbo" secondAttribute="leading" id="q4p-vP-9Xf"/>
+                    <constraint firstItem="vY1-Bi-1Nn" firstAttribute="leading" secondItem="jER-GU-bbo" secondAttribute="leading" constant="5" id="q4p-vP-9Xf"/>
                     <constraint firstItem="Sa8-Nq-JYQ" firstAttribute="leading" secondItem="zCK-3l-r3N" secondAttribute="trailing" constant="6" id="yJP-YA-fCV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bookmarkButton" destination="xsL-MH-HmI" id="pru-zu-7q3"/>
+                <outlet property="commentButton" destination="zCK-3l-r3N" id="RGb-0f-Hhf"/>
                 <outlet property="commentCountLabel" destination="Sa8-Nq-JYQ" id="rAc-ZT-1wI"/>
-                <outlet property="commentLabel" destination="zCK-3l-r3N" id="Jzc-ao-JL3"/>
                 <outlet property="likeButton" destination="vY1-Bi-1Nn" id="bg6-4n-xzJ"/>
                 <outlet property="likeCountLabel" destination="656-W8-S3D" id="omO-Th-vHJ"/>
             </connections>

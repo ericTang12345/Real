@@ -9,14 +9,12 @@ import UIKit
 
 protocol InteractionTableViewCellDelegate: AnyObject {
     
-    func interactionReloadView(cell: UITableViewCell)
-    
-    func goToPostDetails(cell: UITableViewCell)
+    func goToPostDetails(cell: UITableViewCell, index: Int)
 }
 
 class InteractionTableViewCell: BaseTableViewCell {
 
-    @IBOutlet weak var commentLabel: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     
     @IBOutlet weak var bookmarkButton: UIButton!
     
@@ -41,7 +39,7 @@ class InteractionTableViewCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(data: Post) {
+    func setup(data: Post, index: Int) {
         
         self.post = data
         
@@ -52,6 +50,8 @@ class InteractionTableViewCell: BaseTableViewCell {
         likeButton.isSelected = data.likeCount.contains(userManager.userID)
         
         bookmarkButton.isSelected = data.collection.contains(userManager.userID)
+        
+        commentButton.tag = index
     }
     
     func getCommentCount(postId: String) {
@@ -108,14 +108,14 @@ class InteractionTableViewCell: BaseTableViewCell {
         
         guard let delegate = delegate else { return }
         
-        delegate.goToPostDetails(cell: self)
+        delegate.goToPostDetails(cell: self, index: sender.tag)
     }
     
     @IBAction func like(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
         
-        guard let post = post, let delegate = delegate else {
+        guard let post = post else {
             
             print("post or delegate is nil in InteractionTableViewCell")
             
@@ -136,7 +136,5 @@ class InteractionTableViewCell: BaseTableViewCell {
                 "likeCount": FIRFieldValue.arrayUnion([userManager.userID])
             ])
         }
-        
-        delegate.interactionReloadView(cell: self)
     }
 }

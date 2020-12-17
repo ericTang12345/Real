@@ -83,10 +83,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         
         if message.sender == userManager.userID {
             
-            guard let cell = tableView.reuseCell(.userMessage, indexPath) as? UserMessageTableViewCell else {
-
-                return .emptyCell
-            }
+            let cell = tableView.reuse(UserMessageTableViewCell.self, indexPath: indexPath)
 
             cell.messageLabel.text = message.message
             
@@ -94,10 +91,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         
         } else {
             
-            guard let cell = tableView.reuseCell(.receiverMessage, indexPath) as? ReceiverTableViewCell else {
-
-                return .emptyCell
-            }
+            let cell = tableView.reuse(ReceiverTableViewCell.self, indexPath: indexPath)
 
             cell.messageLabel.text = message.message
 

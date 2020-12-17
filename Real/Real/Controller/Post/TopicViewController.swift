@@ -13,7 +13,7 @@ class TopicViewController: BaseViewController {
         
         didSet {
             
-            tableViewSetup()
+            tableView.registerNib()
         }
     }
     
@@ -66,68 +66,17 @@ class TopicViewController: BaseViewController {
         }
     }
 }
-//
-//extension TopicViewController: PostTableViewCellDelegate {
-//
-//    func goToPostDetails(cell: PostTableViewCell) {
-//
-//        self.passData = cell.post
-//
-//        performSegue(withIdentifier: segues[0], sender: nil)
-//    }
-//
-//    func reloadView(cell: PostTableViewCell) {
-//
-//        tableView.reloadData()
-//    }
-//}
 
 extension TopicViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == 0 {
-            
-            tableView.deselectRow(at: indexPath, animated: true)
-            
-            self.passData = posts[indexPath.section]
-            
-            performSegue(withIdentifier: segues[0], sender: nil)
-            
-        } else {
-            
-            let cell = tableView.cellForRow(at: indexPath)
-            
-            let checkMark = UIImage(systemName: "checkmark.circle")?.withRenderingMode(.alwaysOriginal)
-            
-            let circle = UIImage(systemName: "circle")?.withRenderingMode(.alwaysOriginal)
-            
-            let cellImage = cell?.imageView?.image
-            
-            cell?.imageView?.image = cellImage == checkMark ? circle : checkMark
-            
-        }
+
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension TopicViewController: UITableViewDataSource {
-    
-    func tableViewSetup() {
-        
-//        tableView.registerCellWithNib(
-//            nibName: PostTableViewCell.nibName,
-//            identifier: .cell(identifier: .post)
-//        )
-  
-//        tableView.registerCellWithNib(cell: <#T##UITableViewCell.Type#>)
-        
-//        tableView.registerCellWithNib(nibName: PostMainTableViewCell.nibName, identifier: "PostMainCell")
-//
-//        tableView.registerCellWithNib(nibName: InteractionTableViewCell.nibName, identifier: "InteractionCell")
-//
-//        tableView.registerCellWithNib(nibName: PostImageTableViewCellNib.nibName, identifier: "PostImageCellNib")
-    }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return posts.count
@@ -135,48 +84,72 @@ extension TopicViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var count = 2
+        return tableView.sortByCell(posts[section]).count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let post = posts[section]
+        let sort = tableView.sortByCell(posts[indexPath.section])
         
-        if post.vote.isEmpty { count += 1 }
+        let vote = posts[indexPath.section].vote
         
-        if post.images.isEmpty { count += 1 }
+        switch sort[indexPath.row] {
         
-        return count
+        case .image: return 120
+        
+        case .vote: return CGFloat((vote.count) * 40 + 16)
+        
+        default : return UITableView.automaticDimension
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        switch indexPath.row {
-//
-//        case 0:
-//
-//            guard let cell = tableView.reuseCell(.post, indexPath) as? PostTableViewCell else {
-//
-//                return .emptyCell
-//            }
-//
-//            cell.delegate = self
-//
-//            cell.setup(data: posts[indexPath.section])
-//
-//            return cell
-//
-//        default:
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "VoteCell", for: indexPath)
-//
-//            cell.textLabel?.text = posts[indexPath.section].vote[indexPath.row]
-//
-//            return cell
-//        }
+        let sort = tableView.sortByCell(posts[indexPath.section])
         
-        return UITableViewCell()
+        let post = posts[indexPath.section]
+        
+        switch sort[indexPath.row] {
+        
+        case .main(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.setup(data: post)
+            
+            return cell
+        
+        case .image(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.setup(data: post)
+            
+            return cell
+        
+        case .vote(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+        
+            cell.setup(data: post)
+            
+            return cell
+        
+        case .interaction(let cell):
+        
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.delegate = self
+            
+            cell.setup(data: post, index: indexPath.section)
+            
+            return cell
+        }
     }
 }
 
-extension TopicViewController: PostMainTableViewCellDelegate {
+extension TopicViewController: PostTableViewCellDelegate {
 
     func postReloadView(cell: UITableViewCell) {
 
@@ -186,13 +159,10 @@ extension TopicViewController: PostMainTableViewCellDelegate {
 
 extension TopicViewController: InteractionTableViewCellDelegate {
     
-    func goToPostDetails(cell: UITableViewCell) {
+    func goToPostDetails(cell: UITableViewCell, index: Int) {
+        
+        self.passData = posts[index]
         
         performSegue(withIdentifier: segues[0], sender: nil)
-    }
-    
-    func interactionReloadView(cell: UITableViewCell) {
-
-        tableView.reloadData()
     }
 }

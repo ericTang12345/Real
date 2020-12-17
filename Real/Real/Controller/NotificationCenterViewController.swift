@@ -51,10 +51,7 @@ extension NotificationCenterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.reuseCell(.notificationCell, indexPath) as? NotificationTableViewCell else {
-            
-            return .emptyCell
-        }
+        let cell = tableView.reuse(NotificationTableViewCell.self, indexPath: indexPath)
         
         cell.setup(data: mockData[indexPath.row])
         

@@ -10,11 +10,20 @@ import Foundation
 
 extension UITableView {
     
+    // Nib
+    
     func registerCellWithNib(cell: UITableViewCell.Type) {
         
         let nib = UINib(nibName: cell.nibName, bundle: nil)
         
         register(nib, forCellReuseIdentifier: cell.defaultReuseIdentifier)
+    }
+    
+    // Cell
+    
+    func reuse(_ id: CellId, indexPath: IndexPath) -> UITableViewCell {
+        
+        return self.dequeueReusableCell(withIdentifier: id.rawValue, for: indexPath)
     }
     
     func reuse<T: UITableViewCell>(_ cell: T.Type, indexPath: IndexPath) -> T {
@@ -27,14 +36,56 @@ extension UITableView {
         return cell
     }
     
-    func reuse(id: String, indexPath: IndexPath) -> UITableViewCell {
+    enum CellType {
         
-        return self.dequeueReusableCell(withIdentifier: id, for: indexPath)
+        case main(PostMainTableViewCell.Type)
+        
+        case image(PostImageTableViewCellNib.Type)
+        
+        case vote(VoteTableViewCell.Type)
+        
+        case interaction(InteractionTableViewCell.Type)
+        
     }
     
-    func reuseCell(_ identifier: CellId, _ indexPath: IndexPath) -> UITableViewCell {
+    // register all nib
+    
+    func registerNib() {
         
-        return self.dequeueReusableCell(withIdentifier: identifier.rawValue, for: indexPath)
+        self.registerCellWithNib(cell: PostMainTableViewCell.self)
+        
+        self.registerCellWithNib(cell: InteractionTableViewCell.self)
+        
+        self.registerCellWithNib(cell: PostImageTableViewCell.self)
+        
+        self.registerCellWithNib(cell: PostImageTableViewCellNib.self)
+        
+        self.registerCellWithNib(cell: CommentTableViewCell.self)
+        
+        self.registerCellWithNib(cell: VoteTableViewCell.self)
     }
     
+    func sortByCell(_ post: Post) -> [CellType] {
+        
+        var cellType: [CellType] = [.main(PostMainTableViewCell.self)]
+        
+//        if !post.tags.isEmpty {
+//
+//            cellType.append(.tag)
+//        }
+        
+        if !post.images.isEmpty {
+            
+            cellType.append(.image(PostImageTableViewCellNib.self))
+        }
+        
+        if !post.vote.isEmpty {
+
+            cellType.append(.vote(VoteTableViewCell.self))
+        }
+        
+        cellType.append(.interaction(InteractionTableViewCell.self))
+        
+        return cellType
+    }
 }

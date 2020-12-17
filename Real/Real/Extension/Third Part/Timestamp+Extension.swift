@@ -29,31 +29,31 @@ extension Timestamp {
             
             temp = timeInterval/60
             
-            result = "\(Int(temp))分鐘前"
+            result = "\(Int(temp)) 分鐘前"
             
         } else if timeInterval/60/60 < 24 {
             
             temp = timeInterval/60/60
             
-            result = "\(Int(temp))小時前"
+            result = "\(Int(temp)) 小時前"
             
         } else if timeInterval/(24 * 60 * 60) < 30 {
             
             temp = timeInterval / (24 * 60 * 60)
             
-            result = "\(Int(temp))天前"
+            result = "\(Int(temp)) 天前"
             
         } else if timeInterval/(30 * 24 * 60 * 60)  < 12 {
             
             temp = timeInterval/(30 * 24 * 60 * 60)
             
-            result = "\(Int(temp))個月前"
+            result = "\(Int(temp)) 個月前"
             
         } else {
             
             temp = timeInterval/(12 * 30 * 24 * 60 * 60)
             
-            result = "\(Int(temp))年前"
+            result = "\(Int(temp)) 年前"
             
         }
         
@@ -64,7 +64,7 @@ extension Timestamp {
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy年 MM月 dd日 HH點"
+        dateFormatter.dateFormat = "yyyy 年 MM 月 dd 日 HH 點"
         
         return dateFormatter.string(from: self.dateValue())
     }

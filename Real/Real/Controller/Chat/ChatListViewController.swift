@@ -44,7 +44,7 @@ extension ChatListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.reuseCell(.chatList, indexPath)
+        let cell = tableView.reuse(.chatList, indexPath: indexPath)
         
         cell.textLabel?.text = "Test Cell"
         
