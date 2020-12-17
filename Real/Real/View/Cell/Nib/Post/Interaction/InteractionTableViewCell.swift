@@ -130,6 +130,8 @@ class InteractionTableViewCell: BaseTableViewCell {
                 "likeCount": FIRFieldValue.arrayRemove([userManager.userID])
             ])
             
+            let test = Int()
+            
         } else {
 
             collection.updateData([
