@@ -10,6 +10,15 @@ import Kingfisher
 
 extension UIImageView {
     
+    func enableTapAction(sender: Any, selector: Selector) {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: sender, action: selector)
+        
+        self.isUserInteractionEnabled = true
+        
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
     func loadImage(urlString: String, placeHolder: UIImage? = nil) {
         
         let url = URL(string: urlString)

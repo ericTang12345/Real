@@ -69,13 +69,13 @@ extension Timestamp {
         return dateFormatter.string(from: self.dateValue())
     }
     
-    static func randomTime(from first: Int, day end: Int) -> Timestamp {
+    static func randomTime(from first: Double, day end: Double) -> Timestamp {
         
-        let startDay = first * 24 * 60 * 60
+        let startDay = first * 24.0 * 60.0 * 60.0
         
-        let overDay = end * 24 * 60 * 60
+        let overDay = end * 24.0 * 60.0 * 60.0
         
-        let randomTime = Int.random(in: startDay ..< overDay)
+        let randomTime = Double.random(in: startDay ..< overDay)
         
         let randomTimeStamp = TimeInterval(randomTime)
         

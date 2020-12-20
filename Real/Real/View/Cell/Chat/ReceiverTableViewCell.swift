@@ -27,8 +27,20 @@ class ReceiverTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    override func layoutSubviews() {
+        
+        messageLabel.setup(cornerRadius: messageLabel.height/3)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setup(data: Message, image: String) {
+        
+        messageLabel.text = data.message
+        
+        receiverImageView.loadImage(urlString: image)
     }
 
 }

@@ -56,8 +56,10 @@ class AddNewPostViewController: BaseViewController {
     
     var postType: PostType = .post
     
-    override var isHideKeyboardWhenTappedAround: Bool { false }
+    override var isEnableHideKeyboardWhenTappedAround: Bool { true }
     
+    override var isEnableKeyboardNotification: Bool { true }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,6 +120,8 @@ class AddNewPostViewController: BaseViewController {
     @IBAction func backToRoot(_ sender: UIBarButtonItem) {
         
         self.dismiss(animated: true, completion: nil)
+        
+        view.endEditing(true)
     }
     
     // post button
@@ -160,6 +164,8 @@ class AddNewPostViewController: BaseViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+        
+        view.endEditing(true)
     }
     
     // type button
@@ -190,6 +196,8 @@ class AddNewPostViewController: BaseViewController {
         tableView.reloadData()
         
         sender.isSelected = !sender.isSelected
+        
+        view.endEditing(true)
     }
     
     @IBAction func openCamera(_ sender: UIButton) {
@@ -202,6 +210,8 @@ class AddNewPostViewController: BaseViewController {
             
             present(.alertMessage(title: "圖片限制", message: "圖片只能上傳四張"), animated: true, completion: nil)
         }
+        
+        view.endEditing(true)
     }
     
     @IBAction func openPhotoAlbun(_ sender: UIButton) {
@@ -214,9 +224,13 @@ class AddNewPostViewController: BaseViewController {
             
             present(.alertMessage(title: "圖片限制", message: "圖片只能上傳四張"), animated: true, completion: nil)
         }
+        
+        view.endEditing(true)
     }
     
     @IBAction func addVoteItem(_ sender: UIButton) {
+        
+        view.endEditing(true)
         
         let config = AlertConfig(title: "新增", message: "請輸入你想要加入的投票項目", placeholder: "投票項目")
         
@@ -321,7 +335,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.section {
         
-        case 1: return images.count == 0 ? 1 : 150
+        case 1: return images.count == 0 ? UITableView.automaticDimension : 150
         
         case 3: return 30
             

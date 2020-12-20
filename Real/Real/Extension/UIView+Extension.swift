@@ -14,6 +14,16 @@ extension UIView {
         return String(describing: self)
     }
     
+    var height: CGFloat {
+        
+        return self.frame.size.height
+    }
+    
+    var width: CGFloat {
+        
+        return self.frame.size.width
+    }
+    
     static var micronView: UIView {
         
         let view = UIView()
@@ -55,9 +65,9 @@ extension UIView {
         case vertical
     }
     
-    func animation(moveType: MoveType, to position: CGFloat ) {
+    func animation(moveType: MoveType, to position: CGFloat, duration: TimeInterval) {
         
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: .curveEaseIn) {
             
             switch moveType {
             

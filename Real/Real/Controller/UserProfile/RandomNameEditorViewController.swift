@@ -19,6 +19,8 @@ class RandomNameEditorViewController: BaseViewController {
     
     var adjNames: [RandomAdjName] = []
     
+    override var isHideTabBar: Bool { return true}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

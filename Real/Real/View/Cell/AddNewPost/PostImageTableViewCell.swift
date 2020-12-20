@@ -61,3 +61,11 @@ extension PostImageTableViewCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension PostImageTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 120, height: 120)
+    }
+}

@@ -18,7 +18,6 @@ class UserMessageTableViewCell: UITableViewCell {
             messageLabel.backgroundColor = .black
             
             messageLabel.clipsToBounds = true
-
         }
     }
     
@@ -26,8 +25,18 @@ class UserMessageTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    override func layoutSubviews() {
+        
+        messageLabel.setup(cornerRadius: messageLabel.height/3)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setup(data: Message) {
+        
+        messageLabel.text = data.message
     }
 
 }

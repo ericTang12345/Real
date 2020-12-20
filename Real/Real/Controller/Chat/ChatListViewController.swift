@@ -11,18 +11,61 @@ class ChatListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var chatList: [ChatRoom] = []
+    
+    var chatData: ChatRoom?
+    
     override var isHideTabBar: Bool { true }
     
     override var segues: [String] { ["SegueToChat"] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firebase.listen(collectionName: .chatRoom) {
+            
+            self.readChatRomm()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == segues[0] {
             
+            guard let nextViewController = segue.destination as? ChatViewController else {
+                
+                return
+            }
+            
+            nextViewController.chat = chatData
+        }
+    }
+    
+    func readChatRomm() {
+        
+        firebase.read(collectionName: .chatRoom, dataType: ChatRoom.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                let user = self.userManager.userData!
+                
+                var chatList: [ChatRoom] = []
+                
+                for item in data where item.receiver == user.id || item.provider == user.id {
+                    
+                    chatList.append(item)
+                }
+                
+                self.chatList = chatList
+                
+                self.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print("read chat room data error", error.localizedDescription)
+            }
         }
     }
 }
@@ -30,6 +73,10 @@ class ChatListViewController: BaseViewController {
 extension ChatListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.chatData = chatList[indexPath.row]
         
         performSegue(withIdentifier: segues[0], sender: nil)
     }
@@ -39,15 +86,15 @@ extension ChatListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.reuse(.chatList, indexPath: indexPath)
+        let cell = tableView.reuse(ChatListTableViewCell.self, indexPath: indexPath)
         
-        cell.textLabel?.text = "Test Cell"
-        
+        cell.setup(data: chatList[indexPath.row])
+    
         return cell
     }
 }

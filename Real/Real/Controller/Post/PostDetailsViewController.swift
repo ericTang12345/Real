@@ -19,13 +19,7 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var replyTextField: UITextField! {
-        
-        didSet {
-        
-            replyTextField.inputAccessoryView = keyboardToolView
-        }
-    }
+    @IBOutlet weak var replyTextField: UITextField!
     
     var comments: [Comment] = []
     
@@ -33,6 +27,10 @@ class PostDetailsViewController: BaseViewController {
     
     override var isHideTabBar: Bool { return true }
     
+    override var isEnableHideKeyboardWhenTappedAround: Bool { true }
+    
+    override var isEnableKeyboardNotification: Bool { true }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

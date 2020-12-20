@@ -73,7 +73,7 @@ class FirebaseManager {
         let collection = getCollection(name: collectionName)
         
         collection.addSnapshotListener { _, _ in
-  
+            
             handler()
         }
     }
@@ -195,5 +195,4 @@ class FirebaseManager {
         
         document.updateData([key: value])
     }
-    
 }

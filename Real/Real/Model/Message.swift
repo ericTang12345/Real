@@ -18,13 +18,6 @@ struct Message: Codable {
     let isRead: Bool
 }
 
-struct Chat: Codable {
-    
-    let users: [String]
-    
-    let names: [String]
-}
-
 extension Message {
     
     init(message: String) {

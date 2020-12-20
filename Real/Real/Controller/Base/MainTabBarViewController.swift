@@ -25,7 +25,7 @@ class MainTabBarViewController: UITabBarController {
         
         button.center = CGPoint(
             x: tabBar.center.x,
-            y: tabBar.bounds.height/1.5
+            y: tabBar.bounds.height/2
         )
         
         button.backgroundColor = .clear

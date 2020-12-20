@@ -36,7 +36,7 @@
                             <imageReference key="image" image="bookmark" catalog="system" symbolScale="large" renderingMode="original"/>
                         </state>
                         <state key="selected">
-                            <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                         </state>
                         <connections>
                             <action selector="bookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HCs-F0-Gts"/>

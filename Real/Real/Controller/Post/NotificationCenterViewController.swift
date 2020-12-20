@@ -57,4 +57,5 @@ extension NotificationCenterViewController: UITableViewDataSource {
         
         return cell
     }
+
 }

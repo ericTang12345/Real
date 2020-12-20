@@ -28,7 +28,7 @@ extension UITableView {
     
     func reuse<T: UITableViewCell>(_ cell: T.Type, indexPath: IndexPath) -> T {
         
-        guard let cell = self.dequeueReusableCell(withIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T else {
+        guard let cell = self.dequeueReusableCell(withIdentifier: cell.defaultReuseIdentifier, for: indexPath) as? T else {
             
             fatalError()
         }

@@ -33,7 +33,7 @@ extension UILabel {
 
 class LabelPadding: UILabel {
     
-    let padding = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
+    let padding = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
     
     override func drawText(in rect: CGRect) {
         

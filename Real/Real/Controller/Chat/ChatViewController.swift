@@ -18,42 +18,49 @@ class ChatViewController: BaseViewController {
     
     var doc: DocumentReference {
         
-        return firebase.getCollection(name: .chatRoom).document("Ig1anZKX7T7uHmoZKw4a")
+        return firebase.getCollection(name: .chatRoom).document(chat!.id)
     }
+    
+    var chat: ChatRoom?
     
     var messages: [Message] = []
     
     override var isHideTabBar: Bool { return true }
     
-    override var isHideKeyboardWhenTappedAround: Bool { return false }
+    override var isEnableHideKeyboardWhenTappedAround: Bool { return true }
+    
+    override var isEnableKeyboardNotification: Bool { true }
     
     override func viewDidLoad () {
         super.viewDidLoad()
-
-        firebase.listen(collectionName: .chatRoom) {
-            
-            self.reloadChat()
-        }
-    }
-    
-    func reloadChat() {
         
-        firebase.read(collectionName: .chatRoom, dataType: Message.self) { (result) in
+        doc.collection("messages").addSnapshotListener { (querySnapshot, error) in
             
-            switch result {
-            
-            case .success(let data):
+            if error != nil {
                 
-                self.messages = data.sorted(by: { (firest, second) -> Bool in
+                print("listen chat room messages fail", error!.localizedDescription)
+            }
+            
+            if querySnapshot != nil {
+                
+                self.firebase.decode(Message.self, documents: querySnapshot!.documents) { (result) in
                     
-                    firest.createdTime.dateValue() < second.createdTime.dateValue()
-                })
-                
-                self.tableView.reloadData()
-                
-            case .failure(let error):
-                
-                print(error.localizedDescription)
+                    switch result {
+                    
+                    case .success(let data):
+                        
+                        self.messages = data.sorted(by: { (first, second) -> Bool in
+                            
+                            first.createdTime.dateValue() < second.createdTime.dateValue()
+                        })
+                        
+                        self.tableView.reloadData()
+                        
+                    case .failure(let error):
+                    
+                        print("decode message error", error.localizedDescription)
+                    }
+                }
             }
         }
     }
@@ -62,11 +69,17 @@ class ChatViewController: BaseViewController {
         
         let newMessage = Message(message: textField.text!)
         
-        let doc = firebase.getCollection(name: .chatRoom).document()
+        let doc = firebase.getCollection(name: .chatRoom).document(chat!.id).collection("messages").document()
         
         firebase.save(to: doc, data: newMessage)
         
+        firebase.update(collectionName: .chatRoom, documentId: chat!.id, key: "lastMessage", value: textField.text)
+        
+        firebase.update(collectionName: .chatRoom, documentId: chat!.id, key: "lastMessageTime", value: FIRTimestamp())
+        
         textField.text = nil
+        
+        textField.endEditing(true)
     }
 }
 
@@ -85,7 +98,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.reuse(UserMessageTableViewCell.self, indexPath: indexPath)
 
-            cell.messageLabel.text = message.message
+            cell.setup(data: message)
             
             return cell
         
@@ -93,8 +106,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.reuse(ReceiverTableViewCell.self, indexPath: indexPath)
 
-            cell.messageLabel.text = message.message
-
+            let image = chat!.provider == userManager.userData!.id ? chat!.receiverImage : chat!.providerImage
+            
+            cell.setup(data: message, image: image)
+            
             return cell
         }
     }
