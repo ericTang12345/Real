@@ -137,7 +137,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="F28-W0-Vxh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="F28-W0-Vxh">
                                 <rect key="frame" x="0.0" y="88" width="414" height="716"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -1050,7 +1050,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LJk-jO-TQc">
                                                     <rect key="frame" x="17" y="11" width="380" height="128"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="10" id="f9J-7y-HId">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="f9J-7y-HId">
                                                         <size key="itemSize" width="120" height="120"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1069,24 +1069,31 @@
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHl-dz-IR2">
                                                                         <rect key="frame" x="95" y="5" width="20" height="20"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="uHl-dz-IR2" secondAttribute="height" multiplier="10:10" id="c75-P7-Woq"/>
                                                                         </constraints>
-                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" image="xmark.circle" catalog="system"/>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                        <state key="normal">
+                                                                            <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="medium"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="deleteImage:" destination="dgh-JW-aGy" eventType="touchUpInside" id="BW5-p7-UY5"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="Ynj-qy-uYR" secondAttribute="trailing" id="KGw-XF-p9t"/>
+                                                                    <constraint firstItem="uHl-dz-IR2" firstAttribute="trailing" secondItem="Ynj-qy-uYR" secondAttribute="trailing" constant="-5" id="MeD-84-5Hi"/>
                                                                     <constraint firstItem="Ynj-qy-uYR" firstAttribute="leading" secondItem="gHu-yL-Iea" secondAttribute="leading" id="P3t-o7-Jfp"/>
                                                                     <constraint firstItem="Ynj-qy-uYR" firstAttribute="top" secondItem="gHu-yL-Iea" secondAttribute="top" id="a6b-mr-CyT"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="uHl-dz-IR2" secondAttribute="trailing" constant="5" id="foR-pj-m81"/>
                                                                     <constraint firstItem="uHl-dz-IR2" firstAttribute="width" secondItem="Ynj-qy-uYR" secondAttribute="width" multiplier="0.166667" id="ir4-od-PGI"/>
-                                                                    <constraint firstItem="uHl-dz-IR2" firstAttribute="top" secondItem="gHu-yL-Iea" secondAttribute="top" constant="5" id="jXk-aX-DUj"/>
+                                                                    <constraint firstItem="uHl-dz-IR2" firstAttribute="top" secondItem="Ynj-qy-uYR" secondAttribute="top" constant="5" id="rYU-YD-bKY"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Ynj-qy-uYR" secondAttribute="bottom" id="sPt-Cp-DuS"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <connections>
+                                                                <outlet property="deleteImageButton" destination="uHl-dz-IR2" id="rzO-vo-IT8"/>
                                                                 <outlet property="imageView" destination="Ynj-qy-uYR" id="fbd-Bg-hHf"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -1756,8 +1763,8 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="7EF-kz-yjB"/>
-        <segue reference="0ai-pg-Hdk"/>
-        <segue reference="MbW-t4-B56"/>
+        <segue reference="TXS-Rn-mxS"/>
+        <segue reference="9zn-gI-b5D"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DriftingBottle" width="29.333333969116211" height="29.333333969116211"/>
@@ -1776,7 +1783,7 @@
         <image name="shutterstock_598927436.png" width="1200" height="1200"/>
         <image name="tag" catalog="system" width="128" height="119"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
-        <image name="xmark.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Color-2">
             <color red="0.32199999690055847" green="0.37999999523162842" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

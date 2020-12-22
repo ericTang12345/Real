@@ -54,9 +54,9 @@ extension PostImageTableViewCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setupBorder(width: 0.8, color: .lightGray)
+//        cell.setupBorder(width: 0.8, color: .lightGray)
         
-        cell.imageView.image = images[indexPath.row]
+        cell.setup(index: indexPath.row, image: images[indexPath.row])
         
         return cell
     }

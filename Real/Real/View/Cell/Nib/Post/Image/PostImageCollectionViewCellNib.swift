@@ -7,13 +7,36 @@
 
 import UIKit
 
+protocol PostImageDelegate: AnyObject {
+    
+    func imageDidSelect(viewController: UIViewController)
+}
+
 class PostImageCollectionViewCellNib: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView! {
+        
+        didSet {
+            
+            imageView.enableTapAction(sender: self, selector: #selector(isSelect))
+            
+            imageDetailViewController = ImageDetailsViewController(nibName: String(describing: ImageDetailsViewController.self), bundle: nil)
+        }
+    }
+    
+    weak var delegate: PostImageDelegate?
+    
+    var imageDetailViewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    @objc func isSelect() {
+        
+        guard let delegate = delegate, let viewController = imageDetailViewController else { return }
+        
+        delegate.imageDidSelect(viewController: viewController)
     }
 
 }

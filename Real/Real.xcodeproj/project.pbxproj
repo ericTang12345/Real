@@ -16,6 +16,8 @@
 		24294F602583006E00F9D41F /* DriftingBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24294F5F2583006E00F9D41F /* DriftingBottle.swift */; };
 		242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA4782577742E0091ABDB /* Timestamp+Extension.swift */; };
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
+		24312F042591FCDB007C7E17 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */; };
+		24312F052591FCDB007C7E17 /* ImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */; };
 		2435BF462580663D006B71AB /* RandomMainName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF452580663D006B71AB /* RandomMainName.swift */; };
 		2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF4825806649006B71AB /* RandomAdjName.swift */; };
 		2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */; };
@@ -104,6 +106,8 @@
 		24294F5F2583006E00F9D41F /* DriftingBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottle.swift; sourceTree = "<group>"; };
 		242EA4782577742E0091ABDB /* Timestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+Extension.swift"; sourceTree = "<group>"; };
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
+		24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsViewController.xib; sourceTree = "<group>"; };
 		2435BF452580663D006B71AB /* RandomMainName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMainName.swift; sourceTree = "<group>"; };
 		2435BF4825806649006B71AB /* RandomAdjName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAdjName.swift; sourceTree = "<group>"; };
 		2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNameEditorViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +287,15 @@
 			path = "Third Part";
 			sourceTree = "<group>";
 		};
+		24312F012591FCC1007C7E17 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */,
+				24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */,
+			);
+			path = Nib;
+			sourceTree = "<group>";
+		};
 		2452F971257CE496006ABF0D /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +322,7 @@
 		2456844D256E7D3500FB7D3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				24312F012591FCC1007C7E17 /* Nib */,
 				24C604752574205400279877 /* Base */,
 				24287BC4258672720023A510 /* Post */,
 				24287BC6258672AE0023A510 /* UserProfile */,
@@ -618,6 +632,7 @@
 				24D3BB59258B29B3007728CD /* GoogleService-Info.plist in Resources */,
 				24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */,
 				243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */,
+				24312F052591FCDB007C7E17 /* ImageDetailsViewController.xib in Resources */,
 				24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */,
 				2481DFA92586418E00180FDB /* DriftingBottlePagerViewCell.xib in Resources */,
 			);
@@ -740,6 +755,7 @@
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				24287BCB258672F90023A510 /* ChatListViewController.swift in Sources */,
 				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
+				24312F042591FCDB007C7E17 /* ImageDetailsViewController.swift in Sources */,
 				24B890A0258695E00035DEA1 /* PostImageTableViewCell.swift in Sources */,
 				24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */,
 				249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */,

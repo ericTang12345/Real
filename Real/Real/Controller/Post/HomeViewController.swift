@@ -100,19 +100,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        self.passData = posts[indexPath.section]
-        
-        performSegue(withIdentifier: segues[0], sender: nil)
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         

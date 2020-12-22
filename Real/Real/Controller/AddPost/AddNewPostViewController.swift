@@ -265,6 +265,13 @@ class AddNewPostViewController: BaseViewController {
             
         }), animated: true, completion: nil)
     }
+    
+    @IBAction func deleteImage(_ sender: UIButton) {
+        
+        images.remove(at: sender.tag)
+        
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UIImageViewPickerController Delegate
