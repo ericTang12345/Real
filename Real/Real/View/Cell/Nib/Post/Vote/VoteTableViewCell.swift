@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VoteTableViewCell: UITableViewCell {
+class VoteTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var tableView: UITableView! {
         
@@ -21,13 +21,19 @@ class VoteTableViewCell: UITableViewCell {
         }
     }
     
-    var votes: [String] = [] {
+    var post: Post?
+    
+    var votes: [Vote] = [] {
         
         didSet {
             
-            tableView.reloadData()
+            total = 0
+            
+            _ = votes.map { total += $0.voter.count }
         }
     }
+    
+    var total: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,11 +45,50 @@ class VoteTableViewCell: UITableViewCell {
     
     func setup(data: Post) {
         
-        votes = data.vote
+        self.post = data
+        
+        guard let post = post else { return }
+        
+        let collection = firebase.getCollection(name: .post).document(post.id).collection("votes")
+        
+        firebase.listen(collection: collection) {
+            
+            self.reload()
+        }
+    }
+    
+    func reload() {
+        
+        guard let post = post else { return }
+        
+        let collection = firebase.getCollection(name: .post).document(post.id).collection("votes")
+        
+        firebase.read(collection: collection, dataType: Vote.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                self.votes = data.sorted(by: { (first, second) -> Bool in
+                    
+                    return first.id < second.id
+                })
+                
+                self.tableView.reloadData()
+            
+            case .failure(let error):
+                
+                print("read vote data fail", error.localizedDescription)
+            }
+        }
     }
 }
 
-extension VoteTableViewCell: UITableViewDelegate, UITableViewDataSource {
+extension VoteTableViewCell: UITableViewDelegate {
+    
+}
+
+extension VoteTableViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -69,9 +114,10 @@ extension VoteTableViewCell: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.reuse(VoteItemTableViewCell.self, indexPath: indexPath)
         
-        cell.voteTitleLabel.text = votes[indexPath.row]
+        guard let post = post else { return .emptyCell }
+        
+        cell.setup(data: votes[indexPath.row], post: post, total: total)
         
         return cell
     }
-
 }

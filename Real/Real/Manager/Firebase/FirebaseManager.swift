@@ -12,6 +12,29 @@ typealias FIRFieldValue = Firebase.FieldValue
 
 typealias FIRTimestamp = Timestamp
 
+typealias FIRDocRef = Firebase.DocumentReference
+
+typealias FIRStore = Firebase.Firestore
+
+//typealias Res<T:Codable> = ((Result<[T]>) -> Void)
+
+
+//protocol Response {
+//
+//    associatedtype Decoder
+//
+//    func decode(_ dataType: Decoder)
+//}
+//
+//class Eric: Response {
+//
+//    typealias Decoder = Codable
+//
+//    func decode(_ dataType: Decoder) {
+//        print(dataType)
+//    }
+//}
+
 enum Result<T> {
     
     case success(T)
@@ -78,6 +101,46 @@ class FirebaseManager {
         }
     }
     
+    func listen(doc: DocumentReference, handler: @escaping () -> Void) {
+        
+        doc.addSnapshotListener { _, _ in
+            
+            handler()
+        }
+    }
+    
+    func listen(collection: CollectionReference, handler: @escaping () -> Void) {
+        
+        collection.addSnapshotListener { _, _ in
+            
+            handler()
+        }
+    }
+    
+    func read<T: Codable>(collection: CollectionReference, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
+        
+        collection.getDocuments { (querySnapshot, error) in
+            
+            guard let querySnapshot = querySnapshot else {
+                
+                handler(.failure(error!))
+                
+                return
+            }
+            
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                
+                switch result {
+                
+                case .success(let data): handler(.success(data))
+                    
+                case .failure(let error): handler(.failure(error))
+                
+                }
+            }
+        }
+    }
+    
     func read<T: Codable>(collectionName: CollectionName, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
         let collection = getCollection(name: collectionName)
@@ -132,7 +195,7 @@ class FirebaseManager {
         }
     }
     
-    func readSingle<T: Codable>(_ doc: DocumentReference, dataType: T.Type, handler: @escaping (Result<T>) -> Void ) {
+    func readSingle<T: Codable>(_ doc: DocumentReference, dataType: T.Type, handler: @escaping (Result<T>) -> Void) {
         
         doc.getDocument { (documentSnapshot, error) in
             

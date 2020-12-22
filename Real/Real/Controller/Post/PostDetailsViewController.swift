@@ -19,7 +19,15 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var replyTextField: UITextField!
+    @IBOutlet weak var commentTextView: UITextView! {
+        
+        didSet {
+            
+            commentTextView.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     var comments: [Comment] = []
     
@@ -106,11 +114,11 @@ class PostDetailsViewController: BaseViewController {
     
     @IBAction func reply(_ sender: UIButton) {
         
-        guard let postId = post?.id, let content = replyTextField.text else { return }
+        guard let postId = post?.id, let content = commentTextView.text, let user = userManager.userData else { return }
         
         let document = firebase.getCollection(name: .comment).document()
         
-        let comment = Comment(id: document.documentID, content: content, postId: postId)
+        let comment = Comment(id: document.documentID, content: content, author: user.id, postId: postId)
         
         firebase.save(to: document, data: comment)
         
@@ -118,11 +126,7 @@ class PostDetailsViewController: BaseViewController {
     }
 }
 
-extension PostDetailsViewController: UITableViewDelegate {
-    
-}
-
-extension PostDetailsViewController: UITableViewDataSource {
+extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -170,6 +174,8 @@ extension PostDetailsViewController: UITableViewDataSource {
             
                 let cell = tableView.reuse(cell, indexPath: indexPath)
                 
+                cell.setup(data: post)
+                
                 return cell
                 
             case .interaction(let cell):
@@ -194,13 +200,17 @@ extension PostDetailsViewController: UITableViewDataSource {
         
         guard let post = post else { return 0 }
         
+        let sort = tableView.sortByCell(post)
+        
         switch indexPath.section {
         
         case 0:
             
-            switch indexPath.row {
+            switch sort[indexPath.row] {
             
-            case 1: return post.images.count == 0 ? UITableView.automaticDimension : 120
+            case .image: return post.images.count == 0 ? UITableView.automaticDimension : 120
+            
+            case .vote: return CGFloat((post.votes.count) * 40 + 16)
                 
             default: return UITableView.automaticDimension
                 
@@ -208,6 +218,58 @@ extension PostDetailsViewController: UITableViewDataSource {
         
         default: return UITableView.automaticDimension
         
+        }
+    }
+}
+
+extension PostDetailsViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if (textView.text.count + text.count - range.length) == 0 {
+            
+            placeholderLabel.isHidden = false
+            
+        } else {
+            
+            placeholderLabel.isHidden = true
+        }
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+
+        placeholderLabel.isHidden = true
+        
+        textView.text = nil
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text.count == 0 {
+            
+            placeholderLabel.isHidden = false
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if textView.textCountLines() <= 10 {
+            
+            NSLayoutConstraint.activate([
+                textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
+            ])
+            
+            textView.isScrollEnabled = false
+            
+        } else {
+            
+            NSLayoutConstraint.activate([
+                textView.heightAnchor.constraint(equalToConstant: 200)
+            ])
+            
+            textView.isScrollEnabled = true
         }
     }
 }

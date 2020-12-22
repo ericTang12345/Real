@@ -229,19 +229,14 @@ extension DriftingBottleViewController: LetterWriteDoneDeleage {
         
         case .signature: message =
         """
-
         你的漂流信將會透過大海抵達某人手中
-
         也許會透過此信連結彼此
         """
 
         case .anonymous: message =
         """
-
         已將你現在的心情送往大海
-
         你可以到 個人 - 時光寶盒
-
         查看你的漂流瓶紀錄
         """
         

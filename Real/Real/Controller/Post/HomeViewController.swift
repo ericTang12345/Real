@@ -27,11 +27,18 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        firebase.listen(collectionName: .post) {
-
+            
+        self.firebase.listen(collectionName: .post) {
+            
             self.reloadData()
         }
+        
+        self.firebase.listen(collectionName: .comment) {
+        
+            self.reloadData()
+        }
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .userDataUpdated, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,20 +60,22 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    func reloadData() {
+    @objc func reloadData() {
         
         let filter = Filter(key: "type", value: "心情貼文")
         
         firebase.read(collectionName: .post, dataType: Post.self, filter: filter) { [weak self] result in
-            
+        
             switch result {
             
-            case .success(let posts):
+            case .success(let data):
                 
-                self?.posts = posts.sorted { (first, second) -> Bool in
+                self?.posts = data.sorted { (first, second) -> Bool in
                     
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
                 }
+                
+                self?.hidePost()
                 
                 self?.tableView.reloadData()
                 
@@ -76,6 +85,18 @@ class HomeViewController: BaseViewController {
             
             }
         }
+    }
+    
+    func hidePost() {
+        
+        guard let user = self.userManager.userData else { return }
+        
+        posts = posts.filter({ (post) -> Bool in
+            
+            return !user.blockadeListPost.contains(post.id)
+        })
+        
+        tableView.reloadData()
     }
 }
 
@@ -115,6 +136,8 @@ extension HomeViewController: UITableViewDataSource {
             
             let cell = tableView.reuse(cell, indexPath: indexPath)
 
+            cell.delegate = self
+            
             cell.setup(data: post)
             
             return cell
@@ -145,11 +168,7 @@ extension HomeViewController: UITableViewDataSource {
         
         switch indexPath.row {
         
-        case 0: return UITableView.automaticDimension
-        
         case 1: return posts[indexPath.section].images.count == 0 ? UITableView.automaticDimension : 120
-        
-        case 2: return UITableView.automaticDimension
             
         default: return UITableView.automaticDimension
         
@@ -158,7 +177,17 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: PostTableViewCellDelegate {
-
+    
+    func postEditFunction(cell: UITableViewCell, alert: UIAlertController) {
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func postMoreFunction(cell: UITableViewCell, alert: UIAlertController) {
+  
+        present(alert, animated: true, completion: nil)
+    }
+    
     func postReloadView(cell: UITableViewCell) {
 
         tableView.reloadData()
@@ -167,15 +196,17 @@ extension HomeViewController: PostTableViewCellDelegate {
 
 extension HomeViewController: InteractionTableViewCellDelegate {
     
+    func signinAlert() {
+        
+        let alert = userManager.showAlert(viewController: self)
+            
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func goToPostDetails(cell: UITableViewCell, index: Int) {
         
         self.passData = posts[index]
         
         performSegue(withIdentifier: segues[0], sender: nil)
-    }
-    
-    func interactionReloadView(cell: UITableViewCell) {
-
-        tableView.reloadData()
     }
 }

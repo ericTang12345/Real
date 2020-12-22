@@ -20,9 +20,9 @@ struct Message: Codable {
 
 extension Message {
     
-    init(message: String) {
+    init(id: String, message: String) {
         
-        self.sender = UserManager.shared.userID
+        self.sender = id
         
         self.message = message
         

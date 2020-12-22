@@ -17,48 +17,61 @@ class UserManager {
     
     let userDefaults = UserDefaults.standard
     
+    let firebaseAuth = FirebaseAuthManager()
+    
     let group = DispatchGroup()
     
-    var isSignin: Bool {
+    var userData: User? {
         
-        if Auth.auth().currentUser?.uid == nil {
+        didSet {
             
-            return false
-            
-        } else {
-                
-            self.getUserData(nil)
-            
-            return true
+            NotificationCenter.default.post(name: .userDataUpdated, object: nil)
         }
     }
     
-    var userData: User?
+    var isSignin: Bool {
+        
+        return Auth.auth().currentUser != nil
+    }
     
-    var userID: String { return Auth.auth().currentUser?.uid ?? UUID().uuidString }
+    func showAlert(viewController: UIViewController) -> UIAlertController {
+        
+        let alert = UIAlertController(title: "尚未登入", message: "完成登入，可以立即啟用喜愛、回應、發文等功能哦！", preferredStyle: .actionSheet)
+        
+        alert.view.tintColor = .gray
+        
+        let done = UIAlertAction(title: "立即登入", style: .default) { (_) in
+            
+            self.firebaseAuth.performSignin(viewController)
+        }
+        
+        alert.addAction(done)
+        
+        let cancel = UIAlertAction(title: "稍後再說", style: .default)
+        
+        alert.addAction(cancel)
+        
+        return alert
+    }
     
     func createUser(id: String) {
-        
-        // 儲存 id (還不確定)
-        
-        userDefaults.set(id, forKey: .userID)
     
-        // 創建 User
-        
         let doc = firebase.getCollection(name: .user).document(id)
         
         let data = User(id: id)
         
         firebase.save(to: doc, data: data)
         
-        switchNameAndImage()
+        userData = data
         
-        // update random name and image
+        switchNameAndImage()
     }
     
     func getUserData(_ handler: (() -> Void)?) {
         
-        let doc = firebase.getCollection(name: .user).document(userID)
+        guard let user = userData else { return }
+        
+        let doc = firebase.getCollection(name: .user).document(user.id)
         
         firebase.readSingle(doc, dataType: User.self) { [weak self] result in
             
@@ -131,7 +144,9 @@ extension UserManager {
             
             let fullName = adj + " " + main
             
-            let doc = self.firebase.getCollection(name: .user).document(self.userID)
+            guard let user = self.userData else { return }
+            
+            let doc = self.firebase.getCollection(name: .user).document(user.id)
             
             doc.updateData(["randomName": fullName, "randomImage": url])
             

@@ -84,8 +84,66 @@ extension FirebaseAuthManager: ASAuthorizationControllerDelegate {
                     
                     print("signed in as \(user.uid)m email: \(user.email ?? "unknow")")
                     
-                    UserManager.shared.createUser(id: user.uid)
+                    self.readUser(userId: user.uid) { (isHaveData) in
+                        
+                        if isHaveData {
+                            
+                            // 重新設置 userManager
+                            self.setupUser(id: user.uid)
+                        
+                        } else {
+                            
+                            // 如果沒有資料，建立一個新的 userData
+                            UserManager.shared.createUser(id: user.uid)
+                        }
+                    }
                 }
+            }
+        }
+    }
+    
+    func readUser(userId: String, handler: @escaping (Bool) -> Void) {
+        
+        firebase.read(collectionName: .user, dataType: User.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                for user in data where user.id == userId {
+                    
+                    handler(true)
+                    
+                    return
+                }
+                
+                handler(false)
+                
+                return
+                
+            case .failure(let error):
+                
+                print("App delegate read user", error.localizedDescription)
+            
+            }
+        }
+    }
+    
+    func setupUser(id: String) {
+        
+        let doc = firebase.getCollection(name: .user).document(id)
+        
+        firebase.readSingle(doc, dataType: User.self) { (result) in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                UserManager.shared.userData = user
+            
+            case .failure(let error):
+            
+                print("App delegate setup user data", error.localizedDescription)
             }
         }
     }

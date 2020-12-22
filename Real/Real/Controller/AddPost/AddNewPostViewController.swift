@@ -68,9 +68,11 @@ class AddNewPostViewController: BaseViewController {
     
     @objc func reloadView() {
         
-        userImageView.loadImage(urlString: userManager.userData!.randomImage)
+        guard let user = userManager.userData else { return }
         
-        userNameLabel.text = userManager.userData?.randomName
+        userImageView.loadImage(urlString: user.randomImage)
+        
+        userNameLabel.text = user.randomName
     }
     
     func getImage(type: UIImagePickerController.SourceType) {
@@ -113,6 +115,25 @@ class AddNewPostViewController: BaseViewController {
         }
     }
     
+    func savePost(doc: FIRDocRef, type: String, content: String, images: [String] = []) {
+        
+        let post = Post(id: doc.documentID, type: type, images: images, content: content, tags: [], votes: voteItems)
+        
+        self.firebase.save(to: doc, data: post)
+    }
+    
+    func saveVoteData(doc: FIRDocRef) {
+        
+        for (index, voteItem) in voteItems.enumerated() {
+            
+            let voteDoc = doc.collection("votes").document()
+            
+            let vote = Vote(id: index, docId: voteDoc.documentID, title: voteItem)
+            
+            firebase.save(to: voteDoc, data: vote)
+        }
+    }
+    
     // MARK: - IBAction function
     
     // left back button
@@ -143,27 +164,26 @@ class AddNewPostViewController: BaseViewController {
         
         let doc = firebase.getCollection(name: .post).document()
         
-        var post = Post(id: doc.documentID, type: type, images: [], content: content, tags: [], vote: voteItems)
-        
         // 圖片
     
         if images.isEmpty {
-            
-            self.firebase.save(to: doc, data: post)
-            
-            dismiss(animated: true, completion: nil)
+                  
+            savePost(doc: doc, type: type, content: content)
             
         } else {
             
             getUrl(id: doc.documentID) { (urls) in
                 
-                post.images = urls
-                
-                self.firebase.save(to: doc, data: post)
-                
-                self.dismiss(animated: true, completion: nil)
+                self.savePost(doc: doc, type: type, content: content, images: urls)
             }
         }
+        
+        if !voteItems.isEmpty {
+            
+            saveVoteData(doc: doc)
+        }
+
+        dismiss(animated: true, completion: nil)
         
         view.endEditing(true)
     }
@@ -340,6 +360,17 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         case 3: return 30
             
         default: return UITableView.automaticDimension
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.section {
+            
+        case 1, 3: print(indexPath.row)
+        
+        default: tableView.deselectRow(at: indexPath, animated: false)
             
         }
     }

@@ -9,6 +9,8 @@ import UIKit
 
 class ReceiverTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var createdTimeLabel: UILabel!
+    
     @IBOutlet weak var receiverImageView: UIImageView!
     
     @IBOutlet weak var messageLabel: LabelPadding! {
@@ -29,7 +31,7 @@ class ReceiverTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         
-        messageLabel.setup(cornerRadius: messageLabel.height/3)
+        messageLabel.setup(cornerRadius: 10)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,6 +43,8 @@ class ReceiverTableViewCell: UITableViewCell {
         messageLabel.text = data.message
         
         receiverImageView.loadImage(urlString: image)
+        
+        createdTimeLabel.text = data.createdTime.compareCurrentTime()
     }
 
 }

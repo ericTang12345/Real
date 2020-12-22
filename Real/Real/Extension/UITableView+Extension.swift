@@ -79,7 +79,7 @@ extension UITableView {
             cellType.append(.image(PostImageTableViewCellNib.self))
         }
         
-        if !post.vote.isEmpty {
+        if !post.votes.isEmpty {
 
             cellType.append(.vote(VoteTableViewCell.self))
         }

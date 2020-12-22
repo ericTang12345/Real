@@ -28,7 +28,7 @@ struct Comment: Codable {
 
 extension Comment {
     
-    init(id: String, content: String, postId: String) {
+    init(id: String, content: String, author: String, postId: String) {
         
         self.id = id
         

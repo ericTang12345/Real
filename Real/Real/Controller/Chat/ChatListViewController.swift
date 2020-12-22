@@ -49,7 +49,7 @@ class ChatListViewController: BaseViewController {
             
             case .success(let data):
                 
-                let user = self.userManager.userData!
+                guard let user = self.userManager.userData else { return }
                 
                 var chatList: [ChatRoom] = []
                 

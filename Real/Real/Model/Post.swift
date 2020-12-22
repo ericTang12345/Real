@@ -29,14 +29,14 @@ struct Post: Codable {
     
     let tags: [String]
     
-    let vote: [String]
+    let votes: [String]
     
     let collection: [String] // User.id
 }
 
 extension Post {
     
-    init(id: String, type: String, images: [String], content: String, tags: [String], vote: [String]) {
+    init(id: String, type: String, images: [String] = [], content: String, tags: [String] = [], votes: [String] = []) {
         
         self.id = id
         
@@ -58,7 +58,7 @@ extension Post {
         
         self.tags = tags
         
-        self.vote = vote
+        self.votes = votes
         
         self.collection = []
     }

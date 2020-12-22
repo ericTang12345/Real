@@ -37,7 +37,7 @@ class PostImageTableViewCell: UITableViewCell {
 }
  
 extension PostImageTableViewCell: UICollectionViewDelegate {
-    
+
 }
 
 extension PostImageTableViewCell: UICollectionViewDataSource {

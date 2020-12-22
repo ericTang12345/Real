@@ -72,16 +72,15 @@ class BaseViewController: UIViewController {
 
     @objc func keyboardWillShow(_ notification: Notification) {
         
+        // 先變回原本尺寸
+        self.view.frame.size.height = UIScreen.fullSize.height
+        
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
 
             let keyboardHeight = keyboardFrame.cgRectValue.height
             
-            if self.view.frame.size.height == (UIScreen.fullSize.height - keyboardHeight) {
-                
-            } else {
-                
-                self.view.frame.size.height -= keyboardHeight
-            }
+            // 調整 view 去對應 keyboard size
+            self.view.frame.size.height -= keyboardHeight
         }
     }
 

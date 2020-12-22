@@ -20,18 +20,18 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-qi-o06">
                         <rect key="frame" x="18" y="6" width="26" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ghx-qi-o06" secondAttribute="height" multiplier="10:11" id="gRm-Tk-06n"/>
+                            <constraint firstAttribute="width" secondItem="ghx-qi-o06" secondAttribute="height" multiplier="11:12" id="gRm-Tk-06n"/>
                         </constraints>
                         <state key="normal">
                             <imageReference key="image" image="circle" catalog="system" symbolScale="medium" renderingMode="original"/>
                         </state>
+                        <state key="selected">
+                            <imageReference key="image" image="checkmark.circle" catalog="system" renderingMode="original"/>
+                        </state>
+                        <connections>
+                            <action selector="vote:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L9Z-UX-ZUS"/>
+                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8c-Xy-jNf">
-                        <rect key="frame" x="370" y="22.5" width="26" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-fh-lFO">
                         <rect key="frame" x="52.5" y="7" width="309" height="26"/>
                         <subviews>
@@ -46,17 +46,23 @@
                             </progressView>
                         </subviews>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8c-Xy-jNf">
+                        <rect key="frame" x="365.5" y="24.5" width="30.5" height="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ghx-qi-o06" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="0b1-zh-kEh"/>
-                    <constraint firstAttribute="trailing" secondItem="A8c-Xy-jNf" secondAttribute="trailing" constant="18" id="1kH-HQ-am8"/>
                     <constraint firstItem="ghx-qi-o06" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.0625" id="BmO-9a-vW2"/>
-                    <constraint firstItem="A8c-Xy-jNf" firstAttribute="leading" secondItem="cgE-fh-lFO" secondAttribute="trailing" constant="8.5" id="Qdv-Ty-Tup"/>
+                    <constraint firstItem="cgE-fh-lFO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="FkH-o8-hli"/>
+                    <constraint firstItem="A8c-Xy-jNf" firstAttribute="leading" secondItem="cgE-fh-lFO" secondAttribute="trailing" constant="4" id="Hct-7Q-FrE"/>
+                    <constraint firstAttribute="trailing" secondItem="A8c-Xy-jNf" secondAttribute="trailing" constant="18" id="Ovo-K4-wmD"/>
+                    <constraint firstItem="A8c-Xy-jNf" firstAttribute="bottom" secondItem="cpK-vg-eKd" secondAttribute="bottom" constant="2.5" id="ThR-bz-usU"/>
                     <constraint firstItem="cgE-fh-lFO" firstAttribute="centerY" secondItem="ghx-qi-o06" secondAttribute="centerY" id="Vzr-eC-nau"/>
-                    <constraint firstItem="cgE-fh-lFO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="WrT-ZW-aee"/>
                     <constraint firstItem="ghx-qi-o06" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZFx-zd-eIZ"/>
                     <constraint firstItem="cgE-fh-lFO" firstAttribute="leading" secondItem="ghx-qi-o06" secondAttribute="trailing" constant="8.5" id="ZUi-ZY-Par"/>
-                    <constraint firstItem="A8c-Xy-jNf" firstAttribute="bottom" secondItem="cgE-fh-lFO" secondAttribute="bottom" constant="1.5" id="lFl-GV-m8v"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -70,6 +76,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

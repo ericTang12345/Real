@@ -13,7 +13,16 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
-    @IBOutlet weak var isReceiveSwitch: UISwitch!
+    @IBOutlet weak var isReceiveSwitch: UISwitch! {
+        
+        didSet {
+            
+            if userManager.userData == nil {
+                
+                isReceiveSwitch.isOn = false
+            }
+        }
+    }
     
     let firebase = FirebaseManager.shared
     
@@ -24,14 +33,19 @@ class UserProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reloadView()
+        firebase.listen(collectionName: .user) {
+            
+            self.reloadView()
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name: .userDataUpdated, object: nil)
     }
     
     @objc func reloadView() {
         
-        userNameLabel.text = userManager.userData?.randomName
+        guard let user = userManager.userData else { return }
+        
+        userNameLabel.text = user.randomName
         
         userImageView.loadImage(urlString: userManager.userData?.randomImage ?? .empty)
         
@@ -53,9 +67,14 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBAction func switchReceiveStatus(_ sender: UISwitch) {
         
+        guard let user = userManager.userData else {
+            
+            return
+        }
+        
         firebase.update(
             collectionName: .user,
-            documentId: userManager.userID,
+            documentId: user.id,
             key: "isReceiveDriftingBottle",
             value: sender.isOn
         )

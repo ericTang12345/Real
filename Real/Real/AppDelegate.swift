@@ -16,49 +16,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let userManegare = UserManager.shared
     
-    func firstOpenApp() -> Bool {
-        
-        let count = userDefaults.integer(forKey: .appOpenCount)
-        
-        if count == 0 {
-            
-            userDefaults.set(1, forKey: .appOpenCount)
-        
-            return true
-            
-        } else {
-            
-            userDefaults.set(count + 1, forKey: .appOpenCount)
-                    
-            return false
-        }
-        
-    }
+    let firebase = FirebaseManager.shared
+    
+    let firbaseAuth = FirebaseAuthManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         
-        if firstOpenApp() {
+//        try? Auth.auth().signOut()
         
-            print("User first open app")
-        
-        } else {
+        check { uid in
             
-            print("User is opened app")
+            let doc = self.firebase.getCollection(name: .user).document(uid)
             
-            if userManegare.isSignin {
+            self.firebase.listen(doc: doc) {
                 
-                print("user have sign in, id: ", userManegare.userID)
-
-            } else {
-                
-                print("user not sign in")
+                self.userManegare.getUserData(nil)
             }
         }
-
+        
         return true
+    }
+    
+    func check(handler: @escaping (String) -> Void) {
+        
+        // 登入成功
+        if Auth.auth().currentUser != nil {
+            
+            let user = Auth.auth().currentUser!
+            
+            // 讀取 user 資料，檢查是否已經有建過資料
+            
+            firbaseAuth.readUser(userId: user.uid) { (isHaveData) in
+                
+                if isHaveData {
+                    
+                    // 重新設置 userManager
+                    self.firbaseAuth.setupUser(id: user.uid)
+                
+                    handler(user.uid)
+                    
+                } else {
+                    
+                    // 如果沒有資料，建立一個新的 userData
+                    self.userManegare.createUser(id: user.uid)
+                    
+                    handler(user.uid)
+                }
+            }
+            
+        } else {
+            
+            print("user is not sign in")
+            
+            let uid = UUID().uuidString
+            
+            self.userManegare.createUser(id: uid)
+            
+            userDefaults.set(uid, forKey: .userID)
+            
+            handler(uid)
+        }
+        
     }
 
     // MARK: UISceneSession Lifecycle

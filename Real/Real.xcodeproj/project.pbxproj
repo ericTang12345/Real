@@ -88,6 +88,8 @@
 		24D938982587602C00E0EBA3 /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D938962587602C00E0EBA3 /* PostMainTableViewCell.swift */; };
 		24D938992587602C00E0EBA3 /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D938972587602C00E0EBA3 /* PostMainTableViewCell.xib */; };
 		24DE20FE2586A573002CA076 /* TopicSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DE20FD2586A573002CA076 /* TopicSettingViewController.swift */; };
+		24E6CCB0258FC7BD00E7D9C8 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6CCAF258FC7BD00E7D9C8 /* UITextView+Extension.swift */; };
+		24E6CCB4258FDC6700E7D9C8 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6CCB3258FDC6700E7D9C8 /* Vote.swift */; };
 		24F207D9258B5EF5002886FD /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F207D8258B5EF5002886FD /* LetterViewController.swift */; };
 		24F5978B25819F3700C01621 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5978A25819F3700C01621 /* RandomImage.swift */; };
 /* End PBXBuildFile section */
@@ -176,6 +178,8 @@
 		24D938962587602C00E0EBA3 /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
 		24D938972587602C00E0EBA3 /* PostMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostMainTableViewCell.xib; sourceTree = "<group>"; };
 		24DE20FD2586A573002CA076 /* TopicSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSettingViewController.swift; sourceTree = "<group>"; };
+		24E6CCAF258FC7BD00E7D9C8 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		24E6CCB3258FDC6700E7D9C8 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		24F207D8258B5EF5002886FD /* LetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewController.swift; sourceTree = "<group>"; };
 		24F5978A25819F3700C01621 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
 		6587CACFAF6D25789F844415 /* Pods-Real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real.debug.xcconfig"; path = "Target Support Files/Pods-Real/Pods-Real.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				24294F5F2583006E00F9D41F /* DriftingBottle.swift */,
 				24CF068E258818E3002B4E05 /* Message.swift */,
 				24793496258F4B34005C0395 /* ChatRoom.swift */,
+				24E6CCB3258FDC6700E7D9C8 /* Vote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,9 +391,10 @@
 				24AE9B122575A961009A3C5E /* UILabel+Extension.swift */,
 				242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */,
 				2417346D257E25130087107E /* UIScreen+Extension.swift */,
+				2481DFAB258648BA00180FDB /* UINib+Extension.swift */,
+				24E6CCAF258FC7BD00E7D9C8 /* UITextView+Extension.swift */,
 				24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */,
 				24CBE0CE2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift */,
-				2481DFAB258648BA00180FDB /* UINib+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 			files = (
 				24DE20FE2586A573002CA076 /* TopicSettingViewController.swift in Sources */,
 				24B890A3258696AD0035DEA1 /* PostImageCollectionViewCell.swift in Sources */,
+				24E6CCB4258FDC6700E7D9C8 /* Vote.swift in Sources */,
 				24294F602583006E00F9D41F /* DriftingBottle.swift in Sources */,
 				24AE9B0925759F14009A3C5E /* NotificationCenterViewController.swift in Sources */,
 				24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */,
@@ -719,6 +726,7 @@
 				243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */,
 				24A6022D25864E9200412A49 /* DriftingBottlePagerViewCell.swift in Sources */,
 				24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */,
+				24E6CCB0258FC7BD00E7D9C8 /* UITextView+Extension.swift in Sources */,
 				24AE9B132575A961009A3C5E /* UILabel+Extension.swift in Sources */,
 				2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */,
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,

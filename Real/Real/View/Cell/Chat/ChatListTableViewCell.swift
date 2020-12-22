@@ -27,7 +27,7 @@ class ChatListTableViewCell: BaseTableViewCell {
     
     func setup(data: ChatRoom) {
         
-        let user = userManager.userData!
+        guard let user = userManager.userData else { return }
     
         nameLabel.text = data.provider == user.id ? data.receiverName : data.providerName
         

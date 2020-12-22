@@ -10,6 +10,8 @@ import UIKit
 protocol InteractionTableViewCellDelegate: AnyObject {
     
     func goToPostDetails(cell: UITableViewCell, index: Int)
+    
+    func signinAlert()
 }
 
 class InteractionTableViewCell: BaseTableViewCell {
@@ -40,15 +42,17 @@ class InteractionTableViewCell: BaseTableViewCell {
         
         self.post = data
         
+        commentButton.tag = index
+        
         getCommentCount(postId: data.id)
         
         likeCountLabel.text = data.likeCount.count == 0 ? "0" : String(data.likeCount.count)
         
-        likeButton.isSelected = data.likeCount.contains(userManager.userID)
+        guard let user = userManager.userData else { return }
         
-        bookmarkButton.isSelected = data.collection.contains(userManager.userID)
+        likeButton.isSelected = data.likeCount.contains(user.id)
         
-        commentButton.tag = index
+        bookmarkButton.isSelected = data.collection.contains(user.id)
     }
     
     func getCommentCount(postId: String) {
@@ -78,7 +82,7 @@ class InteractionTableViewCell: BaseTableViewCell {
     
         sender.isSelected = !sender.isSelected
         
-        guard let post = post else {
+        guard let post = post, let user = userManager.userData else {
             
             print("post or delegate is nil in InteractionTableViewCell")
             
@@ -87,16 +91,18 @@ class InteractionTableViewCell: BaseTableViewCell {
         
         let collection = firebase.getCollection(name: .post).document(post.id)
         
-        if post.collection.contains(userManager.userID) {
+        if post.collection.contains(user.id) {
             
             collection.updateData([
-                "collection": FIRFieldValue.arrayRemove([userManager.userID])
+                
+                "collection": FIRFieldValue.arrayRemove([user.id])
             ])
             
         } else {
             
             collection.updateData([
-                "collection": FIRFieldValue.arrayUnion([userManager.userID])
+                
+                "collection": FIRFieldValue.arrayUnion([user.id])
             ])
         }
     }
@@ -110,27 +116,44 @@ class InteractionTableViewCell: BaseTableViewCell {
     
     @IBAction func like(_ sender: UIButton) {
         
-        sender.isSelected = !sender.isSelected
+        // 檢查 delegate
         
-        guard let post = post else {
+        guard let delegate = delegate else { return }
+        
+        // 檢查是否登入
+        
+        if !userManager.isSignin {
+            
+            delegate.signinAlert()
+            
+            return
+        }
+        
+        // 檢查貼文、使用者資料
+        
+        guard let post = post, let user = userManager.userData else {
             
             print("post or delegate is nil in InteractionTableViewCell")
             
             return
         }
         
+        // 狀態更新
+        
+        sender.isSelected = !sender.isSelected
+        
         let collection = firebase.getCollection(name: .post).document(post.id)
         
-        if post.likeCount.contains(userManager.userID) {
+        if post.likeCount.contains(user.id) {
             
             collection.updateData([
-                "likeCount": FIRFieldValue.arrayRemove([userManager.userID])
+                "likeCount": FIRFieldValue.arrayRemove([user.id])
             ])
             
         } else {
 
             collection.updateData([
-                "likeCount": FIRFieldValue.arrayUnion([userManager.userID])
+                "likeCount": FIRFieldValue.arrayUnion([user.id])
             ])
         }
     }

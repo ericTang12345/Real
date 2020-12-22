@@ -46,11 +46,24 @@ class CommentTableViewCell: BaseTableViewCell {
         
         likeCountLabel.text = data.likeCount.count == 0 ? .empty: String(data.likeCount.count)
         
-        likeButton.isSelected = data.likeCount.contains(userManager.userID)
+        guard let user = userManager.userData else {
+            
+            print("CommentTableViewCell no user data")
+            
+            return
+        }
         
+        likeButton.isSelected = data.likeCount.contains(user.id)
     }
     
     @IBAction func likeComment(_ sender: UIButton) {
+        
+        guard let user = userManager.userData else {
+            
+            print(" CommentTableViewCell no user data")
+            
+            return
+        }
         
         sender.isSelected = !sender.isSelected
         
@@ -58,16 +71,16 @@ class CommentTableViewCell: BaseTableViewCell {
         
         let collection = firebase.getCollection(name: .comment).document(comment.id)
         
-        if comment.likeCount.contains(userManager.userID) {
+        if comment.likeCount.contains(user.id) {
             
             collection.updateData([
-                "likeCount": FIRFieldValue.arrayRemove([userManager.userID])
+                "likeCount": FIRFieldValue.arrayRemove([user.id])
             ])
             
         } else {
             
             collection.updateData([
-                "likeCount": FIRFieldValue.arrayUnion([userManager.userID])
+                "likeCount": FIRFieldValue.arrayUnion([user.id])
             ])
         }
     }

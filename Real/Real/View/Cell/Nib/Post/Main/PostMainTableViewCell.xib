@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,18 +24,18 @@
                             <constraint firstAttribute="height" constant="35" id="qgY-dQ-3ex"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glF-v6-ddg">
-                        <rect key="frame" x="63.5" y="23" width="334.5" height="21"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="glF-v6-ddg">
+                        <rect key="frame" x="63.5" y="14.5" width="290.5" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="AUTHOR NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TN-6I-CBt">
-                                <rect key="frame" x="0.0" y="0.0" width="238.5" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="290.5" height="21"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATED TIME" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUH-q1-Exd">
-                                <rect key="frame" x="238.5" y="0.0" width="96" height="21"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATED TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUH-q1-Exd">
+                                <rect key="frame" x="0.0" y="21" width="290.5" height="17"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -79,17 +80,31 @@
                             </button>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8V-Sg-8h5">
+                        <rect key="frame" x="364" y="22.5" width="30" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="GeC-EJ-3i9"/>
+                        </constraints>
+                        <state key="normal">
+                            <imageReference key="image" image="ellipsis" catalog="system" symbolScale="small" renderingMode="original"/>
+                        </state>
+                        <connections>
+                            <action selector="moreFunction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nu0-0O-cHa"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7uL-ZA-cLW" secondAttribute="bottom" constant="6" id="6h0-TG-R38"/>
                     <constraint firstItem="5XJ-yN-I6f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="C3E-eu-nIn"/>
                     <constraint firstItem="7uL-ZA-cLW" firstAttribute="top" secondItem="5XJ-yN-I6f" secondAttribute="bottom" constant="16" id="FOZ-dg-60o"/>
                     <constraint firstItem="glF-v6-ddg" firstAttribute="centerY" secondItem="5XJ-yN-I6f" secondAttribute="centerY" id="NzU-Oc-Eg2"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="trailing" secondItem="7vr-Ne-As6" secondAttribute="trailing" id="ReP-Lj-sQz"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="leading" secondItem="glF-v6-ddg" secondAttribute="trailing" constant="10" id="XFy-O7-gSl"/>
                     <constraint firstItem="7uL-ZA-cLW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bXR-TW-OoL"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="centerY" secondItem="glF-v6-ddg" secondAttribute="centerY" id="cGP-1i-iLf"/>
                     <constraint firstItem="glF-v6-ddg" firstAttribute="leading" secondItem="5XJ-yN-I6f" secondAttribute="trailing" constant="12.5" id="g62-li-XgO"/>
                     <constraint firstItem="5XJ-yN-I6f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="l1r-fh-Znj"/>
                     <constraint firstItem="7uL-ZA-cLW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="pXq-2c-vUA"/>
-                    <constraint firstAttribute="trailing" secondItem="glF-v6-ddg" secondAttribute="trailing" constant="16" id="utb-jL-kGS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -99,8 +114,12 @@
                 <outlet property="contentLabel" destination="7vr-Ne-As6" id="7qE-zG-BQD"/>
                 <outlet property="createdTimeLabel" destination="MUH-q1-Exd" id="abf-Fn-doy"/>
                 <outlet property="moreContentButton" destination="Ysx-SZ-fzL" id="9FM-Cp-mCH"/>
+                <outlet property="moreFunctionButton" destination="P8V-Sg-8h5" id="CTU-lk-6CI"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="103.45982142857143"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+    </resources>
 </document>

@@ -73,7 +73,11 @@ extension Timestamp {
         
         let startDay = first * 24.0 * 60.0 * 60.0
         
+        print("start day: ", startDay)
+        
         let overDay = end * 24.0 * 60.0 * 60.0
+        
+        print("over day: ", overDay)
         
         let randomTime = Double.random(in: startDay ..< overDay)
         

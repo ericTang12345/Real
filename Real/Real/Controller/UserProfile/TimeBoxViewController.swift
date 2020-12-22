@@ -95,6 +95,8 @@ class TimeBoxViewController: BaseViewController {
 
     func fetch() {
         
+        guard let user = userManager.userData else { return }
+        
         firebase.read(collectionName: .post, dataType: Post.self) { (result) in
             
             switch result {
@@ -105,7 +107,7 @@ class TimeBoxViewController: BaseViewController {
                 
                 var posts: [Post] = []
                 
-                for item in data where item.authorId == self.userManager.userID {
+                for item in data where item.authorId == user.id {
                     
                     posts.append(item)
                 }
@@ -116,7 +118,7 @@ class TimeBoxViewController: BaseViewController {
                 
                 var collections: [Post] = []
                 
-                for item in data where item.collection.contains(self.userManager.userID) {
+                for item in data where item.collection.contains(user.id) {
                     
                     collections.append(item)
                 }
@@ -131,7 +133,7 @@ class TimeBoxViewController: BaseViewController {
             }
         }
         
-        let driftingBottleFilter = Filter(key: "provider", value: userManager.userID)
+        let driftingBottleFilter = Filter(key: "provider", value: user.id)
         
         firebase.read(collectionName: .driftingBottle, dataType: DriftingBottle.self, filter: driftingBottleFilter) { (result) in
             
