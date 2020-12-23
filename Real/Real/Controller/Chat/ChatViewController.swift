@@ -82,11 +82,14 @@ class ChatViewController: BaseViewController {
     
     func scrolltoBottom() {
         
-        let row = (messages.count - 1)
-        
-        tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .bottom, animated: true)
-        
-        tableView.reloadData()
+        if messages.count != 0 {
+            
+            let row = (messages.count - 1)
+            
+            tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .bottom, animated: true)
+            
+            tableView.reloadData()
+        }
     }
     
     @IBAction func replyComment(_ sender: UIButton) {

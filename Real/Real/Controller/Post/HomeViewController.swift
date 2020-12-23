@@ -166,9 +166,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: PostTableViewCellDelegate {
     
-    func postEditFunction(cell: UITableViewCell, alert: UIAlertController) {
+    func postEdit(cell: UITableViewCell, viewController: UIViewController) {
         
-        present(alert, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
     func postMoreFunction(cell: UITableViewCell, alert: UIAlertController) {
@@ -184,7 +184,7 @@ extension HomeViewController: PostTableViewCellDelegate {
 
 extension HomeViewController: InteractionTableViewCellDelegate {
     
-    func signinAlert() {
+    func signinAlert(cell: UITableViewCell) {
         
         let alert = userManager.showAlert(viewController: self)
             

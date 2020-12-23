@@ -11,6 +11,8 @@
 		2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */; };
 		2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */; };
 		2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2417346D257E25130087107E /* UIScreen+Extension.swift */; };
+		241AC75F25931094005A0050 /* PostEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241AC75E25931094005A0050 /* PostEditViewController.swift */; };
+		241AC76225931A2D005A0050 /* PostEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241AC76125931A2D005A0050 /* PostEditTableViewCell.swift */; };
 		241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8F3A257438DF0046F831 /* TopicViewController.swift */; };
 		24287BCB258672F90023A510 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24287BCA258672F90023A510 /* ChatListViewController.swift */; };
 		24294F602583006E00F9D41F /* DriftingBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24294F5F2583006E00F9D41F /* DriftingBottle.swift */; };
@@ -43,6 +45,7 @@
 		2479349A258F5D77005C0395 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24793499258F5D77005C0395 /* ChatListTableViewCell.swift */; };
 		2481DFA92586418E00180FDB /* DriftingBottlePagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2481DFA72586418E00180FDB /* DriftingBottlePagerViewCell.xib */; };
 		2481DFAC258648BB00180FDB /* UINib+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481DFAB258648BA00180FDB /* UINib+Extension.swift */; };
+		2483CCA625932FC000664679 /* AddPostVoteItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483CCA525932FC000664679 /* AddPostVoteItemTableViewCell.swift */; };
 		2484EBD4256FD17300BA37F3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */; };
 		248CF842257D558800B9CED6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */; };
 		248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */ = {isa = PBXBuildFile; fileRef = 248CF845257D631200B9CED6 /* shutterstock_598927436.png */; };
@@ -100,6 +103,8 @@
 		2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
 		2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentTableViewCell.swift; sourceTree = "<group>"; };
 		2417346D257E25130087107E /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		241AC75E25931094005A0050 /* PostEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditViewController.swift; sourceTree = "<group>"; };
+		241AC76125931A2D005A0050 /* PostEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditTableViewCell.swift; sourceTree = "<group>"; };
 		241D99B4257CC3EF00653D42 /* Real.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Real.entitlements; sourceTree = "<group>"; };
 		241E8F3A257438DF0046F831 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		24287BCA258672F90023A510 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +138,7 @@
 		24793499258F5D77005C0395 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		2481DFA72586418E00180FDB /* DriftingBottlePagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriftingBottlePagerViewCell.xib; sourceTree = "<group>"; };
 		2481DFAB258648BA00180FDB /* UINib+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Extension.swift"; sourceTree = "<group>"; };
+		2483CCA525932FC000664679 /* AddPostVoteItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVoteItemTableViewCell.swift; sourceTree = "<group>"; };
 		2484EBD3256FD17300BA37F3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		248CF845257D631200B9CED6 /* shutterstock_598927436.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterstock_598927436.png; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 				24B8909F258695E00035DEA1 /* PostImageTableViewCell.swift */,
 				24B890A2258696AD0035DEA1 /* PostImageCollectionViewCell.swift */,
 				244BF2A62587390A003053CB /* VoteSettingTableViewCell.swift */,
+				2483CCA525932FC000664679 /* AddPostVoteItemTableViewCell.swift */,
 			);
 			path = AddNewPost;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 				24568442256E7BC100FB7D3D /* HomeViewController.swift */,
 				241E8F3A257438DF0046F831 /* TopicViewController.swift */,
 				243DA98B2573621B007142EA /* PostDetailsViewController.swift */,
+				241AC75E25931094005A0050 /* PostEditViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 				2408F4D225758DE500D6C2F4 /* AddNewPost */,
 				248CF841257D558800B9CED6 /* NotificationTableViewCell.swift */,
 				24A9CABE258E12A2006FBBB6 /* LetterTableViewCell.swift */,
+				241AC76125931A2D005A0050 /* PostEditTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -731,6 +740,7 @@
 				24ACE645257FE495002D5090 /* UserManager.swift in Sources */,
 				2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
+				2483CCA625932FC000664679 /* AddPostVoteItemTableViewCell.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
 				244BF2A72587390A003053CB /* VoteSettingTableViewCell.swift in Sources */,
 				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
@@ -738,6 +748,7 @@
 				24A9CABF258E12A2006FBBB6 /* LetterTableViewCell.swift in Sources */,
 				24C01D8E258C0B7000BD94DD /* DriftingBottleListViewController.swift in Sources */,
 				24CF068B258806B9002B4E05 /* BaseTableViewCell.swift in Sources */,
+				241AC76225931A2D005A0050 /* PostEditTableViewCell.swift in Sources */,
 				243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */,
 				24A6022D25864E9200412A49 /* DriftingBottlePagerViewCell.swift in Sources */,
 				24B9B6D2256E537C005919A3 /* AppDelegate.swift in Sources */,
@@ -764,6 +775,7 @@
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				24F5978B25819F3700C01621 /* RandomImage.swift in Sources */,
 				24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */,
+				241AC75F25931094005A0050 /* PostEditViewController.swift in Sources */,
 				24D938932587548F00E0EBA3 /* InteractionTableViewCell.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
 				24B278CA2589A6ED00E3206D /* VoteTableViewCell.swift in Sources */,

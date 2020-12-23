@@ -11,7 +11,7 @@ protocol InteractionTableViewCellDelegate: AnyObject {
     
     func goToPostDetails(cell: UITableViewCell, index: Int)
     
-    func signinAlert()
+    func signinAlert(cell: UITableViewCell)
 }
 
 class InteractionTableViewCell: BaseTableViewCell {
@@ -124,7 +124,7 @@ class InteractionTableViewCell: BaseTableViewCell {
         
         if !userManager.isSignin {
             
-            delegate.signinAlert()
+            delegate.signinAlert(cell: self)
             
             return
         }

@@ -76,6 +76,8 @@ class TopicViewController: BaseViewController {
     }
 }
 
+// MARK: - UITableView Delegate, DataSource
+
 extension TopicViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -160,11 +162,13 @@ extension TopicViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Delegate
+
 extension TopicViewController: PostTableViewCellDelegate {
     
-    func postEditFunction(cell: UITableViewCell, alert: UIAlertController) {
+    func postEdit(cell: UITableViewCell, viewController: UIViewController) {
         
-        present(alert, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
     func postMoreFunction(cell: UITableViewCell, alert: UIAlertController) {
@@ -180,7 +184,7 @@ extension TopicViewController: PostTableViewCellDelegate {
 
 extension TopicViewController: InteractionTableViewCellDelegate {
     
-    func signinAlert() {
+    func signinAlert(cell: UITableViewCell) {
         
         let alert = userManager.showAlert(viewController: self)
             

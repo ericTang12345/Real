@@ -37,9 +37,11 @@ class VoteItemTableViewCell: BaseTableViewCell {
         
         voteTitleLabel.text = data.title + " (\(data.voter.count) 票)"
             
-        progressView.progress = getVoterCount(voter: data.voter.count, total: total)
+        let voteCount = getVoterCount(voter: data.voter.count, total: total)
         
-        percentageLabel.text = total == 0 ? "" : "\(data.voter.count/total*100) %"
+        progressView.progress = voteCount
+        
+        percentageLabel.text = total == 0 ? "" : "\(Int(voteCount*100)) %"
         
         guard let user = userManager.userData else { return }
         

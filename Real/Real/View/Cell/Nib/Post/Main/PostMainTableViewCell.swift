@@ -11,13 +11,15 @@ protocol PostTableViewCellDelegate: AnyObject {
     
     func postReloadView(cell: UITableViewCell)
     
-    func postEditFunction(cell: UITableViewCell, alert: UIAlertController)
+    func postEdit(cell: UITableViewCell, viewController: UIViewController)
     
     func postMoreFunction(cell: UITableViewCell, alert: UIAlertController)
 }
 
 class PostMainTableViewCell: BaseTableViewCell {
 
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var authorImageView: UIImageView!
     
     @IBOutlet weak var authorNameLabel: UILabel!
@@ -30,9 +32,13 @@ class PostMainTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var moreFunctionButton: UIButton!
     
+    // MARK: - variables
+    
     weak var delegate: PostTableViewCellDelegate?
     
     var post: Post?
+    
+    // MARK: - override function
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +47,8 @@ class PostMainTableViewCell: BaseTableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // MARK: - function
     
     func setup(data: Post) {
         
@@ -57,13 +65,19 @@ class PostMainTableViewCell: BaseTableViewCell {
         moreContentButton.isHidden = contentLabel.numberOfLines == 0 ? true : contentLabel.textCount <= 4
     }
     
-    func hideUser() {
-        
-    }
-    
     func hidePost() {
         
+        guard let user = self.userManager.userData, let post = self.post else { return }
+        
+        let doc = self.firebase.getCollection(name: .user).document(user.id)
+        
+        doc.updateData([
+            
+            "blockadeListPost": FIRFieldValue.arrayUnion([post.id])
+        ])
     }
+    
+    // MARK: - IBAction function
     
     @IBAction func showMoreContent(_ sender: UIButton) {
         
@@ -90,29 +104,10 @@ class PostMainTableViewCell: BaseTableViewCell {
             
             let hidePost = UIAlertAction(title: "隱藏貼文", style: .default) { (_) in
                 
-                guard let user = self.userManager.userData, let post = self.post else { return }
-                
-                let doc = self.firebase.getCollection(name: .user).document(user.id)
-                
-                doc.updateData([
-                    "blockadeListPost": FIRFieldValue.arrayUnion([post.id])
-                ])
+                self.hidePost()
             }
             
             alert.addAction(hidePost)
-            
-            let hideUser = UIAlertAction(title: "封鎖這名使用者", style: .destructive) { (_) in
-                
-                guard let user = self.userManager.userData, let post = self.post else { return }
-                
-                let doc = self.firebase.getCollection(name: .user).document(user.id)
-                
-                doc.updateData([
-                    "blockadeListUser": FIRFieldValue.arrayUnion([post.authorId])
-                ])
-            }
-            
-            alert.addAction(hideUser)
             
             let cancel = UIAlertAction(title: "返回", style: .cancel)
             
@@ -126,12 +121,22 @@ class PostMainTableViewCell: BaseTableViewCell {
             
             let editPost = UIAlertAction(title: "編輯貼文", style: .default) { (_) in
                 
+                guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostEditViewController") as? PostEditViewController else {
+                    return
+                }
+                
+                viewController.post = post
+                
+                viewController.modalPresentationStyle = .popover
+                
+                delegate.postEdit(cell: self, viewController: viewController)
             }
             
             alert.addAction(editPost)
             
             let deletePost = UIAlertAction(title: "刪除貼文", style: .destructive) { (_) in
                 
+                self.firebase.getCollection(name: .post).document(post.id).delete()
             }
             
             alert.addAction(deletePost)
@@ -140,7 +145,7 @@ class PostMainTableViewCell: BaseTableViewCell {
             
             alert.addAction(cancel)
             
-            delegate.postEditFunction(cell: self, alert: alert)
+            delegate.postMoreFunction(cell: self, alert: alert)
         }
     }
 }

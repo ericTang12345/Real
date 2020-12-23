@@ -347,9 +347,9 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 3:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "VoteCell", for: indexPath)
+            let cell = tableView.reuse(AddPostVoteItemTableViewCell.self, indexPath: indexPath)
             
-            cell.textLabel?.text =  "選項 \(indexPath.row+1) :  \(voteItems[indexPath.row])"
+            cell.voteItemLabel.text =  "選項 \(indexPath.row+1) :  \(voteItems[indexPath.row])"
             
             return cell
             
@@ -363,9 +363,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.section {
         
         case 1: return images.count == 0 ? UITableView.automaticDimension : 150
-        
-        case 3: return 30
-            
+
         default: return UITableView.automaticDimension
             
         }

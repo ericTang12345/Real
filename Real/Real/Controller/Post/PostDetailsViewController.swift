@@ -184,6 +184,8 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
                 
                 cell.setup(data: post, index: indexPath.section)
                 
+                cell.delegate = self
+                
                 return cell
             }
         } else {
@@ -219,6 +221,20 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
         default: return UITableView.automaticDimension
         
         }
+    }
+}
+
+extension PostDetailsViewController: InteractionTableViewCellDelegate {
+    
+    func signinAlert(cell: UITableViewCell) {
+        
+        let alert = userManager.showAlert(viewController: self)
+            
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToPostDetails(cell: UITableViewCell, index: Int) {
+        
     }
 }
 

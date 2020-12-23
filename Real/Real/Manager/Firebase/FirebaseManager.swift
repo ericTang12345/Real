@@ -18,7 +18,6 @@ typealias FIRStore = Firebase.Firestore
 
 //typealias Res<T:Codable> = ((Result<[T]>) -> Void)
 
-
 //protocol Response {
 //
 //    associatedtype Decoder
