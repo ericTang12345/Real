@@ -11,14 +11,20 @@ class ImageDetailsViewController: UIViewController {
 
     @IBOutlet weak var mainImageView: UIImageView!
     
+    var image: UIImage? {
+        
+        didSet {
+            
+            mainImageView.image = image
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func saveImage(_ sender: UIButton) {
-    }
-    
     @IBAction func cancel(_ sender: UIButton) {
         
+        dismiss(animated: true, completion: nil)
     }
 }

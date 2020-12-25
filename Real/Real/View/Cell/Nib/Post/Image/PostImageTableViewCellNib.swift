@@ -20,6 +20,8 @@ class PostImageTableViewCellNib: BaseTableViewCell {
             collectionView.dataSource = self
         }
     }
+     
+    weak var delegate: PostImageDelegate?
     
     var images: [String] = [] {
         
@@ -46,6 +48,7 @@ class PostImageTableViewCellNib: BaseTableViewCell {
 extension PostImageTableViewCellNib: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         print(indexPath.row)
     }
     
@@ -71,6 +74,8 @@ extension PostImageTableViewCellNib: UICollectionViewDataSource {
         let cell = collectionView.reuse(PostImageCollectionViewCellNib.self, indexPath: indexPath)
         
         cell.imageView.loadImage(urlString: images[indexPath.row])
+        
+        cell.delegate = self.delegate
         
         return cell
     }

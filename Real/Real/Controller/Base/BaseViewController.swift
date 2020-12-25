@@ -21,14 +21,22 @@ class BaseViewController: UIViewController {
     
     var isEnableKeyboardNotification: Bool { return false }
     
+    var isSetupShadow: Bool { return false }
+    
     let firebase = FirebaseManager.shared
     
     let userManager = UserManager.shared
     
     let storage = FirebaseStorageManager.shared
     
+    let backgroundView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createBackgroundView()
+    
+        self.view.setupShadow()
         
         if isEnableKeyboardNotification {
 
@@ -55,6 +63,42 @@ class BaseViewController: UIViewController {
         if isEnableHideKeyboardWhenTappedAround {
             
            hideKeyboardWhenTappedAround()
+        }
+    }
+    
+    func createBackgroundView() {
+        
+        backgroundView.frame.origin = CGPoint(x: 0, y: UIScreen.fullSize.height)
+        
+        backgroundView.frame.size = UIScreen.fullSize
+        
+        backgroundView.backgroundColor = .init(white: 0, alpha: 0.5)
+        
+        backgroundView.isHidden = true
+        
+        self.view.insertSubview(backgroundView, at: 2)
+    }
+    
+    func showBackgroundView(duration: TimeInterval) {
+        
+        self.backgroundView.isHidden = false
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: .curveEaseIn) {
+            
+            self.backgroundView.frame.origin.y = 0
+            
+        } completion: { (_) in }
+    }
+    
+    func dismissBackgroundView(duration: TimeInterval) {
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: .curveEaseIn) {
+            
+            self.backgroundView.frame.origin.y = UIScreen.fullSize.height
+            
+        } completion: { (_) in
+            
+            self.backgroundView.isHidden = true
         }
     }
     

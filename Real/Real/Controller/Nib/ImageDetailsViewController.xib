@@ -20,10 +20,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-DS-iu8">
-                    <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="1sV-DS-iu8" secondAttribute="height" multiplier="1:1.25" id="gzN-du-zXR"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="189.5" width="414" height="517"/>
+                    <color key="backgroundColor" red="0.055758248730964466" green="0.055758248730964466" blue="0.055758248730964466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-Z4-VvU">
                     <rect key="frame" x="0.0" y="813" width="414" height="83"/>
@@ -38,18 +36,8 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S9r-dn-GaO">
                             <rect key="frame" x="0.0" y="1" width="414" height="82"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1u-bj-YVz">
-                                    <rect key="frame" x="0.0" y="0.0" width="207" height="82"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                    <state key="normal" title="儲存圖片">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="saveImage:" destination="-1" eventType="touchUpInside" id="qgn-Cg-MjY"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za2-ze-zjk">
-                                    <rect key="frame" x="207" y="0.0" width="207" height="82"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <state key="normal" title="返回">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,12 +65,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
+                <constraint firstItem="1sV-DS-iu8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="145.5" id="04d-RH-Rtx"/>
                 <constraint firstItem="BYx-Z4-VvU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="H0r-gH-dxb"/>
                 <constraint firstItem="1sV-DS-iu8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M2q-uP-DJT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1sV-DS-iu8" secondAttribute="trailing" id="UN8-AU-nZ6"/>
                 <constraint firstAttribute="bottom" secondItem="BYx-Z4-VvU" secondAttribute="bottom" id="hjd-HU-2KU"/>
+                <constraint firstAttribute="trailing" secondItem="1sV-DS-iu8" secondAttribute="trailing" id="ht9-Kv-QSM"/>
                 <constraint firstItem="BYx-Z4-VvU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="m4T-cF-52I"/>
-                <constraint firstItem="1sV-DS-iu8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uL7-rg-qAb"/>
+                <constraint firstItem="1sV-DS-iu8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qNI-1B-6NW"/>
                 <constraint firstItem="1sV-DS-iu8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yK4-qI-kuC"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="-21.428571428571427"/>

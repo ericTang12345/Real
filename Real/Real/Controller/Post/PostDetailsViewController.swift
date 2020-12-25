@@ -29,6 +29,8 @@ class PostDetailsViewController: BaseViewController {
     
     @IBOutlet weak var placeholderLabel: UILabel!
     
+    var tagListView: TagListView?
+    
     var comments: [Comment] = []
     
     var post: Post?
@@ -51,6 +53,8 @@ class PostDetailsViewController: BaseViewController {
             
             self.reloadCommentData()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCommentData), name: .userDataUpdated, object: nil)
     }
     
     func reloadPostData() {
@@ -81,7 +85,7 @@ class PostDetailsViewController: BaseViewController {
         }
     }
     
-    func reloadCommentData() {
+    @objc func reloadCommentData() {
         
         guard let id = post?.id else {
             
@@ -103,6 +107,8 @@ class PostDetailsViewController: BaseViewController {
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
                 })
                 
+                self?.filterComments()
+                
                 self?.tableView.reloadData()
                 
             case .failure(let error):
@@ -110,6 +116,18 @@ class PostDetailsViewController: BaseViewController {
                 print("postDetails reloadCommentData fail", error.localizedDescription)
             }
         }
+    }
+    
+    func filterComments() {
+        
+        guard let user = userManager.userData else { return }
+        
+        comments = comments.filter({ (comment) -> Bool in
+            
+            return !user.blockadeListComment.contains(comment.id)
+        })
+        
+        tableView.reloadData()
     }
     
     @IBAction func reply(_ sender: UIButton) {
@@ -161,10 +179,22 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
                 cell.moreContentButton.isHidden = true
                 
                 return cell
+            
+            case .tag(let cell):
+                
+                let cell = tableView.reuse(cell, indexPath: indexPath)
+                
+                cell.setup(strs: post.tags)
+                
+                self.tagListView = cell.tagList
+                
+                return cell
                 
             case .image(let cell):
                 
                 let cell = tableView.reuse(cell, indexPath: indexPath)
+                
+                cell.delegate = self
                 
                 cell.setup(data: post)
                 
@@ -188,11 +218,14 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
                 
                 return cell
             }
+            
         } else {
             
             let cell = tableView.reuse(CommentTableViewCell.self, indexPath: indexPath)
             
             cell.setup(data: comments[indexPath.row])
+            
+            cell.delegate = self
             
             return cell
         }
@@ -209,6 +242,8 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
         case 0:
             
             switch sort[indexPath.row] {
+            
+            case .tag: return tagListView?.frame.height ?? 0
             
             case .image: return post.images.count == 0 ? UITableView.automaticDimension : 120
             
@@ -235,6 +270,14 @@ extension PostDetailsViewController: InteractionTableViewCellDelegate {
     
     func goToPostDetails(cell: UITableViewCell, index: Int) {
         
+    }
+}
+
+extension PostDetailsViewController: CommentTableViewCellDelegate {
+    
+    func hideComment(cell: UITableViewCell, alert: UIAlertController) {
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -289,3 +332,14 @@ extension PostDetailsViewController: UITextViewDelegate {
         }
     }
 }
+
+extension PostDetailsViewController: PostImageDelegate {
+    
+    func imageDidSelect(viewController: UIViewController) {
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        present(viewController, animated: true, completion: nil)
+    }
+}
+ 

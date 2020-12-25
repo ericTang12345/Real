@@ -23,11 +23,13 @@ class HomeViewController: BaseViewController {
     
     var passData: Post?
     
+    var tagListView: TagListView?
+    
     override var segues: [String] { return ["SeguePostDetails"] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         self.firebase.listen(collectionName: .post) {
             
             self.reloadData()
@@ -130,15 +132,27 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
             
-        case .vote: return .emptyCell // 心情貼文不會有投票
+        case .tag(let cell):
             
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.setup(strs: posts[indexPath.section].tags)
+            
+            self.tagListView = cell.tagList
+            
+            return cell
+         
         case .image(let cell):
             
             let cell = tableView.reuse(cell, indexPath: indexPath)
             
+            cell.delegate = self
+            
             cell.setup(data: post)
                     
             return cell
+            
+        case .vote: return .emptyCell // 心情貼文不會有投票
         
         case .interaction(let cell):
             
@@ -154,9 +168,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch indexPath.row {
+        let sort = tableView.sortByCell(posts[indexPath.section])
         
-        case 1: return posts[indexPath.section].images.count == 0 ? UITableView.automaticDimension : 120
+        switch sort[indexPath.row] {
+    
+        case .tag: return (tagListView?.frame.size.height) == nil ? 0 : tagListView!.frame.size.height
+            
+        case .image: return posts[indexPath.section].images.count == 0 ? UITableView.automaticDimension : 120
             
         default: return UITableView.automaticDimension
         
@@ -198,3 +216,14 @@ extension HomeViewController: InteractionTableViewCellDelegate {
         performSegue(withIdentifier: segues[0], sender: nil)
     }
 }
+
+extension HomeViewController: PostImageDelegate {
+    
+    func imageDidSelect(viewController: UIViewController) {
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        present(viewController, animated: true, completion: nil)
+    }
+}
+ 

@@ -17,7 +17,9 @@ struct User: Codable {
     
 //    let collections: [String] // Post.id
     
-    let blockadeListUser: [String] // User.id
+//    let blockadeListUser: [String] // User.id
+    
+    let blockadeListComment: [String] // Comment.id
     
     let blockadeListPost: [String] // Post.id
     
@@ -36,7 +38,7 @@ extension User {
         
         self.randomImage = .empty
         
-        self.blockadeListUser = []
+        self.blockadeListComment = []
         
         self.blockadeListPost = []
         

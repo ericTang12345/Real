@@ -78,9 +78,10 @@ extension UIView {
             case .vertical:
                 
                 self.frame.origin.y = position
-            
             }
-        } completion: { (_) in }
+        }
+        
+        completion: { (_) in }
     }
     
     func shake() {
@@ -98,5 +99,12 @@ extension UIView {
         animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         
         self.layer.add(animation, forKey: "position")
+    }
+    
+    func enableLognPress(sender: Any, select: Selector) {
+        
+        let longPress = UILongPressGestureRecognizer(target: sender, action: select)
+        
+        self.addGestureRecognizer(longPress)
     }
 }

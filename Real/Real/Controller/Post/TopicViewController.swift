@@ -17,6 +17,8 @@ class TopicViewController: BaseViewController {
         }
     }
     
+    var tagListView: TagListView?
+    
     var posts: [Post] = []
     
     var passData: Post?
@@ -106,6 +108,8 @@ extension TopicViewController: UITableViewDataSource {
         
         switch sort[indexPath.row] {
         
+        case .tag: return tagListView?.frame.height ?? 0
+        
         case .image: return 120
         
         case .vote: return CGFloat((post.votes.count) * 40 + 16)
@@ -133,9 +137,21 @@ extension TopicViewController: UITableViewDataSource {
             
             return cell
         
+        case .tag(let cell):
+            
+            let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.setup(strs: post.tags)
+            
+            self.tagListView = cell.tagList
+            
+            return cell
+            
         case .image(let cell):
             
             let cell = tableView.reuse(cell, indexPath: indexPath)
+            
+            cell.delegate = self
             
             cell.setup(data: post)
             
@@ -196,5 +212,15 @@ extension TopicViewController: InteractionTableViewCellDelegate {
         self.passData = posts[index]
         
         performSegue(withIdentifier: segues[0], sender: nil)
+    }
+}
+
+extension TopicViewController: PostImageDelegate {
+    
+    func imageDidSelect(viewController: UIViewController) {
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        present(viewController, animated: true, completion: nil)
     }
 }

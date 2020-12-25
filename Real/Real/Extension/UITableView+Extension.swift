@@ -40,6 +40,8 @@ extension UITableView {
         
         case main(PostMainTableViewCell.Type)
         
+        case tag(TagListTableViewCell.Type)
+        
         case image(PostImageTableViewCellNib.Type)
         
         case vote(VoteTableViewCell.Type)
@@ -63,16 +65,13 @@ extension UITableView {
         self.registerCellWithNib(cell: CommentTableViewCell.self)
         
         self.registerCellWithNib(cell: VoteTableViewCell.self)
+        
+        self.registerCellWithNib(cell: TagListTableViewCell.self)
     }
     
     func sortByCell(_ post: Post) -> [CellType] {
         
         var cellType: [CellType] = [.main(PostMainTableViewCell.self)]
-        
-//        if !post.tags.isEmpty {
-//
-//            cellType.append(.tag)
-//        }
         
         if !post.images.isEmpty {
             
@@ -82,6 +81,11 @@ extension UITableView {
         if !post.votes.isEmpty {
 
             cellType.append(.vote(VoteTableViewCell.self))
+        }
+        
+        if !post.tags.isEmpty {
+
+            cellType.append(.tag(TagListTableViewCell.self))
         }
         
         cellType.append(.interaction(InteractionTableViewCell.self))

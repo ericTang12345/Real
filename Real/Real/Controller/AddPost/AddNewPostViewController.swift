@@ -28,7 +28,13 @@ enum PostType {
 
 class AddNewPostViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        
+        didSet {
+            
+            tableView.registerCellWithNib(cell: TagListTableViewCell.self)
+        }
+    }
     
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -46,6 +52,14 @@ class AddNewPostViewController: BaseViewController {
     
     @IBOutlet weak var toolView: UIView!
     
+    @IBOutlet weak var tagListView: UIView! {
+        
+        didSet {
+            
+            tagListView.isHidden = true
+        }
+    }
+    
     weak var contentDelegate: AddNewPostContentDelegate?
     
     var images: [UIImage] = []
@@ -56,14 +70,36 @@ class AddNewPostViewController: BaseViewController {
     
     var postType: PostType = .post
     
+    var tagList: TagListView? {
+        
+        didSet {
+        
+            tagList?.dataSource = self
+        }
+    }
+    
+    var tags: [Tag] = []
+    
+    override var segues: [String] { return ["SegueShowTagList"] }
+    
     override var isEnableHideKeyboardWhenTappedAround: Bool { true }
     
     override var isEnableKeyboardNotification: Bool { true }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reloadView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == segues[0] {
+            
+            guard let nextViewController = segue.destination as? TagListViewController else { return }
+            
+            nextViewController.delegate = self
+        }
     }
     
     @objc func reloadView() {
@@ -117,7 +153,7 @@ class AddNewPostViewController: BaseViewController {
     
     func savePost(doc: FIRDocRef, type: String, content: String, images: [String] = []) {
         
-        let post = Post(id: doc.documentID, type: type, images: images, content: content, tags: [], votes: voteItems)
+        let post = Post(id: doc.documentID, type: type, images: images, content: content, tags: tags, votes: voteItems)
         
         self.firebase.save(to: doc, data: post)
     }
@@ -272,6 +308,20 @@ class AddNewPostViewController: BaseViewController {
         
         tableView.reloadData()
     }
+    
+    @IBAction func didTapToAddTag(_ sender: UIButton) {
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+            
+            self.tagListView.center.y = self.view.center.y
+            
+            self.tagListView.isHidden = false
+            
+            self.showBackgroundView(duration: 0.3)
+            
+        } completion: { (_) in}
+
+    }
 }
 
 // MARK: - UIImageViewPickerController Delegate
@@ -297,18 +347,18 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
 
-        case 0, 1: return 1
+        case 0, 1, 2: return 1
             
-        case 2: return voteItems.count == 0 ? 0 : 1
+        case 3: return voteItems.count == 0 ? 0 : 1
             
-        case 3: return voteItems.count
+        case 4: return voteItems.count
 
         default: return 0
 
@@ -328,8 +378,16 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             cell.tableView = self.tableView
             
             return cell
-            
+        
         case 1:
+            
+            let cell = tableView.reuse(TagListTableViewCell.self, indexPath: indexPath)
+            
+            self.tagList = cell.tagList
+
+            return cell
+            
+        case 2:
             
             let cell = tableView.reuse(PostImageTableViewCell.self, indexPath: indexPath)
 
@@ -337,7 +395,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
             
-        case 2:
+        case 3:
             
             let cell = tableView.reuse(VoteSettingTableViewCell.self, indexPath: indexPath)
             
@@ -345,7 +403,7 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
             
-        case 3:
+        case 4:
             
             let cell = tableView.reuse(AddPostVoteItemTableViewCell.self, indexPath: indexPath)
             
@@ -362,7 +420,9 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.section {
         
-        case 1: return images.count == 0 ? UITableView.automaticDimension : 150
+        case 1: return tagList?.frame.size.height ?? 0
+        
+        case 2: return images.count == 0 ? UITableView.automaticDimension : 150
 
         default: return UITableView.automaticDimension
             
@@ -378,5 +438,45 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         default: tableView.deselectRow(at: indexPath, animated: false)
             
         }
+    }
+}
+
+// MARK: - Tag list view data source
+
+extension AddNewPostViewController: TagListViewDataSource {
+    
+    func numberOfTag(view: TagListView) -> Int {
+        
+        return tags.count
+    }
+    
+    func dataForTag(view: TagListView, index: Int) -> Tag {
+        
+        return tags[index]
+    }
+}
+
+// MARK: - Tag list view controller delegate
+
+extension AddNewPostViewController: TagListViewControllerDelegate {
+    
+    func passTagData(viewController: UIViewController, tags: [Tag]) {
+        
+        self.tags = tags
+        
+        tableView.reloadData()
+    }
+    
+    func dismiss(viewController: UIViewController) {
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+            
+            self.tagListView.frame.origin.y = UIScreen.fullSize.height
+            
+            self.tagListView.isHidden = true
+            
+            self.dismissBackgroundView(duration: 0.3)
+            
+        } completion: { (_) in }
     }
 }

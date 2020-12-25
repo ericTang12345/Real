@@ -19,14 +19,12 @@ class PostImageCollectionViewCellNib: UICollectionViewCell {
         didSet {
             
             imageView.enableTapAction(sender: self, selector: #selector(isSelect))
-            
-            imageDetailViewController = ImageDetailsViewController(nibName: String(describing: ImageDetailsViewController.self), bundle: nil)
         }
     }
     
     weak var delegate: PostImageDelegate?
     
-    var imageDetailViewController: UIViewController?
+    var imageDetailViewController: ImageDetailsViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +32,14 @@ class PostImageCollectionViewCellNib: UICollectionViewCell {
     
     @objc func isSelect() {
         
-        guard let delegate = delegate, let viewController = imageDetailViewController else { return }
+        let viewController = ImageDetailsViewController(nibName: String(describing: ImageDetailsViewController.self), bundle: nil)
+        
+        viewController.loadViewIfNeeded()
+        
+        viewController.mainImageView.image = imageView.image
+        
+        guard let delegate = delegate else { return }
         
         delegate.imageDidSelect(viewController: viewController)
     }
-
 }

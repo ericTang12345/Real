@@ -36,7 +36,7 @@ struct Post: Codable {
 
 extension Post {
     
-    init(id: String, type: String, images: [String] = [], content: String, tags: [String] = [], votes: [String] = []) {
+    init(id: String, type: String, images: [String] = [], content: String, tags: [Tag] = [], votes: [String] = []) {
         
         self.id = id
         
@@ -56,7 +56,7 @@ extension Post {
         
         self.authorImage = UserManager.shared.userData!.randomImage
         
-        self.tags = tags
+        self.tags = tags.map { return $0.id }
         
         self.votes = votes
         
