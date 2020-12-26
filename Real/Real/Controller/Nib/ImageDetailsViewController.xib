@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-DS-iu8">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-DS-iu8">
                     <rect key="frame" x="0.0" y="189.5" width="414" height="517"/>
                     <color key="backgroundColor" red="0.055758248730964466" green="0.055758248730964466" blue="0.055758248730964466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
@@ -65,9 +65,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
-                <constraint firstItem="1sV-DS-iu8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="145.5" id="04d-RH-Rtx"/>
                 <constraint firstItem="BYx-Z4-VvU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="H0r-gH-dxb"/>
                 <constraint firstItem="1sV-DS-iu8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M2q-uP-DJT"/>
+                <constraint firstItem="1sV-DS-iu8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.577009" id="O6f-aw-OWV"/>
                 <constraint firstAttribute="bottom" secondItem="BYx-Z4-VvU" secondAttribute="bottom" id="hjd-HU-2KU"/>
                 <constraint firstAttribute="trailing" secondItem="1sV-DS-iu8" secondAttribute="trailing" id="ht9-Kv-QSM"/>
                 <constraint firstItem="BYx-Z4-VvU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="m4T-cF-52I"/>
