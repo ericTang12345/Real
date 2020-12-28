@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func firstOpenApp() -> Bool {
         
         let count = userDefaults.integer(forKey: .appOpenCount)
-        
+         
         if count == 0 {
             
             userDefaults.set(1, forKey: .appOpenCount)
