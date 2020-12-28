@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        userDefaults.remove(forKey: .userID)
 //
 //        try? Auth.auth().signOut()
-        
+
         // 檢查完帳號後，開始監聽，只要有任何關於這個 user 的資料變動，都會去更新 UserManager 中的 userData
         check { uid in
 
