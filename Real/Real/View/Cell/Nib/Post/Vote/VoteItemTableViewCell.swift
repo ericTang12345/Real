@@ -17,6 +17,8 @@ class VoteItemTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var voteTitleLabel: UILabel!
     
+    weak var delegate: InteractionTableViewCellDelegate?
+    
     var vote: Vote?
     
     var post: Post?
@@ -91,6 +93,13 @@ class VoteItemTableViewCell: BaseTableViewCell {
     }
     
     @IBAction func vote(_ sender: UIButton) {
+        
+        if !userManager.isSignin {
+            
+            delegate?.signinAlert(cell: self)
+            
+            return
+        }
         
         sender.isSelected = !sender.isSelected
         

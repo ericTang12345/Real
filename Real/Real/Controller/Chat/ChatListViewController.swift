@@ -26,6 +26,11 @@ class ChatListViewController: BaseViewController {
             
             self.readChatRomm()
         }
+        
+        FIRStore.firestore().collectionGroup("messages").addSnapshotListener { (_, _) in
+            
+            self.readChatRomm()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,6 +99,8 @@ extension ChatListViewController: UITableViewDataSource {
         let cell = tableView.reuse(ChatListTableViewCell.self, indexPath: indexPath)
         
         cell.setup(data: chatList[indexPath.row])
+        
+//        cell.badgeLabel
     
         return cell
     }

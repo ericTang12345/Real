@@ -80,6 +80,15 @@ class InteractionTableViewCell: BaseTableViewCell {
     
     @IBAction func bookmark(_ sender: UIButton) {
     
+        if !userManager.isSignin {
+            
+            delegate?.signinAlert(cell: self)
+            
+            return
+        }
+        
+        sender.animate()
+        
         sender.isSelected = !sender.isSelected
         
         guard let post = post, let user = userManager.userData else {
@@ -111,11 +120,13 @@ class InteractionTableViewCell: BaseTableViewCell {
         
         guard let delegate = delegate else { return }
         
+        sender.animate()
+        
         delegate.goToPostDetails(cell: self, index: sender.tag)
     }
     
     @IBAction func like(_ sender: UIButton) {
-        
+
         // 檢查 delegate
         
         guard let delegate = delegate else { return }
@@ -139,6 +150,8 @@ class InteractionTableViewCell: BaseTableViewCell {
         }
         
         // 狀態更新
+        
+        sender.animate()
         
         sender.isSelected = !sender.isSelected
         

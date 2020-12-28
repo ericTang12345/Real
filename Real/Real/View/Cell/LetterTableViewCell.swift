@@ -9,19 +9,21 @@ import UIKit
 
 class LetterTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var placeholderLabel: UILabel! {
+        
+        didSet {
+            
+            placeholderLabel.text = "正因為不知道誰會收到，想講什麼就說什麼吧..."
+        }
+    }
+    
     @IBOutlet weak var contentTextView: UITextView! {
         
         didSet {
             
             contentTextView.delegate = self
-            
-            contentTextView.text = textViewPlaceholder
-            
-            contentTextView.textColor = .lightGray
         }
     }
-    
-    let textViewPlaceholder = "分享今天所遇到的人、事、物吧！"
     
     var tableView: UITableView?
     
@@ -43,9 +45,13 @@ class LetterTableViewCell: UITableViewCell {
             
             contentTextView.isEditable = true
             
+            placeholderLabel.isHidden = false
+            
         case .look:
             
             contentTextView.text = data!.content
+            
+            placeholderLabel.isHidden = true
             
             contentTextView.isEditable = false
         }
@@ -62,43 +68,58 @@ extension LetterTableViewCell: LetterViewControllerDelegate {
 
 extension LetterTableViewCell: UITextViewDelegate {
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if (textView.text.count + text.count - range.length) == 0 {
+            
+            placeholderLabel.isHidden = false
+            
+        } else {
+            
+            placeholderLabel.isHidden = true
+        }
+        
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
 
-        if textView.textColor == UIColor.lightGray {
-
+        if textView.text.count == 0 {
+            
+            placeholderLabel.isHidden = true
+            
             textView.text = nil
-
-            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text.count == 0 {
+            
+            placeholderLabel.isHidden = false
         }
     }
 
     func textViewDidChange(_ textView: UITextView) {
         
         let size = textView.bounds.size
-        
+
         let newSize = textView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
-        
+
         if size.height != newSize.height {
-            
+
             UIView.setAnimationsEnabled(false)
-            
+
             tableView?.beginUpdates()
-            
+
             tableView?.endUpdates()
-            
+
             UIView.setAnimationsEnabled(true)
-            
+
             if let thisIndexPath = tableView?.indexPath(for: self) {
-                
+
                 tableView?.scrollToRow(at: thisIndexPath, at: .bottom, animated: false)
             }
-        }
-        
-        if textView.text.isEmpty {
-            
-            textView.textColor = UIColor.lightGray
-            
-            textView.text = textViewPlaceholder
         }
     }
 }

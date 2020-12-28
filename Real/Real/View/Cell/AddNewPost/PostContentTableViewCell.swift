@@ -15,8 +15,6 @@ class PostContentTableViewCell: UITableViewCell {
         
         didSet {
             
-            contentTextView.text = nil
-            
             contentTextView.delegate = self
         }
     }
@@ -58,9 +56,12 @@ extension PostContentTableViewCell: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
 
-        placeholderLabel.isHidden = true
-        
-        textView.text = nil
+        if textView.text.count == 0 {
+            
+            placeholderLabel.isHidden = true
+            
+            textView.text = nil
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

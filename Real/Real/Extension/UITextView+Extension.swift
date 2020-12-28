@@ -24,4 +24,15 @@ extension UITextView {
         
         return Int(ceil(CGFloat(labelSize.height) / self.font!.lineHeight))
     }
+    
+    func setup() {
+        
+        self.setup(cornerRadius: 15)
+        
+        self.setupBorder(width: 0.8, color: .lightGray)
+        
+        let padding = UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8)
+        
+        self.textContainerInset = padding
+    }
 }

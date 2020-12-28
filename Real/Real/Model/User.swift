@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Codable {
     
-    let id: String
+    var id: String
     
     let randomName: String
     
@@ -25,7 +25,7 @@ struct User: Codable {
     
     let registerTime: FIRTimestamp
     
-    let isReceiveDriftingBottle: Bool
+    var isReceiveDriftingBottle: Bool
 }
 
 extension User {

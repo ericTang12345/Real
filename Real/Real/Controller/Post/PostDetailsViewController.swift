@@ -23,6 +23,8 @@ class PostDetailsViewController: BaseViewController {
         
         didSet {
             
+            commentTextView.setup()
+            
             commentTextView.delegate = self
         }
     }
@@ -132,6 +134,25 @@ class PostDetailsViewController: BaseViewController {
     
     @IBAction func reply(_ sender: UIButton) {
         
+        if !userManager.isSignin {
+            
+            present(.signinAlert(handler: {
+                
+                let viewController = SigninWithAppleViewController.loadFromNib()
+                
+                viewController.modalPresentationStyle = .fullScreen
+                
+                viewController.delegate = self
+                
+                viewController.loadViewIfNeeded()
+                
+                self.present(viewController, animated: true, completion: nil)
+                
+            }), animated: true, completion: nil)
+            
+            return
+        }
+        
         guard let postId = post?.id, let content = commentTextView.text, let user = userManager.userData else { return }
         
         let document = firebase.getCollection(name: .comment).document()
@@ -139,6 +160,8 @@ class PostDetailsViewController: BaseViewController {
         let comment = Comment(id: document.documentID, content: content, author: user.id, postId: postId)
         
         firebase.save(to: document, data: comment)
+        
+        commentTextView.text = nil
         
         keyboardToolView.endEditing(true)
     }
@@ -262,10 +285,20 @@ extension PostDetailsViewController: UITableViewDataSource, UITableViewDelegate 
 extension PostDetailsViewController: InteractionTableViewCellDelegate {
     
     func signinAlert(cell: UITableViewCell) {
-        
-        let alert = userManager.showAlert(viewController: self)
             
-        self.present(alert, animated: true, completion: nil)
+        present(.signinAlert(handler: {
+            
+            let viewController = SigninWithAppleViewController.loadFromNib()
+            
+            viewController.modalPresentationStyle = .fullScreen
+            
+            viewController.delegate = self
+            
+            viewController.loadViewIfNeeded()
+            
+            self.present(viewController, animated: true, completion: nil)
+            
+        }), animated: true, completion: nil)
     }
     
     func goToPostDetails(cell: UITableViewCell, index: Int) {
@@ -285,6 +318,15 @@ extension PostDetailsViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
+        if textView.textCountLines() <= 10 {
+        
+            textView.isScrollEnabled = false
+            
+        } else {
+            
+            textView.isScrollEnabled = true
+        }
+        
         if (textView.text.count + text.count - range.length) == 0 {
             
             placeholderLabel.isHidden = false
@@ -292,6 +334,7 @@ extension PostDetailsViewController: UITextViewDelegate {
         } else {
             
             placeholderLabel.isHidden = true
+            
         }
         
         return true
@@ -299,9 +342,10 @@ extension PostDetailsViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
 
-        placeholderLabel.isHidden = true
-        
-        textView.text = nil
+        if textView.text == nil {
+            
+            placeholderLabel.isHidden = true
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -310,27 +354,10 @@ extension PostDetailsViewController: UITextViewDelegate {
             
             placeholderLabel.isHidden = false
         }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
         
-        if textView.textCountLines() <= 10 {
-            
-            NSLayoutConstraint.activate([
-                textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
-            ])
-            
-            textView.isScrollEnabled = false
-            
-        } else {
-            
-            NSLayoutConstraint.activate([
-                textView.heightAnchor.constraint(equalToConstant: 200)
-            ])
-            
-            textView.isScrollEnabled = true
-        }
+        textView.isScrollEnabled = false
     }
+
 }
 
 extension PostDetailsViewController: PostImageDelegate {

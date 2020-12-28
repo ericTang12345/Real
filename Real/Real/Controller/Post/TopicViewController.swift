@@ -161,6 +161,8 @@ extension TopicViewController: UITableViewDataSource {
             
             let cell = tableView.reuse(cell, indexPath: indexPath)
         
+            cell.delegate = self
+            
             cell.setup(data: post)
             
             return cell
@@ -201,10 +203,21 @@ extension TopicViewController: PostTableViewCellDelegate {
 extension TopicViewController: InteractionTableViewCellDelegate {
     
     func signinAlert(cell: UITableViewCell) {
-        
-        let alert = userManager.showAlert(viewController: self)
+    
+        self.present(.signinAlert(handler: {
             
-        self.present(alert, animated: true, completion: nil)
+            let viewController = SigninWithAppleViewController.loadFromNib()
+            
+            viewController.modalPresentationStyle = .fullScreen
+            
+            viewController.delegate = self
+            
+            viewController.loadViewIfNeeded()
+            
+            self.present(viewController, animated: true, completion: nil)
+            
+        }), animated: true, completion: nil)
+            
     }
     
     func goToPostDetails(cell: UITableViewCell, index: Int) {

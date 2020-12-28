@@ -17,10 +17,6 @@ class UserManager {
     
     let userDefaults = UserDefaults.standard
     
-    let firebaseAuth = FirebaseAuthManager()
-    
-    let group = DispatchGroup()
-    
     var userData: User? {
         
         didSet {
@@ -34,31 +30,13 @@ class UserManager {
         return Auth.auth().currentUser != nil
     }
     
-    func showAlert(viewController: UIViewController) -> UIAlertController {
-        
-        let alert = UIAlertController(title: "尚未登入", message: "完成登入，可以立即啟用喜愛、回應、發文等功能哦！", preferredStyle: .actionSheet)
-        
-        alert.view.tintColor = .gray
-        
-        let done = UIAlertAction(title: "立即登入", style: .default) { (_) in
-            
-            self.firebaseAuth.performSignin(viewController)
-        }
-        
-        alert.addAction(done)
-        
-        let cancel = UIAlertAction(title: "稍後再說", style: .default)
-        
-        alert.addAction(cancel)
-        
-        return alert
-    }
-    
     func createUser(id: String) {
-    
+        
         let doc = firebase.getCollection(name: .user).document(id)
         
-        let data = User(id: id)
+        var data = User(id: id)
+        
+        data.isReceiveDriftingBottle = isSignin
         
         firebase.save(to: doc, data: data)
         
@@ -90,6 +68,24 @@ class UserManager {
         }
     }
     
+    func setupUser(id: String) {
+        
+        let doc = firebase.getCollection(name: .user).document(id)
+        
+        firebase.readSingle(doc, dataType: User.self) { (result) in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                self.userData = user
+            
+            case .failure(let error):
+            
+                print("App delegate setup user data", error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension UserManager {
@@ -97,6 +93,8 @@ extension UserManager {
     // 切換名稱與圖片
     func switchNameAndImage() {
     
+        let group = DispatchGroup()
+        
         var mainName: String?
         
         var adjName: String?
@@ -109,7 +107,7 @@ extension UserManager {
             
             mainName = name
             
-            self.group.leave()
+            group.leave()
         }
         
         group.enter()
@@ -118,7 +116,7 @@ extension UserManager {
             
             adjName = name
             
-            self.group.leave()
+            group.leave()
         }
         
         group.enter()
@@ -127,7 +125,7 @@ extension UserManager {
             
             urlStr = urlString
             
-            self.group.leave()
+            group.leave()
         }
         
         group.notify(queue: .main) {

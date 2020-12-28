@@ -24,12 +24,16 @@
 		242EA47C2577878D0091ABDB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */; };
 		24312F042591FCDB007C7E17 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */; };
 		24312F052591FCDB007C7E17 /* ImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */; };
+		2434300B2598EE1300FC3B37 /* UIVIewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434300A2598EE1300FC3B37 /* UIVIewController+Extension.swift */; };
+		2434300F25991DF800FC3B37 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434300E25991DF800FC3B37 /* UIButton+Extension.swift */; };
+		243430132599CDD500FC3B37 /* PostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243430122599CDD500FC3B37 /* PostProvider.swift */; };
 		2435BF462580663D006B71AB /* RandomMainName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF452580663D006B71AB /* RandomMainName.swift */; };
 		2435BF4925806649006B71AB /* RandomAdjName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF4825806649006B71AB /* RandomAdjName.swift */; };
 		2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */; };
 		243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243DA98625736216007142EA /* CommentTableViewCell.xib */; };
 		243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98725736216007142EA /* CommentTableViewCell.swift */; };
 		243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243DA98B2573621B007142EA /* PostDetailsViewController.swift */; };
+		2440FF4B25984A6800F191AF /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2440FF4A25984A6800F191AF /* Icon-1024.png */; };
 		2446FDFF25939964007B2821 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446FDFE25939964007B2821 /* TagListView.swift */; };
 		2446FE0425939EA2007B2821 /* TagListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446FE0225939EA2007B2821 /* TagListTableViewCell.swift */; };
 		2446FE0525939EA2007B2821 /* TagListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2446FE0325939EA2007B2821 /* TagListTableViewCell.xib */; };
@@ -37,9 +41,10 @@
 		244BF2A72587390A003053CB /* VoteSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BF2A62587390A003053CB /* VoteSettingTableViewCell.swift */; };
 		244BF2AC25874AE9003053CB /* VoteItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BF2AA25874AE9003053CB /* VoteItemTableViewCell.swift */; };
 		244BF2AD25874AE9003053CB /* VoteItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244BF2AB25874AE9003053CB /* VoteItemTableViewCell.xib */; };
+		244F240625978AEA0021462B /* SigninWithAppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F240425978AEA0021462B /* SigninWithAppleViewController.swift */; };
+		244F240725978AEA0021462B /* SigninWithAppleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244F240525978AEA0021462B /* SigninWithAppleViewController.xib */; };
 		24525D3A257D79B70002EFB3 /* DriftingBottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */; };
 		2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F974257CE4F4006ABF0D /* FirebaseManager.swift */; };
-		2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */; };
 		2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */; };
 		24568443256E7BC100FB7D3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24568442256E7BC100FB7D3D /* HomeViewController.swift */; };
 		2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461EA85256F93B800AD99F6 /* String+Extension.swift */; };
@@ -83,7 +88,6 @@
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
 		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
 		24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */; };
-		24C01D8E258C0B7000BD94DD /* DriftingBottleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C01D8D258C0B7000BD94DD /* DriftingBottleListViewController.swift */; };
 		24C3D405258ABEA6009E2BC6 /* message-in-a-bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */; };
 		24C3D408258ABF7A009E2BC6 /* message-in-a-bottle-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
@@ -125,12 +129,16 @@
 		242EA47B2577878D0091ABDB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsViewController.xib; sourceTree = "<group>"; };
+		2434300A2598EE1300FC3B37 /* UIVIewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Extension.swift"; sourceTree = "<group>"; };
+		2434300E25991DF800FC3B37 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		243430122599CDD500FC3B37 /* PostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProvider.swift; sourceTree = "<group>"; };
 		2435BF452580663D006B71AB /* RandomMainName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMainName.swift; sourceTree = "<group>"; };
 		2435BF4825806649006B71AB /* RandomAdjName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAdjName.swift; sourceTree = "<group>"; };
 		2435BF51258093EA006B71AB /* RandomNameEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNameEditorViewController.swift; sourceTree = "<group>"; };
 		243DA98625736216007142EA /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		243DA98725736216007142EA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		243DA98B2573621B007142EA /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		2440FF4A25984A6800F191AF /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		2446FDFE25939964007B2821 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		2446FE0225939EA2007B2821 /* TagListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListTableViewCell.swift; sourceTree = "<group>"; };
 		2446FE0325939EA2007B2821 /* TagListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagListTableViewCell.xib; sourceTree = "<group>"; };
@@ -138,9 +146,10 @@
 		244BF2A62587390A003053CB /* VoteSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSettingTableViewCell.swift; sourceTree = "<group>"; };
 		244BF2AA25874AE9003053CB /* VoteItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteItemTableViewCell.swift; sourceTree = "<group>"; };
 		244BF2AB25874AE9003053CB /* VoteItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteItemTableViewCell.xib; sourceTree = "<group>"; };
+		244F240425978AEA0021462B /* SigninWithAppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithAppleViewController.swift; sourceTree = "<group>"; };
+		244F240525978AEA0021462B /* SigninWithAppleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SigninWithAppleViewController.xib; sourceTree = "<group>"; };
 		24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottleViewController.swift; sourceTree = "<group>"; };
 		2452F974257CE4F4006ABF0D /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		24568442256E7BC100FB7D3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2461EA85256F93B800AD99F6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -186,7 +195,6 @@
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
 		24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
-		24C01D8D258C0B7000BD94DD /* DriftingBottleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftingBottleListViewController.swift; sourceTree = "<group>"; };
 		24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle.png"; sourceTree = "<group>"; };
 		24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle-2.png"; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -320,8 +328,18 @@
 			children = (
 				24312F022591FCDB007C7E17 /* ImageDetailsViewController.swift */,
 				24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */,
+				244F240425978AEA0021462B /* SigninWithAppleViewController.swift */,
+				244F240525978AEA0021462B /* SigninWithAppleViewController.xib */,
 			);
 			path = Nib;
+			sourceTree = "<group>";
+		};
+		243430112599CD5500FC3B37 /* Refactor */ = {
+			isa = PBXGroup;
+			children = (
+				243430122599CDD500FC3B37 /* PostProvider.swift */,
+			);
+			path = Refactor;
 			sourceTree = "<group>";
 		};
 		2446FE0125939E87007B2821 /* AddPost */ = {
@@ -336,7 +354,6 @@
 		2452F971257CE496006ABF0D /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				2452F975257CE4F4006ABF0D /* FirebaseAuthManager.swift */,
 				2452F974257CE4F4006ABF0D /* FirebaseManager.swift */,
 				2452F976257CE4F4006ABF0D /* FirebaseStorageManager.swift */,
 			);
@@ -447,6 +464,8 @@
 				24E6CCAF258FC7BD00E7D9C8 /* UITextView+Extension.swift */,
 				24CBE0C62582457C00E3F1A1 /* UserDefaults.swift */,
 				24CBE0CE2582ADAF00E3F1A1 /* NotificationCenter+Extension.swift */,
+				2434300A2598EE1300FC3B37 /* UIVIewController+Extension.swift */,
+				2434300E25991DF800FC3B37 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -486,10 +505,12 @@
 				2499799B256F36C700B11DCF /* Extension */,
 				2456844D256E7D3500FB7D3D /* Controller */,
 				24FA49C7256FB48400C38106 /* View */,
+				243430112599CD5500FC3B37 /* Refactor */,
 				24B9B6D1256E537C005919A3 /* AppDelegate.swift */,
 				24B9B6D3256E537C005919A3 /* SceneDelegate.swift */,
 				24B9B6DD256E537F005919A3 /* Assets.xcassets */,
 				24B9B6E2256E537F005919A3 /* Info.plist */,
+				2440FF4A25984A6800F191AF /* Icon-1024.png */,
 				248CF845257D631200B9CED6 /* shutterstock_598927436.png */,
 				246D3DAB257D859600AD991A /* shutterstock_1032839197.png */,
 				24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */,
@@ -571,7 +592,6 @@
 			isa = PBXGroup;
 			children = (
 				24525D39257D79B70002EFB3 /* DriftingBottleViewController.swift */,
-				24C01D8D258C0B7000BD94DD /* DriftingBottleListViewController.swift */,
 				24F207D8258B5EF5002886FD /* LetterViewController.swift */,
 			);
 			path = DriftingBottle;
@@ -663,8 +683,10 @@
 				2469B2532587F7AB00702906 /* PostImageTableViewCellNib.xib in Resources */,
 				24C3D408258ABF7A009E2BC6 /* message-in-a-bottle-2.png in Resources */,
 				24B9B6DE256E537F005919A3 /* Assets.xcassets in Resources */,
+				244F240725978AEA0021462B /* SigninWithAppleViewController.xib in Resources */,
 				246D3DAC257D859700AD991A /* shutterstock_1032839197.png in Resources */,
 				24D938992587602C00E0EBA3 /* PostMainTableViewCell.xib in Resources */,
+				2440FF4B25984A6800F191AF /* Icon-1024.png in Resources */,
 				2446FE0525939EA2007B2821 /* TagListTableViewCell.xib in Resources */,
 				2469B24E2587F79400702906 /* PostImageCollectionViewCellNib.xib in Resources */,
 				24B278CB2589A6ED00E3206D /* VoteTableViewCell.xib in Resources */,
@@ -763,6 +785,7 @@
 				2469B2522587F7AB00702906 /* PostImageTableViewCellNib.swift in Sources */,
 				24955625257979CC00F5FB21 /* Comment.swift in Sources */,
 				2461EA86256F93B800AD99F6 /* String+Extension.swift in Sources */,
+				2434300F25991DF800FC3B37 /* UIButton+Extension.swift in Sources */,
 				24D6B897257F0E45001FD1FA /* UserMessageTableViewCell.swift in Sources */,
 				24B9B6DC256E537C005919A3 /* Real.xcdatamodeld in Sources */,
 				243DA98C2573621B007142EA /* PostDetailsViewController.swift in Sources */,
@@ -775,12 +798,12 @@
 				2435BF52258093EA006B71AB /* RandomNameEditorViewController.swift in Sources */,
 				2461EA89256FACF900AD99F6 /* UITableViewCell+Extension.swift in Sources */,
 				2483CCA625932FC000664679 /* AddPostVoteItemTableViewCell.swift in Sources */,
+				244F240625978AEA0021462B /* SigninWithAppleViewController.swift in Sources */,
 				24997998256F36B700B11DCF /* UITableView+Extension.swift in Sources */,
 				244BF2A72587390A003053CB /* VoteSettingTableViewCell.swift in Sources */,
 				249D938925710C0A003F4DAB /* UIView+Extension.swift in Sources */,
 				24AE9B0D25759F3A009A3C5E /* Post.swift in Sources */,
 				24A9CABF258E12A2006FBBB6 /* LetterTableViewCell.swift in Sources */,
-				24C01D8E258C0B7000BD94DD /* DriftingBottleListViewController.swift in Sources */,
 				24CF068B258806B9002B4E05 /* BaseTableViewCell.swift in Sources */,
 				241AC76225931A2D005A0050 /* PostEditTableViewCell.swift in Sources */,
 				243DA98925736216007142EA /* CommentTableViewCell.swift in Sources */,
@@ -791,6 +814,7 @@
 				2452F977257CE4F4006ABF0D /* FirebaseManager.swift in Sources */,
 				241E8F3B257438DF0046F831 /* TopicViewController.swift in Sources */,
 				24B9B6D4256E537C005919A3 /* SceneDelegate.swift in Sources */,
+				2434300B2598EE1300FC3B37 /* UIVIewController+Extension.swift in Sources */,
 				24F207D9258B5EF5002886FD /* LetterViewController.swift in Sources */,
 				2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */,
 				244BF2AC25874AE9003053CB /* VoteItemTableViewCell.swift in Sources */,
@@ -800,7 +824,6 @@
 				24AE9B1025759F9D009A3C5E /* User.swift in Sources */,
 				24287BCB258672F90023A510 /* ChatListViewController.swift in Sources */,
 				24234386259437ED007D71CA /* TagListViewController.swift in Sources */,
-				2452F978257CE4F4006ABF0D /* FirebaseAuthManager.swift in Sources */,
 				24312F042591FCDB007C7E17 /* ImageDetailsViewController.swift in Sources */,
 				24B890A0258695E00035DEA1 /* PostImageTableViewCell.swift in Sources */,
 				2423439625958D11007D71CA /* HideListViewController.swift in Sources */,
@@ -808,6 +831,7 @@
 				249EA15D257F0D7A00C2ED14 /* ChatViewController.swift in Sources */,
 				2446FE0D2593C7E8007B2821 /* Tag.swift in Sources */,
 				24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */,
+				243430132599CDD500FC3B37 /* PostProvider.swift in Sources */,
 				2481DFAC258648BB00180FDB /* UINib+Extension.swift in Sources */,
 				242EA4792577742E0091ABDB /* Timestamp+Extension.swift in Sources */,
 				2446FE0425939EA2007B2821 /* TagListTableViewCell.swift in Sources */,
@@ -976,7 +1000,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -984,7 +1008,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.erictang.Real;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -998,7 +1022,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1006,7 +1030,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.erictang.Real;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

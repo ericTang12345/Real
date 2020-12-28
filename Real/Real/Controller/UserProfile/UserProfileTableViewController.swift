@@ -17,9 +17,13 @@ class UserProfileTableViewController: UITableViewController {
         
         didSet {
             
-            if userManager.userData == nil {
+            if !userManager.isSignin {
                 
                 isReceiveSwitch.isOn = false
+                
+            } else {
+                
+                isReceiveSwitch.isOn = true
             }
         }
     }
@@ -27,8 +31,6 @@ class UserProfileTableViewController: UITableViewController {
     let firebase = FirebaseManager.shared
     
     let userManager = UserManager.shared
-    
-    let authManager = FirebaseAuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +49,9 @@ class UserProfileTableViewController: UITableViewController {
         
         userNameLabel.text = user.randomName
         
-        userImageView.loadImage(urlString: userManager.userData?.randomImage ?? .empty)
+        userImageView.loadImage(urlString: user.randomImage)
         
-        isReceiveSwitch.isOn = userManager.userData?.isReceiveDriftingBottle ?? true
+        isReceiveSwitch.isOn = user.isReceiveDriftingBottle
         
         tableView.reloadData()
     }
@@ -62,15 +64,32 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBAction func signInWithApple(_ sender: CustomizeButton) {
         
-        authManager.performSignin(self)
     }
     
     @IBAction func switchReceiveStatus(_ sender: UISwitch) {
         
-        guard let user = userManager.userData else {
+        if !userManager.isSignin {
+            
+            present(.signinAlert(handler: {
+                
+                let viewController = SigninWithAppleViewController.loadFromNib()
+                
+                viewController.modalPresentationStyle = .fullScreen
+                
+                viewController.delegate = self
+                
+                viewController.loadViewIfNeeded()
+                
+                self.present(viewController, animated: true, completion: nil)
+                
+            }), animated: true, completion: nil)
+            
+            sender.isOn = false
             
             return
         }
+        
+        guard let user = userManager.userData else { return }
         
         firebase.update(
             collectionName: .user,
@@ -91,5 +110,13 @@ class UserProfileTableViewController: UITableViewController {
             
             userManager.switchNameAndImage()
         }
+    }
+}
+
+extension UserProfileTableViewController: SigninSuccessDelegate {
+    
+    func siginSuccess() {
+        
+        present(.signinSuccessAlert(), animated: true, completion: nil)
     }
 }

@@ -132,10 +132,31 @@ class RandomNameEditorViewController: BaseViewController {
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         
+        if !userManager.isSignin {
+            
+            present(.signinAlert(handler: {
+                
+                let viewController = SigninWithAppleViewController.loadFromNib()
+                
+                viewController.modalPresentationStyle = .fullScreen
+                
+                viewController.delegate = self
+                
+                viewController.loadViewIfNeeded()
+                
+                self.present(viewController, animated: true, completion: nil)
+                
+            }), animated: true, completion: nil)
+            
+            return
+        }
+        
         let title = segmentedControl.selectedSegmentIndex == 0 ? "形容詞" : "主詞"
         
         let alert = UIAlertController(title: "新增", message: "請輸入想要增加的\(title)\n勿超過 10 個字", preferredStyle: .alert)
 
+        alert.view.tintColor = .darkGray
+        
         let done = UIAlertAction(title: "加入", style: .default) { (_) in
 
             guard let textField = alert.textFields?[0], let text = textField.text else { return }

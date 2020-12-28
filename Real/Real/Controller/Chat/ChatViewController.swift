@@ -16,6 +16,8 @@ class ChatViewController: BaseViewController {
         
         didSet {
             
+            textView.setup()
+            
             textView.delegate = self
         }
     }
@@ -43,6 +45,21 @@ class ChatViewController: BaseViewController {
         super.viewDidLoad()
         
         listenMessage()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        guard let user = self.userManager.userData else { return }
+        
+        for message in messages where message.isRead == false && message.sender != user.id {
+            
+            self.doc.collection("messages").document(message.id).updateData(["isRead": true])
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
     
     func listenMessage() {
@@ -64,7 +81,7 @@ class ChatViewController: BaseViewController {
                         
                         self.messages = data.sorted(by: { (first, second) -> Bool in
                             
-                            first.createdTime.dateValue() < second.createdTime.dateValue()
+                            return first.createdTime.dateValue() < second.createdTime.dateValue()
                         })
                         
                         self.tableView.reloadData()
@@ -96,9 +113,9 @@ class ChatViewController: BaseViewController {
         
         guard let user = userManager.userData else { return }
         
-        let newMessage = Message(id: user.id, message: textView.text!)
-        
         let doc = firebase.getCollection(name: .chatRoom).document(chat!.id).collection("messages").document()
+        
+        let newMessage = Message(docId: doc.documentID, id: user.id, message: textView.text!)
         
         firebase.save(to: doc, data: newMessage)
         
@@ -155,6 +172,15 @@ extension ChatViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
+        if textView.textCountLines() <= 10 {
+        
+            textView.isScrollEnabled = false
+            
+        } else {
+            
+            textView.isScrollEnabled = true
+        }
+        
         if (textView.text.count + text.count - range.length) == 0 {
             
             placeholderLabel.isHidden = false
@@ -162,6 +188,7 @@ extension ChatViewController: UITextViewDelegate {
         } else {
             
             placeholderLabel.isHidden = true
+            
         }
         
         return true
@@ -169,9 +196,10 @@ extension ChatViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
 
-        placeholderLabel.isHidden = true
-        
-        textView.text = nil
+        if textView.text == nil {
+            
+            placeholderLabel.isHidden = true
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -180,25 +208,7 @@ extension ChatViewController: UITextViewDelegate {
             
             placeholderLabel.isHidden = false
         }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
         
-        if textView.textCountLines() <= 10 {
-            
-            NSLayoutConstraint.activate([
-                textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
-            ])
-            
-            textView.isScrollEnabled = false
-            
-        } else {
-            
-            NSLayoutConstraint.activate([
-                textView.heightAnchor.constraint(equalToConstant: 200)
-            ])
-            
-            textView.isScrollEnabled = true
-        }
+        textView.isScrollEnabled = false
     }
 }

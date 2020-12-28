@@ -9,6 +9,8 @@ import Foundation
 
 struct Message: Codable {
     
+    let id: String
+    
     let sender: String // user.id
     
     let message: String
@@ -20,7 +22,9 @@ struct Message: Codable {
 
 extension Message {
     
-    init(id: String, message: String) {
+    init(docId: String, id: String, message: String) {
+        
+        self.id = docId
         
         self.sender = id
         

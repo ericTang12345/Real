@@ -203,10 +203,20 @@ extension HomeViewController: PostTableViewCellDelegate {
 extension HomeViewController: InteractionTableViewCellDelegate {
     
     func signinAlert(cell: UITableViewCell) {
-        
-        let alert = userManager.showAlert(viewController: self)
             
-        self.present(alert, animated: true, completion: nil)
+        present(.signinAlert(handler: {
+            
+            let viewController = SigninWithAppleViewController.loadFromNib()
+            
+            viewController.modalPresentationStyle = .fullScreen
+            
+            viewController.loadViewIfNeeded()
+            
+            viewController.delegate = self
+            
+            self.present(viewController, animated: true, completion: nil)
+            
+        }), animated: true, completion: nil)
     }
     
     func goToPostDetails(cell: UITableViewCell, index: Int) {

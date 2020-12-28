@@ -21,6 +21,8 @@ class VoteTableViewCell: BaseTableViewCell {
         }
     }
     
+    weak var delegate: InteractionTableViewCellDelegate?
+    
     var post: Post?
     
     var votes: [Vote] = [] {
@@ -117,6 +119,8 @@ extension VoteTableViewCell: UITableViewDataSource {
         guard let post = post else { return .emptyCell }
         
         cell.setup(data: votes[indexPath.row], post: post, total: total)
+        
+        cell.delegate = delegate
         
         return cell
     }

@@ -11,6 +11,14 @@ class DriftingBottleViewController: BaseViewController {
 
     @IBOutlet weak var currentCountLabel: UILabel!
     
+    @IBOutlet weak var chatBadgeLabel: UILabel! {
+        
+        didSet {
+            
+            chatBadgeLabel.setup(cornerRadius: chatBadgeLabel.height/2)
+        }
+    }
+    
     @IBOutlet weak var writeDriftingBottleButton: UIButton! {
         
         didSet {
@@ -39,6 +47,8 @@ class DriftingBottleViewController: BaseViewController {
     
     var driftingBottles: [DriftingBottle] = []
     
+    var timer = Timer()
+    
     override var segues: [String] { return ["SeugeWriteLetter", "SegueLookLetter", "SegueChatList"] }
     
     override var isHideNavigationBar: Bool { return true }
@@ -50,14 +60,33 @@ class DriftingBottleViewController: BaseViewController {
             
             self.readDriftingBottle()
         }
+        
+        firebase.listen(collectionName: .chatRoom) {
+            
+            self.readChatRoom()
+        }
+        
+        FIRStore.firestore().collectionGroup("messages").addSnapshotListener { (_, _) in
+            
+            self.readChatRoom()
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(readDriftingBottle), userInfo: nil, repeats: true)
+        
         readDriftingBottle()
         
         centerView.layer.add(addWaveAnimation(), forKey: "Wave")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        timer.invalidate()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,10 +105,60 @@ class DriftingBottleViewController: BaseViewController {
             nextViewControoler.status = .look
             
             nextViewControoler.bottleData = driftingBottles[0]
+            
+            firebase.getCollection(name: .driftingBottle).document(driftingBottles[0].id).updateData([
+                
+                "isCatch": true
+            ])
         }
     }
     
-    func readDriftingBottle() {
+    func readChatRoom() {
+        
+        guard let user = userManager.userData else { return }
+        
+        firebase.read(collectionName: .chatRoom, dataType: ChatRoom.self) { (result) in
+            
+            switch result {
+            
+            case .success(let data):
+                
+                var count = 0
+                
+                for item in data where item.provider == user.id || item.receiver == user.id {
+                    
+                    let collection = self.firebase.getCollection(name: .chatRoom).document(item.id).collection("messages")
+                    
+                    self.firebase.read(collection: collection, dataType: Message.self) { (result) in
+                        
+                        switch result {
+                        
+                        case .success(let data):
+                        
+                            for item in data where item.isRead == false && item.sender != user.id {
+                                
+                                count += 1
+                            }
+                            
+                            self.chatBadgeLabel.isHidden = count == 0 ? true : false
+                            
+                            self.chatBadgeLabel.text = String(count)
+                            
+                        case .failure(let error):
+                            
+                            print(error)
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+            
+                print(error)
+            }
+        }
+    }
+    
+    @objc func readDriftingBottle() {
         
         let filter = Filter(key: "isPost", value: true)
         
@@ -121,7 +200,9 @@ class DriftingBottleViewController: BaseViewController {
     
     func compare(data: DriftingBottle) -> Bool {
         
-        if data.catcher != userManager.userData!.id {
+        guard let user = userManager.userData else { return false }
+        
+        if data.catcher != user.id {
             
             print("This drifting bottle catcher not this user")
             
@@ -185,6 +266,25 @@ class DriftingBottleViewController: BaseViewController {
     }
     
     @IBAction func showChatList(_ sender: UIButton) {
+        
+        if !userManager.isSignin {
+            
+            present(.signinAlert(handler: {
+                
+                let viewController = SigninWithAppleViewController.loadFromNib()
+                
+                viewController.modalPresentationStyle = .fullScreen
+                
+                viewController.delegate = self
+                
+                viewController.loadViewIfNeeded()
+                
+                self.present(viewController, animated: true, completion: nil)
+                
+            }), animated: true, completion: nil)
+            
+            return
+        }
         
         performSegue(withIdentifier: segues[2], sender: nil)
     }

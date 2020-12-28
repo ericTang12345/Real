@@ -81,6 +81,8 @@ class CommentTableViewCell: BaseTableViewCell {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        alert.view.tintColor = .darkGray
+        
         let hideComment = UIAlertAction(title: "隱藏留言", style: .default) { (_) in
             
             self.hideComment()

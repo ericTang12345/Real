@@ -172,30 +172,36 @@ class LetterViewController: BaseViewController {
     
     func connect() {
         
-        guard let data = bottleData else { return }
+        guard let data = bottleData, let user = userManager.userData else { return }
         
         firebase.update(collectionName: .driftingBottle, documentId: data.id, key: "isCatch", value: true)
         
-        let doc = firebase.getCollection(name: .chatRoom).document()
+        // Chat room
+        
+        let doc = firebase.getCollection(name: .chatRoom).document(data.id)
         
         let chatRoom = ChatRoom(id: doc.documentID, receiver: data)
         
         firebase.save(to: doc, data: chatRoom)
+        
+        // Message
+        
+        let mesDoc =  doc.collection("messages").document()
+        
+        let message = Message(docId: mesDoc.documentID, id: user.id, message: "嗨，你好，我接收到你的漂流瓶了")
+        
+        firebase.save(to: mesDoc, data: message)
     }
     
     @IBAction func signature(_ sender: UIButton) {
         
         if status == .add {
             
-            if sender.isSelected {
-                
-                sender.setTitle("Signature", for: .normal)
-                
-            } else {
+            if sender.isSelected == false {
                 
                 let title = "By: " + (userManager.userData?.randomName ?? "")
                 
-                sender.setTitle(title, for: .normal)
+                sender.setTitle(title, for: .selected)
             }
             
             sender.isSelected = !sender.isSelected

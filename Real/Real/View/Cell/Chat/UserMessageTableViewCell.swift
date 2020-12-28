@@ -11,6 +11,8 @@ class UserMessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var createdTimeLabel: UILabel!
     
+    @IBOutlet weak var isReadLabel: UILabel!
+    
     @IBOutlet weak var messageLabel: LabelPadding! {
         
         didSet {
@@ -43,6 +45,8 @@ class UserMessageTableViewCell: UITableViewCell {
         messageLabel.sizeToFit()
         
         createdTimeLabel.text = data.createdTime.compareCurrentTime()
+        
+        isReadLabel.text = data.isRead ? "已讀" : ""
     }
 
 }

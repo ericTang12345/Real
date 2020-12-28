@@ -50,7 +50,9 @@ extension DriftingBottle {
         
         // Setup drifting bottle arrival time
 
-        self.arrivalTime = isPost == true ? FIRTimestamp() : nil
+        let second = FIRTimestamp(date: FIRTimestamp().dateValue().addingTimeInterval(30))
+        
+        self.arrivalTime = isPost == true ? second : nil
         
 //        .randomTime(from: 0, day: 0.1)
         

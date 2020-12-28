@@ -41,6 +41,33 @@ class MainTabBarViewController: UITabBarController {
     
     @objc func presentAddNewPostPage() {
         
+        if !UserManager.shared.isSignin {
+            
+            present(.signinAlert(handler: {
+                
+                let viewController = SigninWithAppleViewController.loadFromNib()
+                
+                viewController.modalPresentationStyle = .fullScreen
+                
+                viewController.loadViewIfNeeded()
+                
+                viewController.delegate = self
+                
+                self.present(viewController, animated: true, completion: nil)
+                
+            }), animated: true, completion: nil)
+            
+            return
+        }
+        
         performSegue(withIdentifier: "SegueAddNewPost", sender: nil)
+    }
+}
+
+extension MainTabBarViewController: SigninSuccessDelegate {
+    
+    func siginSuccess() {
+        
+        present(.signinSuccessAlert(), animated: true, completion: nil)
     }
 }

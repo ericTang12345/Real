@@ -320,7 +320,6 @@ class AddNewPostViewController: BaseViewController {
             self.showBackgroundView(duration: 0.3)
             
         } completion: { (_) in}
-
     }
 }
 
@@ -433,7 +432,9 @@ extension AddNewPostViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.section {
             
-        case 1, 3: print(indexPath.row)
+        case 1, 3:
+            
+            print(indexPath.row)
         
         default: tableView.deselectRow(at: indexPath, animated: false)
             

@@ -15,4 +15,5 @@ target 'Real' do
   pod 'Kingfisher'
   pod 'FSPagerView'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
 end

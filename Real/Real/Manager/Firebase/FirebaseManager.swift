@@ -16,24 +16,6 @@ typealias FIRDocRef = Firebase.DocumentReference
 
 typealias FIRStore = Firebase.Firestore
 
-//typealias Res<T:Codable> = ((Result<[T]>) -> Void)
-
-//protocol Response {
-//
-//    associatedtype Decoder
-//
-//    func decode(_ dataType: Decoder)
-//}
-//
-//class Eric: Response {
-//
-//    typealias Decoder = Codable
-//
-//    func decode(_ dataType: Decoder) {
-//        print(dataType)
-//    }
-//}
-
 enum Result<T> {
     
     case success(T)
@@ -60,6 +42,8 @@ enum CollectionName: String {
     case driftingBottle = "DriftingBottle"
     
     case randomImage = "RandomImage"
+    
+    case messages = "messages"
 }
 
 enum FirebaseError: String, Error {
