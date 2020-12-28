@@ -14,6 +14,5 @@ class PostProvider {
     var posts: [Post] = []
     
     var topics: [Post] = []
-    
-    
+
 }
