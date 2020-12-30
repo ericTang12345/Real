@@ -37,14 +37,7 @@
                             <constraint firstItem="nbR-Pr-npv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ibM-Px-Sfq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="心情貼文" id="evb-y6-8Rr">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="EuV-36-vWx">
-                            <imageReference key="image" image="bell" catalog="system" renderingMode="original"/>
-                            <connections>
-                                <segue destination="QrW-mj-tf0" kind="show" id="9zn-gI-b5D"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="心情貼文" id="evb-y6-8Rr"/>
                     <connections>
                         <outlet property="tableView" destination="nbR-Pr-npv" id="xTo-pQ-ATM"/>
                         <segue destination="ErJ-rl-XCU" kind="show" identifier="SeguePostDetails" id="TXS-Rn-mxS"/>
@@ -63,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KJe-b0-Xgo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotificationCell" id="dFr-cO-UEi" customClass="NotificationTableViewCell" customModule="Real" customModuleProvider="target">
@@ -722,14 +715,7 @@
                             <constraint firstItem="zs7-zo-KKD" firstAttribute="bottom" secondItem="qOp-FQ-gqo" secondAttribute="bottom" id="dF0-wm-Fll"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="議題討論" id="Rgj-iE-YG6">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="cWR-OR-3NU">
-                            <imageReference key="image" image="bell" catalog="system" renderingMode="original"/>
-                            <connections>
-                                <segue destination="QrW-mj-tf0" kind="show" id="MbW-t4-B56"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="議題討論" id="Rgj-iE-YG6"/>
                     <connections>
                         <outlet property="tableView" destination="qOp-FQ-gqo" id="601-Rp-0BJ"/>
                         <segue destination="ErJ-rl-XCU" kind="show" identifier="SeguePostDetails" id="eYl-R8-jqE"/>
@@ -1824,14 +1810,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LetterTableViewCell" id="7py-3t-rf0" customClass="LetterTableViewCell" customModule="Real" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="393" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="393" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7py-3t-rf0" id="hKa-JG-JXS">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-DO-DWX">
-                                                    <rect key="frame" x="18" y="10" width="357" height="31.5"/>
+                                                    <rect key="frame" x="18" y="10" width="357" height="32.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content=" ">
@@ -1845,7 +1831,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jev-QT-Tui">
-                                                    <rect key="frame" x="28" y="18" width="337" height="16"/>
+                                                    <rect key="frame" x="28" y="18.5" width="337" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -2084,7 +2070,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="69c-1o-5Os"/>
         <segue reference="TXS-Rn-mxS"/>
-        <segue reference="9zn-gI-b5D"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DriftingBottle" width="29.333333969116211" height="29.333333969116211"/>
@@ -2092,7 +2077,6 @@
         <image name="Topic" width="26.666666030883789" height="26.666666030883789"/>
         <image name="animal" width="128" height="128"/>
         <image name="archivebox" catalog="system" width="128" height="106"/>
-        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>

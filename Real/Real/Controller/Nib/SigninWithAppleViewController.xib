@@ -76,6 +76,16 @@
                         <constraint firstAttribute="height" constant="25" id="y6F-q2-ker"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0l-Lp-N45">
+                    <rect key="frame" x="20" y="770" width="374" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="登入即同意使用者隱私條款，可以點擊查看">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="openPrivacyPolicy:" destination="-1" eventType="touchUpInside" id="5QI-Qd-Ny7"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,9 +99,13 @@
                 <constraint firstItem="anl-gl-lgy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ImD-1g-rhb"/>
                 <constraint firstItem="xkl-rW-KLJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MeU-uq-lYA"/>
                 <constraint firstItem="t25-iY-I7g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="TwV-1G-8w4"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="trailing" secondItem="gjx-Ow-khe" secondAttribute="trailing" id="Vlt-F6-au3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gjx-Ow-khe" secondAttribute="trailing" constant="20" id="a2n-jI-gcl"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="leading" secondItem="gjx-Ow-khe" secondAttribute="leading" id="aww-Sp-FPv"/>
                 <constraint firstItem="xkl-rW-KLJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dZ8-aG-y8p"/>
                 <constraint firstItem="anl-gl-lgy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="haD-VS-5wx"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hfz-KX-ysa"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="top" secondItem="gjx-Ow-khe" secondAttribute="bottom" constant="8" id="jst-SZ-Jjc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gjx-Ow-khe" secondAttribute="bottom" constant="100" id="qch-te-Ccs"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="84.375"/>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20E17D849999323365E9C5EF /* Pods_Real.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991868546339BBFFA8860D66 /* Pods_Real.framework */; };
+		2405A682259B061200D62A0F /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405A680259B061200D62A0F /* PrivacyPolicyViewController.swift */; };
+		2405A683259B061200D62A0F /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2405A681259B061200D62A0F /* PrivacyPolicyViewController.xib */; };
 		2408F4D025758D3F00D6C2F4 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */; };
 		2408F4D725758E0500D6C2F4 /* PostContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */; };
 		2417346E257E25130087107E /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2417346D257E25130087107E /* UIScreen+Extension.swift */; };
@@ -88,7 +90,6 @@
 		24B9B6E1256E537F005919A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */; };
 		24BBD532257EC65000B3819A /* TimeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD531257EC65000B3819A /* TimeBoxViewController.swift */; };
 		24BBD535257ED04400B3819A /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */; };
-		24C3D405258ABEA6009E2BC6 /* message-in-a-bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */; };
 		24C3D408258ABF7A009E2BC6 /* message-in-a-bottle-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */; };
 		24C6047025740DB000279877 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6046F25740DB000279877 /* BaseViewController.swift */; };
 		24C6D9B2257D8F30008A5BF2 /* FrontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */; };
@@ -112,6 +113,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2405A680259B061200D62A0F /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		2405A681259B061200D62A0F /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
 		2408F4CF25758D3F00D6C2F4 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
 		2408F4D625758E0500D6C2F4 /* PostContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentTableViewCell.swift; sourceTree = "<group>"; };
 		2417346D257E25130087107E /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
@@ -195,7 +198,6 @@
 		24B9B6E2256E537F005919A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BBD531257EC65000B3819A /* TimeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxViewController.swift; sourceTree = "<group>"; };
 		24BBD534257ED04400B3819A /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
-		24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle.png"; sourceTree = "<group>"; };
 		24C3D407258ABF79009E2BC6 /* message-in-a-bottle-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-in-a-bottle-2.png"; sourceTree = "<group>"; };
 		24C6046F25740DB000279877 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		24C6D9B0257D8F30008A5BF2 /* FrontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -330,6 +332,8 @@
 				24312F032591FCDB007C7E17 /* ImageDetailsViewController.xib */,
 				244F240425978AEA0021462B /* SigninWithAppleViewController.swift */,
 				244F240525978AEA0021462B /* SigninWithAppleViewController.xib */,
+				2405A680259B061200D62A0F /* PrivacyPolicyViewController.swift */,
+				2405A681259B061200D62A0F /* PrivacyPolicyViewController.xib */,
 			);
 			path = Nib;
 			sourceTree = "<group>";
@@ -604,7 +608,6 @@
 				2456844C256E7D2600FB7D3D /* Cell */,
 				24B9B6D7256E537C005919A3 /* Main.storyboard */,
 				24B9B6DF256E537F005919A3 /* LaunchScreen.storyboard */,
-				24C3D404258ABEA4009E2BC6 /* message-in-a-bottle.png */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				24B9B6CC256E537C005919A3 /* Resources */,
 				E48800EAC5F416F0982F3717 /* [CP] Embed Pods Frameworks */,
 				24B9B6FD256E570B005919A3 /* Swift Lint */,
+				24A5769D259B23FE003C3C38 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -690,12 +694,12 @@
 				2446FE0525939EA2007B2821 /* TagListTableViewCell.xib in Resources */,
 				2469B24E2587F79400702906 /* PostImageCollectionViewCellNib.xib in Resources */,
 				24B278CB2589A6ED00E3206D /* VoteTableViewCell.xib in Resources */,
-				24C3D405258ABEA6009E2BC6 /* message-in-a-bottle.png in Resources */,
 				248CF846257D631300B9CED6 /* shutterstock_598927436.png in Resources */,
 				244BF2AD25874AE9003053CB /* VoteItemTableViewCell.xib in Resources */,
 				24D3BB59258B29B3007728CD /* GoogleService-Info.plist in Resources */,
 				24B9B6D9256E537C005919A3 /* Main.storyboard in Resources */,
 				243DA98825736216007142EA /* CommentTableViewCell.xib in Resources */,
+				2405A683259B061200D62A0F /* PrivacyPolicyViewController.xib in Resources */,
 				24312F052591FCDB007C7E17 /* ImageDetailsViewController.xib in Resources */,
 				24C6D9B3257D8F30008A5BF2 /* FrontCollectionViewCell.xib in Resources */,
 				2481DFA92586418E00180FDB /* DriftingBottlePagerViewCell.xib in Resources */,
@@ -705,6 +709,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		24A5769D259B23FE003C3C38 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		24B9B6FD256E570B005919A3 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -838,6 +860,7 @@
 				24F5978B25819F3700C01621 /* RandomImage.swift in Sources */,
 				24CBE0C72582457C00E3F1A1 /* UserDefaults.swift in Sources */,
 				241AC75F25931094005A0050 /* PostEditViewController.swift in Sources */,
+				2405A682259B061200D62A0F /* PrivacyPolicyViewController.swift in Sources */,
 				24D938932587548F00E0EBA3 /* InteractionTableViewCell.swift in Sources */,
 				2452F979257CE4F4006ABF0D /* FirebaseStorageManager.swift in Sources */,
 				24B278CA2589A6ED00E3206D /* VoteTableViewCell.swift in Sources */,
@@ -998,6 +1021,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Real/Real.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 668Q4XYSA2;
 				INFOPLIST_FILE = Real/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

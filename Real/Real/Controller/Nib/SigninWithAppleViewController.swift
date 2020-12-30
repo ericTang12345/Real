@@ -27,6 +27,7 @@ class SigninWithAppleViewController: BaseViewController {
     @IBOutlet weak var signinButton: CustomizeButton! {
         
         didSet {
+            
             signinButton.setup(cornerRadius: 25)
         }
     }
@@ -161,6 +162,15 @@ class SigninWithAppleViewController: BaseViewController {
     @IBAction func signinWithApple(_ sender: UIButton) {
     
         performSignin()
+    }
+    
+    @IBAction func openPrivacyPolicy(_ sender: UIButton) {
+        
+        let viewController = PrivacyPolicyViewController.loadFromNib()
+        
+        fatalError()
+        
+        present(viewController, animated: true, completion: nil)
     }
     
     @objc func didTaptoCancel() {
