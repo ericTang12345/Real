@@ -8,6 +8,20 @@
 import UIKit
 import Foundation
 
+enum CellType {
+
+    case main(PostMainTableViewCell.Type)
+    
+    case tag(TagListTableViewCell.Type)
+    
+    case image(PostImageTableViewCellNib.Type)
+    
+    case vote(VoteTableViewCell.Type)
+    
+    case interaction(InteractionTableViewCell.Type)
+    
+}
+
 extension UITableView {
     
     // Nib
@@ -22,7 +36,7 @@ extension UITableView {
     // Cell
     
     func reuse(_ id: CellId, indexPath: IndexPath) -> UITableViewCell {
-        
+    
         return self.dequeueReusableCell(withIdentifier: id.rawValue, for: indexPath)
     }
     
@@ -35,21 +49,7 @@ extension UITableView {
         
         return cell
     }
-    
-    enum CellType {
-        
-        case main(PostMainTableViewCell.Type)
-        
-        case tag(TagListTableViewCell.Type)
-        
-        case image(PostImageTableViewCellNib.Type)
-        
-        case vote(VoteTableViewCell.Type)
-        
-        case interaction(InteractionTableViewCell.Type)
-        
-    }
-    
+
     // register all nib
     
     func registerNib() {

@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let userDefaults = UserDefaults.standard
 
     let firebase = FirebaseManager.shared
+    
+    let firebaseNew = FirebaseManagerNew.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,12 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 檢查完帳號後，開始監聽，只要有任何關於這個 user 的資料變動，都會去更新 UserManager 中的 userData
         check { uid in
 
-            let doc = self.firebase.getCollection(name: .user).document(uid)
-
-            self.firebase.listen(doc: doc) {
-
-                UserManager.shared.getUserData(nil)
-            }
+            self.listenUser(id: uid)
 
             self.firebase.listen(collectionName: .driftingBottle) {
 
@@ -47,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // MARK: - Request to firebase get all drifting bottle arrivalt time
+    
     func requestDriftingBottle(id: String) {
 
         firebase.getCollection(name: .driftingBottle)
@@ -84,6 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // 計算漂流瓶時間
+    
     func calculateTime(driftingBottle: DriftingBottle) {
 
         guard let arrivalTime = driftingBottle.arrivalTime else { return }
@@ -116,6 +117,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
 
+    // MARK: Listen User function
+    
+    func listenUser(id: String) {
+        
+        let doc = firebase.getCollection(name: .user).document(id)
+        
+        firebaseNew.listen(ref: .document(doc), dataType: User.self) { (result) in
+            
+            switch result {
+            
+            case .success(let users):
+                
+                if users.count == 1 {
+                    
+                    UserManager.shared.userData = users[0]
+                }
+        
+            case .failure(let error):
+            
+                print("AppDelegate.swift function Name listenUser error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

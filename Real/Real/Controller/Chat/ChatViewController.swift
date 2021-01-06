@@ -37,9 +37,9 @@ class ChatViewController: BaseViewController {
     
     override var isHideTabBar: Bool { return true }
     
-    override var isEnableHideKeyboardWhenTappedAround: Bool { return true }
+    override var enableHideKeyboardWhenTappedAround: Bool { return true }
     
-    override var isEnableKeyboardNotification: Bool { return true }
+    override var enableKeyboardNotification: Bool { return true }
     
     override func viewDidLoad () {
         super.viewDidLoad()

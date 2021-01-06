@@ -87,6 +87,8 @@ class VoteItemTableViewCell: BaseTableViewCell {
         
         if total == 0 { return 0 }
         
+        if voter > total { return 0 }
+        
         if voter == total { return 1 }
         
         return Float(Double(voter) / Double(total))

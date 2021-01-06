@@ -168,8 +168,6 @@ class SigninWithAppleViewController: BaseViewController {
         
         let viewController = PrivacyPolicyViewController.loadFromNib()
         
-        fatalError()
-        
         present(viewController, animated: true, completion: nil)
     }
     

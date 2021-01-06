@@ -17,11 +17,9 @@ class BaseViewController: UIViewController {
     
     var isHideBackButton: Bool { return false }
     
-    var isEnableHideKeyboardWhenTappedAround: Bool { return false }
+    var enableHideKeyboardWhenTappedAround: Bool { return false }
     
-    var isEnableKeyboardNotification: Bool { return false }
-    
-    var isSetupShadow: Bool { return false }
+    var enableKeyboardNotification: Bool { return false }
     
     let firebase = FirebaseManager.shared
     
@@ -29,16 +27,16 @@ class BaseViewController: UIViewController {
     
     let storage = FirebaseStorageManager.shared
     
-    let backgroundView = UIView()
+    let backgroundView = UIView() // 彈出畫面，背景陰影
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createBackgroundView()
+        setupBackgroundView()
     
         self.view.setupShadow()
         
-        if isEnableKeyboardNotification {
+        if enableKeyboardNotification {
 
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
@@ -61,13 +59,15 @@ class BaseViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = isHideBackButton
         
-        if isEnableHideKeyboardWhenTappedAround {
+        if enableHideKeyboardWhenTappedAround {
             
            hideKeyboardWhenTappedAround()
         }
     }
     
-    func createBackgroundView() {
+    // MARK: - Background View
+    
+    func setupBackgroundView() {
         
         backgroundView.frame.origin = CGPoint(x: 0, y: UIScreen.fullSize.height)
         
@@ -103,6 +103,8 @@ class BaseViewController: UIViewController {
         }
     }
     
+    // MARK: - Keyboard
+    
     func hideKeyboardWhenTappedAround() {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -136,6 +138,8 @@ class BaseViewController: UIViewController {
         self.view.frame.size.height = UIScreen.fullSize.height
     }
 }
+
+// MARK: - Sign In Success Delegate
 
 extension BaseViewController: SigninSuccessDelegate {
     

@@ -39,9 +39,9 @@ class PostDetailsViewController: BaseViewController {
     
     override var isHideTabBar: Bool { return true }
     
-    override var isEnableHideKeyboardWhenTappedAround: Bool { true }
+    override var enableHideKeyboardWhenTappedAround: Bool { true }
     
-    override var isEnableKeyboardNotification: Bool { true }
+    override var enableKeyboardNotification: Bool { true }
 
     override func viewDidLoad() {
         super.viewDidLoad()

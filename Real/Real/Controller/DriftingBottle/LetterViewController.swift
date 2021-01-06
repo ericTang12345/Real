@@ -75,7 +75,7 @@ class LetterViewController: BaseViewController {
     
     var bottleData: DriftingBottle?
     
-    override var isEnableHideKeyboardWhenTappedAround: Bool { return true }
+    override var enableHideKeyboardWhenTappedAround: Bool { return true }
     
     override var isHideNavigationBar: Bool { return true }
     

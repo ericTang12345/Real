@@ -90,6 +90,13 @@ class CommentTableViewCell: BaseTableViewCell {
         
         alert.addAction(hideComment)
         
+        let report = UIAlertAction(title: "檢舉為不當內容", style: .destructive) { (_) in
+            
+            self.hideComment()
+        }
+        
+        alert.addAction(report)
+        
         let cancel = UIAlertAction(title: "返回", style: .cancel, handler: nil)
         
         alert.addAction(cancel)

@@ -30,6 +30,20 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        PostProvider().getOneTypePost(.post) { (result) in
+            
+            switch result {
+            
+            case .success(let posts):
+                
+                print("Posts:", posts)
+                
+            case .failure(let error):
+                
+                print("error:", error)
+            }
+        }
+        
         self.firebase.listen(collectionName: .post) {
             
             self.reloadData()

@@ -7,12 +7,44 @@
 
 import Foundation
 
+protocol ProviderDelegate: AnyObject {
+    
+}
+
 class PostProvider {
     
-    let firebase = FirebaseManager.shared
+    enum PostType: String {
+        
+        case post = "心情貼文"
+        
+        case topic = "議題討論"
+    }
     
-    var posts: [Post] = []
+    weak var delegate: ProviderDelegate?
     
-    var topics: [Post] = []
+    let firebase = FirebaseManagerNew.shared
+    
+    func getOneTypePost(_ type: PostType, handler: @escaping (Result<[Post]>) -> Void) {
 
+        let query = firebase.getCollection(name: .post).whereField("type", isEqualTo: type.rawValue)
+        
+        firebase.filter(query: query, dataType: Post.self) { (result) in
+
+            switch result {
+
+            case .success(let posts):
+
+                let posts = posts.sorted { (first, second) -> Bool in
+                    
+                    first.createdTime.dateValue() > second.createdTime.dateValue()
+                }
+                
+                handler(.success(posts))
+
+            case .failure(let error):
+
+                handler(.failure(error))
+            }
+        }
+    }
 }

@@ -46,11 +46,6 @@ enum CollectionName: String {
     case messages = "messages"
 }
 
-enum FirebaseError: String, Error {
-    
-    case decode = "Firebase decode error"
-}
-
 struct Filter {
     
     let key: String

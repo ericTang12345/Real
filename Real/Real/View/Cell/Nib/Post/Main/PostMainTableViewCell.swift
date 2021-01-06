@@ -109,6 +109,13 @@ class PostMainTableViewCell: BaseTableViewCell {
             
             alert.addAction(hidePost)
             
+            let report = UIAlertAction(title: "檢舉為不當內容", style: .destructive) { (_) in
+                
+                self.hidePost()
+            }
+            
+            alert.addAction(report)
+            
             let cancel = UIAlertAction(title: "返回", style: .cancel)
             
             alert.addAction(cancel)
