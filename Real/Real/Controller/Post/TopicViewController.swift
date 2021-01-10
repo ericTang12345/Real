@@ -53,6 +53,30 @@ class TopicViewController: BaseViewController {
         }
     }
     
+    func hidePost() {
+        
+        guard let user = self.userManager.userData else { return }
+        
+        posts = posts.filter({ (post) -> Bool in
+            
+            return !user.blockadeListPost.contains(post.id)
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func hideUser() {
+        
+        guard let user = self.userManager.userData else { return }
+        
+        posts = posts.filter({ (post) -> Bool in
+            
+            return !user.blockadeListUser.contains(post.authorId)
+        })
+        
+        tableView.reloadData()
+    }
+    
     @objc func reloadData() {
         
         let filter = Filter(key: "type", value: "議題討論")
@@ -67,6 +91,10 @@ class TopicViewController: BaseViewController {
                     
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
                 })
+                
+                self?.hideUser()
+                
+                self?.hidePost()
                 
                 self?.tableView.reloadData()
                 
@@ -204,7 +232,7 @@ extension TopicViewController: InteractionTableViewCellDelegate {
     
     func signinAlert(cell: UITableViewCell) {
     
-        self.present(.signinAlert(handler: {
+        present(.signinAlert(handler: {
             
             let viewController = SigninWithAppleViewController.loadFromNib()
             

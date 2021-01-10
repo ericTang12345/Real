@@ -77,6 +77,18 @@ class PostMainTableViewCell: BaseTableViewCell {
         ])
     }
     
+    func hideUser() {
+        
+        guard let user = self.userManager.userData, let post = self.post else { return }
+        
+        let doc = self.firebase.getCollection(name: .user).document(user.id)
+        
+        doc.updateData([
+            
+            "blockadeListUser": FIRFieldValue.arrayUnion([post.authorId])
+        ])
+    }
+    
     // MARK: - IBAction function
     
     @IBAction func showMoreContent(_ sender: UIButton) {
@@ -115,6 +127,13 @@ class PostMainTableViewCell: BaseTableViewCell {
             }
             
             alert.addAction(report)
+            
+            let hideUser = UIAlertAction(title: "封鎖、隱藏這名使用者所有相關內容", style: .destructive) { (_) in
+                
+                self.hideUser()
+            }
+            
+            alert.addAction(hideUser)
             
             let cancel = UIAlertAction(title: "返回", style: .cancel)
             

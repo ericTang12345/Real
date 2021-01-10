@@ -30,20 +30,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PostProvider().getOneTypePost(.post) { (result) in
-            
-            switch result {
-            
-            case .success(let posts):
-                
-                print("Posts:", posts)
-                
-            case .failure(let error):
-                
-                print("error:", error)
-            }
-        }
-        
         self.firebase.listen(collectionName: .post) {
             
             self.reloadData()
@@ -91,6 +77,8 @@ class HomeViewController: BaseViewController {
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
                 }
                 
+                self?.hideUser()
+                
                 self?.hidePost()
                 
                 self?.tableView.reloadData()
@@ -110,6 +98,18 @@ class HomeViewController: BaseViewController {
         posts = posts.filter({ (post) -> Bool in
             
             return !user.blockadeListPost.contains(post.id)
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func hideUser() {
+        
+        guard let user = self.userManager.userData else { return }
+        
+        posts = posts.filter({ (post) -> Bool in
+            
+            return !user.blockadeListUser.contains(post.authorId)
         })
         
         tableView.reloadData()

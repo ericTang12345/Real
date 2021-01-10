@@ -43,9 +43,20 @@ class UserProfileTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name: .userDataUpdated, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     @objc func reloadView() {
         
-        guard let user = userManager.userData else { return }
+        guard let user = userManager.userData else {
+            
+            userNameLabel.text = "訪客"
+            
+            return
+        }
         
         userNameLabel.text = user.randomName
         
@@ -54,12 +65,6 @@ class UserProfileTableViewController: UITableViewController {
         isReceiveSwitch.isOn = user.isReceiveDriftingBottle
         
         tableView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func signInWithApple(_ sender: CustomizeButton) {

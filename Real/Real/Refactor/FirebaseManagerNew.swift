@@ -30,6 +30,11 @@ class FirebaseManagerNew {
         return FIRStore.firestore().collection(name.rawValue)
     }
     
+    func listen(ref: FirebaseRef, handler: @escaping () -> Void) {
+        
+        handler()
+    }
+    
     func listen<T: Codable>(ref: FirebaseRef, dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
         
         switch ref {

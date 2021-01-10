@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,7 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScrene = (scene as? UIWindowScene) else { return }
+        
+        let window = UIWindow(windowScene: windowScrene)
+        
+        checkUserSigninStatus(window)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,5 +52,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    // MARK: Check User Signin Status
+    
+    func checkUserSigninStatus(_ window: UIWindow) {
+        
+        if UserManager.shared.isSignin {
+            
+            UserManager.shared.setupUser(id: Auth.auth().currentUser!.uid)
+        
+        } else {
+            
+            let viewController = SigninWithAppleViewController.loadFromNib()
+            
+            window.rootViewController = viewController
+            
+            self.window = window
+            
+            window.makeKeyAndVisible()
+        }
     }
 }

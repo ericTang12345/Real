@@ -109,6 +109,8 @@ class PostDetailsViewController: BaseViewController {
                     return first.createdTime.dateValue() > second.createdTime.dateValue()
                 })
                 
+                self?.filterUser() 
+                
                 self?.filterComments()
                 
                 self?.tableView.reloadData()
@@ -127,6 +129,18 @@ class PostDetailsViewController: BaseViewController {
         comments = comments.filter({ (comment) -> Bool in
             
             return !user.blockadeListComment.contains(comment.id)
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func filterUser() {
+        
+        guard let user = userManager.userData else { return }
+        
+        comments = comments.filter({ (comment) -> Bool in
+            
+            return !user.blockadeListUser.contains(comment.author)
         })
         
         tableView.reloadData()

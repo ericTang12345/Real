@@ -25,97 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         register(application)
-//
-//        userDefaults.remove(forKey: .userID)
-//
+        
+        guard let userId = Auth.auth().currentUser?.uid else { return true }
+        
+        listenUser(id: userId)
+        
+        listenDriftBottle(id: userId)
+
 //        try? Auth.auth().signOut()
-
-        // 檢查完帳號後，開始監聽，只要有任何關於這個 user 的資料變動，都會去更新 UserManager 中的 userData
-        check { uid in
-
-            self.listenUser(id: uid)
-
-            self.firebase.listen(collectionName: .driftingBottle) {
-
-                self.requestDriftingBottle(id: uid)
-            }
-        }
 
         return true
     }
 
     // MARK: - Request to firebase get all drifting bottle arrivalt time
-    
-    func requestDriftingBottle(id: String) {
-
-        firebase.getCollection(name: .driftingBottle)
-            .whereField("isPost", isEqualTo: true)
-            .whereField("isCatch", isEqualTo: false)
-            .whereField("catcher", isEqualTo: id)
-            .getDocuments { (querySnapshot, error) in
-
-            if error != nil { print("error: ", error!.localizedDescription) }
-
-            guard let query = querySnapshot else { return }
-
-            self.firebase.decode(DriftingBottle.self, documents: query.documents) { (result) in
-
-                switch result {
-
-                case .success(let data):
-
-                    for item in data {
-
-                        guard let arrivaltTime = item.arrivalTime else { return }
-
-                        if arrivaltTime.dateValue() > FIRTimestamp().dateValue() {
-
-                            self.calculateTime(driftingBottle: item)
-                        }
-                    }
-
-                case .failure(let error):
-
-                    print("AppDelegate read drifting bottle", error.localizedDescription)
-
-                }
-            }
-        }
-    }
-
-    // 計算漂流瓶時間
-    
-    func calculateTime(driftingBottle: DriftingBottle) {
-
-        guard let arrivalTime = driftingBottle.arrivalTime else { return }
-
-        dump(driftingBottle)
-
-        let currentDate = FIRTimestamp().dateValue()
-
-        let distance = currentDate.distance(to: arrivalTime.dateValue())
-
-        setNotification(distance: distance, id: driftingBottle.id)
-
-        print("距離:", distance)
-    }
-
-    func setNotification(distance: TimeInterval, id: String) {
-
-        let content = UNMutableNotificationContent()
-
-        content.body = "有漂流瓶抵達了，趕緊去看看吧！"
-
-        content.sound = UNNotificationSound.default
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: distance, repeats: false)
-
-        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
-            print("成功建立通知...")
-        })
-    }
 
     // MARK: Listen User function
     
@@ -138,6 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 print("AppDelegate.swift function Name listenUser error: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func listenDriftBottle(id: String) {
+        
+        self.firebase.listen(collectionName: .driftingBottle) {
+            
+            DriftingBottleManager.shared.requestData(id: id)
         }
     }
     
@@ -196,45 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
-        }
-    }
-}
-
-// MARK: - Check User Function
-
-extension AppDelegate {
-
-    func check(handler: @escaping (String) -> Void) {
-
-        // 檢查現在是否是登入狀態
-        if UserManager.shared.isSignin {
-
-            // 登入狀態的話，讀取資料帶進 UserManager
-            UserManager.shared.setupUser(id: Auth.auth().currentUser!.uid)
-
-            handler(Auth.auth().currentUser!.uid)
-
-        } else {
-
-            guard let userId = userDefaults.string(forKey: .userID) else {
-
-                // 不是登入狀態就先生成一個預設帳號
-                let uid = UUID().uuidString
-
-                // 在 firebase 建立一個預設帳號
-                UserManager.shared.createUser(id: uid)
-
-                // 存進 userDefalts 以供使用者如果後續有登入的話 可以知道哪個是預設帳號
-                self.userDefaults.set(uid, forKey: .userID)
-
-                handler(uid)
-
-                return
-            }
-
-            UserManager.shared.setupUser(id: userId)
-
-            handler(userId)
         }
     }
 }

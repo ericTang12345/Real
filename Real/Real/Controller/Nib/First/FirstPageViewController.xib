@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstPageViewController" customModule="Real" customModuleProvider="target">
+            <connections>
+                <outlet property="signinWithAppleButton" destination="jyk-an-tZ7" id="Snb-Ua-Xxl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="visitorButton" destination="IN5-4R-E1W" id="ksM-Ej-zna"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carnival-mask-silhouette-like-cat-face.png" translatesAutoresizingMaskIntoConstraints="NO" id="4UN-jJ-shh">
+                    <rect key="frame" x="124.5" y="134" width="165" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="1Ob-oo-AHm"/>
+                        <constraint firstAttribute="width" constant="165" id="jy0-us-vPc"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1vj-6g-Wbe">
+                    <rect key="frame" x="50" y="748.5" width="314.5" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進入 App 即同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHc-oB-2Ea">
+                            <rect key="frame" x="0.0" y="0.0" width="126.5" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B6-vb-qez">
+                            <rect key="frame" x="130.5" y="0.0" width="82" height="32"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <state key="normal" title="使用者條款">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="showPrivacyAndEula:" destination="-1" eventType="touchUpInside" id="sv3-4m-Bnd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWe-DA-ryd">
+                            <rect key="frame" x="216.5" y="0.0" width="98" height="32"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <state key="normal" title="、隱私權條款">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="showPrivacyAndEula:" destination="-1" eventType="touchUpInside" id="aue-MX-fiR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEF-Rl-qvN">
+                    <rect key="frame" x="0.0" y="284" width="414" height="94.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="414" id="Srr-OZ-L2z"/>
+                        <constraint firstAttribute="height" constant="94.5" id="fO0-aE-bsg"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="REAL">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="105" name="SignPainter-HouseScript"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="trW-6p-3Fs">
+                    <rect key="frame" x="20" y="598.5" width="374" height="120"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyk-an-tZ7" userLabel="Sign in with Apple Button" customClass="CustomizeButton" customModule="Real" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Mmh-4Y-AtM"/>
+                                <constraint firstAttribute="height" constant="45" id="Swt-82-7zB"/>
+                            </constraints>
+                            <color key="tintColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Sign in with Apple">
+                                <color key="titleColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <imageReference key="image" image="applelogo" catalog="system" symbolScale="large"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageBottomPadding">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="titleRightPadding">
+                                    <real key="value" value="-10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="signinWithApple:" destination="-1" eventType="touchUpInside" id="bWc-iT-ZTO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IN5-4R-E1W" userLabel="Sign in with Apple Button">
+                            <rect key="frame" x="0.0" y="75" width="374" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="0ea-tD-Tru"/>
+                                <constraint firstAttribute="height" constant="45" id="Txj-0h-dri"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="tintColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="訪客瀏覽">
+                                <color key="titleColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="visitorEnter:" destination="-1" eventType="touchUpInside" id="lm0-Jc-ft2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4UN-jJ-shh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="A9M-YT-kbJ"/>
+                <constraint firstItem="1vj-6g-Wbe" firstAttribute="top" secondItem="trW-6p-3Fs" secondAttribute="bottom" constant="30" id="DUD-Nq-TGd"/>
+                <constraint firstItem="kEF-Rl-qvN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UWa-Ma-lws"/>
+                <constraint firstItem="kEF-Rl-qvN" firstAttribute="top" secondItem="4UN-jJ-shh" secondAttribute="bottom" id="Xtm-2W-uQX"/>
+                <constraint firstItem="4UN-jJ-shh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iUN-OW-H96"/>
+                <constraint firstItem="1vj-6g-Wbe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kCN-OG-uxz"/>
+                <constraint firstItem="trW-6p-3Fs" firstAttribute="top" secondItem="kEF-Rl-qvN" secondAttribute="bottom" constant="220" id="uFC-Tx-2OX"/>
+                <constraint firstItem="trW-6p-3Fs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="vWF-Yg-n7n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="trW-6p-3Fs" secondAttribute="trailing" constant="20" id="xFu-of-y9x"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="108.48214285714285"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="jyk-an-tZ7">
+            <size key="intrinsicContentSize" width="163" height="23.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
+        <image name="carnival-mask-silhouette-like-cat-face.png" width="384" height="384"/>
+    </resources>
+</document>

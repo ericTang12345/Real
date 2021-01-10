@@ -77,31 +77,83 @@ class CommentTableViewCell: BaseTableViewCell {
         ])
     }
     
+    func hideUser() {
+        
+        guard let user = self.userManager.userData, let comment = self.comment else { return }
+        
+        let doc = self.firebase.getCollection(name: .user).document(user.id)
+        
+        doc.updateData([
+            
+            "blockadeListUser": FIRFieldValue.arrayUnion([comment.author])
+        ])
+    }
+    
+    func removeComment() {
+        
+        guard let comment = self.comment else { return }
+        
+        let doc = self.firebase.getCollection(name: .comment)
+        
+        doc.document(comment.id).delete()
+    }
+    
     @objc func moreFunction() {
         
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        guard let user = userManager.userData, let comment = comment else { return }
         
-        alert.view.tintColor = .darkGray
-        
-        let hideComment = UIAlertAction(title: "隱藏留言", style: .default) { (_) in
+        if comment.author == user.id {
             
-            self.hideComment()
-        }
-        
-        alert.addAction(hideComment)
-        
-        let report = UIAlertAction(title: "檢舉為不當內容", style: .destructive) { (_) in
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            self.hideComment()
+            alert.view.tintColor = .darkGray
+            
+            let removeComment = UIAlertAction(title: "刪除留言", style: .destructive) { (_) in
+                
+                self.removeComment()
+            }
+            
+            alert.addAction(removeComment)
+            
+            let cencel = UIAlertAction(title: "返回", style: .cancel, handler: nil)
+            
+            alert.addAction(cencel)
+            
+            delegate?.hideComment(cell: self, alert: alert)
+            
+        } else {
+            
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            alert.view.tintColor = .darkGray
+            
+            let hideComment = UIAlertAction(title: "隱藏留言", style: .default) { (_) in
+                
+                self.hideComment()
+            }
+            
+            alert.addAction(hideComment)
+            
+            let report = UIAlertAction(title: "檢舉為不當內容", style: .destructive) { (_) in
+                
+                self.hideComment()
+            }
+            
+            alert.addAction(report)
+            
+            let hideUser = UIAlertAction(title: "封鎖、隱藏這名使用者所有相關內容", style: .destructive) { (_) in
+                
+                self.hideUser()
+            }
+            
+            alert.addAction(hideUser)
+            
+            let cancel = UIAlertAction(title: "返回", style: .cancel, handler: nil)
+            
+            alert.addAction(cancel)
+            
+            delegate?.hideComment(cell: self, alert: alert)
         }
-        
-        alert.addAction(report)
-        
-        let cancel = UIAlertAction(title: "返回", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
-        
-        delegate?.hideComment(cell: self, alert: alert)
     }
     
     @IBAction func likeComment(_ sender: UIButton) {
