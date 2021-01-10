@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostMainTableViewCell" id="KGk-i7-Jjw" customClass="PostMainTableViewCell" customModule="Real" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5XJ-yN-I6f">
+                        <rect key="frame" x="16" y="16" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="1Y6-kT-CgF"/>
+                            <constraint firstAttribute="height" constant="35" id="qgY-dQ-3ex"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="glF-v6-ddg">
+                        <rect key="frame" x="63.5" y="14.5" width="290.5" height="38"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="AUTHOR NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TN-6I-CBt">
+                                <rect key="frame" x="0.0" y="0.0" width="290.5" height="21"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATED TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUH-q1-Exd">
+                                <rect key="frame" x="0.0" y="21" width="290.5" height="17"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7uL-ZA-cLW">
+                        <rect key="frame" x="20" y="67" width="374" height="99"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vr-Ne-As6">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="99"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」提到香蕉，想要保持美好體態的人可能會說：「是運動之後食用最佳的食物，可同時補充醣類和蛋白質，也是輔助減肥最適合的水果！」有健康概念的人可能會說：「香蕉是可以預防憂鬱的水果。」</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ysx-SZ-fzL">
+                                <rect key="frame" x="0.0" y="99" width="374" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Kib-gZ-bJu"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="查看更多">
+                                            <attributes>
+                                                <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" metaFont="system"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="showMoreContent:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jsb-Tc-hj0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8V-Sg-8h5">
+                        <rect key="frame" x="364" y="22.5" width="30" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="GeC-EJ-3i9"/>
+                        </constraints>
+                        <state key="normal">
+                            <imageReference key="image" image="ellipsis" catalog="system" symbolScale="small" renderingMode="original"/>
+                        </state>
+                        <connections>
+                            <action selector="moreFunction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nu0-0O-cHa"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7uL-ZA-cLW" secondAttribute="bottom" constant="6" id="6h0-TG-R38"/>
+                    <constraint firstItem="5XJ-yN-I6f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="C3E-eu-nIn"/>
+                    <constraint firstItem="7uL-ZA-cLW" firstAttribute="top" secondItem="5XJ-yN-I6f" secondAttribute="bottom" constant="16" id="FOZ-dg-60o"/>
+                    <constraint firstItem="glF-v6-ddg" firstAttribute="centerY" secondItem="5XJ-yN-I6f" secondAttribute="centerY" id="NzU-Oc-Eg2"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="trailing" secondItem="7vr-Ne-As6" secondAttribute="trailing" id="ReP-Lj-sQz"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="leading" secondItem="glF-v6-ddg" secondAttribute="trailing" constant="10" id="XFy-O7-gSl"/>
+                    <constraint firstItem="7uL-ZA-cLW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bXR-TW-OoL"/>
+                    <constraint firstItem="P8V-Sg-8h5" firstAttribute="centerY" secondItem="glF-v6-ddg" secondAttribute="centerY" id="cGP-1i-iLf"/>
+                    <constraint firstItem="glF-v6-ddg" firstAttribute="leading" secondItem="5XJ-yN-I6f" secondAttribute="trailing" constant="12.5" id="g62-li-XgO"/>
+                    <constraint firstItem="5XJ-yN-I6f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="l1r-fh-Znj"/>
+                    <constraint firstItem="7uL-ZA-cLW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="pXq-2c-vUA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="authorImageView" destination="5XJ-yN-I6f" id="drY-oS-bFr"/>
+                <outlet property="authorNameLabel" destination="0TN-6I-CBt" id="VCF-h4-O5n"/>
+                <outlet property="contentLabel" destination="7vr-Ne-As6" id="7qE-zG-BQD"/>
+                <outlet property="createdTimeLabel" destination="MUH-q1-Exd" id="abf-Fn-doy"/>
+                <outlet property="moreContentButton" destination="Ysx-SZ-fzL" id="9FM-Cp-mCH"/>
+                <outlet property="moreFunctionButton" destination="P8V-Sg-8h5" id="CTU-lk-6CI"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="103.45982142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+    </resources>
+</document>

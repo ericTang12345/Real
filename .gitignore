@@ -61,6 +61,8 @@ playground.xcworkspace
 Pods
 !Podfile
 !Podfile.lock
+GoogleService-Info.plist
+Real/GoogleService-Info.plist
 
 # Carthage
 #

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SigninWithAppleViewController" customModule="Real" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelImageView" destination="t25-iY-I7g" id="1qP-6W-Z6d"/>
+                <outlet property="signinButton" destination="gjx-Ow-khe" id="HTq-kE-BF0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjx-Ow-khe" userLabel="Sign in with Apple Button" customClass="CustomizeButton" customModule="Real" customModuleProvider="target">
+                    <rect key="frame" x="20" y="712" width="374" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="RJ7-0D-d2m"/>
+                    </constraints>
+                    <color key="tintColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Sign in with Apple">
+                        <color key="titleColor" red="0.28235226870000002" green="0.28235307339999999" blue="0.29014521840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="image" image="applelogo" catalog="system" symbolScale="large"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageBottomPadding">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageRightPadding">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="titleLeftPadding">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="titleRightPadding">
+                            <real key="value" value="-10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="signinWithApple:" destination="-1" eventType="touchUpInside" id="ip4-gZ-AfD"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carnival-mask-silhouette-like-cat-face.png" translatesAutoresizingMaskIntoConstraints="NO" id="anl-gl-lgy">
+                    <rect key="frame" x="124.5" y="114" width="165" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="anl-gl-lgy" secondAttribute="height" multiplier="11:10" id="lTQ-eY-asj"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkl-rW-KLJ">
+                    <rect key="frame" x="0.0" y="264" width="414" height="94.5"/>
+                    <attributedString key="attributedText">
+                        <fragment content="REAL">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="105" name="SignPainter-HouseScript"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="t25-iY-I7g">
+                    <rect key="frame" x="359" y="66" width="25" height="20.5"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="kme-B2-pAS"/>
+                        <constraint firstAttribute="height" constant="25" id="y6F-q2-ker"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0l-Lp-N45">
+                    <rect key="frame" x="166" y="778" width="82" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="隱私權政策">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="openPrivacyPolicy:" destination="-1" eventType="touchUpInside" id="5QI-Qd-Ny7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.28243178130000002" green="0.28222221139999998" blue="0.29019737239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="xkl-rW-KLJ" firstAttribute="top" secondItem="anl-gl-lgy" secondAttribute="bottom" id="5GP-YA-E9t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t25-iY-I7g" secondAttribute="trailing" constant="30" id="5Qy-Ni-MjY"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5R6-cN-75P"/>
+                <constraint firstItem="anl-gl-lgy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.398551" id="6HX-id-bim"/>
+                <constraint firstItem="xkl-rW-KLJ" firstAttribute="centerX" secondItem="anl-gl-lgy" secondAttribute="centerX" id="6Sl-6n-ZUa"/>
+                <constraint firstItem="gjx-Ow-khe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CGw-ap-YHQ"/>
+                <constraint firstItem="gjx-Ow-khe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hlh-Ma-LSc"/>
+                <constraint firstItem="anl-gl-lgy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ImD-1g-rhb"/>
+                <constraint firstItem="xkl-rW-KLJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MeU-uq-lYA"/>
+                <constraint firstItem="t25-iY-I7g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="TwV-1G-8w4"/>
+                <constraint firstItem="o0l-Lp-N45" firstAttribute="top" secondItem="gjx-Ow-khe" secondAttribute="bottom" constant="16" id="WVM-05-42h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gjx-Ow-khe" secondAttribute="trailing" constant="20" id="a2n-jI-gcl"/>
+                <constraint firstItem="xkl-rW-KLJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dZ8-aG-y8p"/>
+                <constraint firstItem="anl-gl-lgy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="haD-VS-5wx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gjx-Ow-khe" secondAttribute="bottom" constant="100" id="qch-te-Ccs"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="84.375"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="gjx-Ow-khe">
+            <size key="intrinsicContentSize" width="163" height="23.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
+        <image name="carnival-mask-silhouette-like-cat-face.png" width="384" height="384"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
