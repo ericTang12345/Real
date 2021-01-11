@@ -44,11 +44,11 @@ Real 提供一個匿名的平台，讓你可以不需在意身分可以輕鬆的
 ## Libraries
 + SwiftLint
 + Kingfisher
++ FSPagerView
 + Firebase/Firestore
-+ FirebaseFirestoreSwift
++ Firebase/FirestoreSwift
 + Firebase/Storage
 + Firebase/Auth
-+ FSPagerView
 + Firebase/Analytics
 + Firebase/Crashlytics
 
