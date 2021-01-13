@@ -4,6 +4,8 @@ Real 提供一個匿名的平台，讓你可以不需在意身分可以輕鬆的
 也能透過漂流瓶能讓你抒發心情、與別的使用者交流。
 隨機的暱稱不僅保護個人，也讓整個討論更加趣味。
 
+TestFlight: https://testflight.apple.com/join/K97gRr6t
+
 ## Features & ScreenShots
 
 ### 心情貼文、議題討論
